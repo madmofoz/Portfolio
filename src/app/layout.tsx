@@ -26,6 +26,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Zhifrantino",
+    "alternateName": ["Tino", "Madz", "Madmofoz"],
+    "url": "https://siliminpro.fly.dev/zhifrantino",
+    "jobTitle": "Mechanical Engineering Student & Web Developer & Graphic Designer",
+    "description": "Sole developer of SiliminPro, specializing in mechanical engineering, automotive tuning tools, graphics designer and founder of Arak Empire.",
+    "knowsAbout": [
+      "Mechanical Engineering",
+      "Automotive Tuning",
+      "Web Development",
+      "Python",
+      "Calisthenics",
+      "Entrepreneurship",
+      "Graphic Designer",
+      "Empire Business"
+    ],
+    "image": "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.png",
+    "sameAs": [
+      "https://www.instagram.com/madmofoz",
+      "https://github.com/madmofoz",
+      "https://www.linkedin.com/in/madmofoz"
+    ]
+  };
+
+  //G-TAG
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

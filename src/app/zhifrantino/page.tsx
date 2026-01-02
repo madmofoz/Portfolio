@@ -2,26 +2,42 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export default function AboutPage() {
-  const skills = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Flask", "PostgreSQL"];
+  const skills = [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Node.js",
+    "Flask",
+    "Photoshop",
+  ];
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans">
       <Navbar />
-      
+
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
-        <h1 className="text-4xl font-bold text-black dark:text-white mb-8">About Me</h1>
-        
+        <h1 className="text-4xl font-bold text-black dark:text-white mb-8">
+          About Me
+        </h1>
+
         <div className="prose prose-zinc dark:prose-invert max-w-none">
           <p className="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-            Saya <span className="text-black dark:text-white font-semibold">Muhammad Zhifrantino</span>, seorang developer yang berfokus pada pembangunan ekosistem digital melalui <span className="text-blue-600 font-medium">SiliminPro</span>.
+            I'm{" "}
+            <span className="text-black dark:text-white font-semibold">
+              Muhammad Zhifrantino
+            </span>
+            , a developer focused on building a digital ecosystem through{" "}
+            <span className="text-blue-600 font-medium">SiliminPro</span>.
           </p>
-          
-          <div className="space-y-6 text-zinc-600 dark:text-zinc-400">
-            <p>
-              Saya percaya bahwa kode bukan sekadar barisan instruksi untuk komputer, melainkan alat untuk menyelesaikan masalah nyata dan memberikan nilai bagi pengguna.
+
+          <div className="prose prose-zinc dark:prose-invert max-w-none">
+            <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+              I believe that code is not just a series of instructions for computers,
+              but a tool to solve real problems and provide value to users.
             </p>
-            <p>
-              Saat ini, saya sedang mendalami arsitektur web modern dan bagaimana mengoptimalkan performa aplikasi agar tetap ringan namun powerfull.
+            <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+              Currently, I'm delving into modern web architecture and how to optimize application performance to keep it lightweight yet powerful.
             </p>
           </div>
         </div>
@@ -33,8 +49,8 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {skills.map((skill) => (
-              <div 
-                key={skill} 
+              <div
+                key={skill}
                 className="p-4 bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-center text-zinc-800 dark:text-zinc-300 font-medium hover:border-blue-500/50 transition-colors"
               >
                 {skill}
