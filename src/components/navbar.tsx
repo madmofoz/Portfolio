@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NAV_LINKS } from "@/constants";
 
 export default function Navbar() {
@@ -12,13 +13,13 @@ export default function Navbar() {
         {/* Links */}
         <div className="space-x-6 flex items-center">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              {link.name}
-            </a>
+            <Link
+    key={link.name}
+    href={link.href}
+    className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+  >
+    {link.name}
+  </Link>
           ))}
         </div>
       </div>
