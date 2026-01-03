@@ -1,10 +1,59 @@
+"use client";
+
 import Link from "next/link";
-import { NAV_LINKS } from "@/constants";
+import React, { useState, useEffect } from "react";
+
+// basic nav
+const NAV_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "#about" },
+];
 
 export default function Navbar() {
+  const [isDark, setIsDark] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  // Inisialisasi tema saat pertama kali load (hanya di sisi client)
+  useEffect(() => {
+    setMounted(true);
+    // Cek tema dari localStorage atau preferensi sistem
+    const savedTheme = localStorage.getItem("theme");
+    const isDarkModeActive = savedTheme 
+      ? savedTheme === "dark" 
+      : document.documentElement.classList.contains("dark");
+    
+    setIsDark(isDarkModeActive);
+  }, []);
+
+  // Fungsi toggle tema dengan animasi mekanik
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  // Mencegah mismatch hidrasi (jangan render toggle sebelum mounted)
+  if (!mounted) {
+    return (
+      <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/90 backdrop-blur-md z-[100] border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-500">
+        <div className="w-full px-[5vw] py-5 flex justify-between items-center">
+          <div className="font-black text-xl tracking-[0.2em] uppercase">.MADMOFOZ</div>
+          <div className="h-10 w-10"></div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
-    <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/90 backdrop-blur-md z-[100] border-b border-zinc-200 dark:border-zinc-800">
-      {/* Menggunakan px-[5vw] agar sejajar dengan layout konten utama yang wide */}
+    <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/10 backdrop-blur-xs z-[100] border-b border-zinc-200 dark:border-zinc-800">
       <div className="w-full px-[5vw] py-5 flex justify-between items-center">
         
         {/* Logo / Branding */}
@@ -13,54 +62,68 @@ export default function Navbar() {
             <span className="text-white dark:text-black font-black text-xs">Z</span>
           </div>
           <span className="font-black text-xl tracking-[0.2em] text-black dark:text-white uppercase">
-            .MADMOFO<span className="text-zinc-400">Z</span>
+            .MADMOFO<span className="text-zinc-800 dark:text-zinc-400">Z</span>
           </span>
         </Link>
 
-        {/* System Status (Hidden on mobile) - Buat nambah vibe overkill */}
+        {/* System Status - Vibe Engineer (Hanya muncul di layar lebar) */}
         <div className="hidden lg:flex items-center gap-6 px-6 border-l border-r border-zinc-200 dark:border-zinc-800 h-full">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-500"></span>
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-zinc-400' : 'bg-black'}`}></span>
+              <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-zinc-500' : 'bg-zinc-800'}`}></span>
             </span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
-              Eng: Operational
+              System: {isDark ? 'Dark_Mode' : 'Light_Mode'}
             </span>
           </div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
-            LOC: 7.7956° S, 110.3695° E
+          <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 italic">
+            STATUS: OVERKILL_OPERATIONAL
           </div>
         </div>
 
-        {/* Links Navigation */}
-        <div className="flex items-center gap-8">
+        {/* Navigation & Theme Toggle */}
+        <div className="flex items-center gap-6">
           <div className="hidden md:flex space-x-8 items-center">
             {NAV_LINKS.map((link) => (
-              <Link
+              <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500 hover:text-black dark:hover:text-white transition-all relative group"
+                className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500 hover:text-black dark:hover:text-white transition-all relative group no-underline"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black dark:bg-white transition-all group-hover:w-full"></span>
-              </Link>
+              </a>
             ))}
           </div>
 
-          {/* Action Button / CTA Kecil */}
-          <a
-            href="https://wa.me/yourphonenumber" // Ganti dengan nomor lu
-            className="hidden sm:block px-5 py-2 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-widest rounded-sm hover:invert transition-all active:scale-95"
+          {/* Theme Toggle Button (Animasi Mekanik Shifting) */}
+          <button
+            onClick={toggleTheme}
+            className="relative h-10 w-10 flex items-center justify-center rounded-sm border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all active:scale-90 group overflow-hidden"
+            aria-label="Toggle Theme"
           >
-            Contact System
-          </a>
+            <div className={`transition-all duration-700 transform ${isDark ? 'rotate-[360deg] scale-100' : 'rotate-0 scale-0 opacity-0'}`}>
+              {/* Icon Bulan (Mode Gelap) */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 group-hover:text-white">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </div>
+            <div className={`absolute transition-all duration-700 transform ${!isDark ? 'rotate-0 scale-100' : '-rotate-[360deg] scale-0 opacity-0'}`}>
+              {/* Icon Matahari (Mode Terang) */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-600 group-hover:text-black">
+                <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+              </svg>
+            </div>
+          </button>
 
-          {/* Mobile Menu Icon (Placeholder) */}
-          <div className="md:hidden flex flex-col gap-1 w-6 cursor-pointer">
-            <div className="h-0.5 w-full bg-black dark:bg-white"></div>
-            <div className="h-0.5 w-3/4 bg-black dark:bg-white self-end"></div>
-          </div>
+          {/* Action Button */}
+          <a
+            href="https://wa.me/628123456789"
+            className="hidden sm:block px-5 py-2 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-widest rounded-sm hover:invert transition-all active:scale-95 no-underline border border-transparent"
+          >
+            Contact
+          </a>
         </div>
       </div>
     </nav>

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Zhifrantino | The Architect of Chaos",
   description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
-  keywords: ["Zhifrantino", "Mechanical Engineering", "Web Developer", "SiliminPro", "Calisthenics", "Next.js"],
+  keywords: ["Zhifrantino", "Muhammad Zhifrantino", "Mechanical Engineering", "Web Developer", "SiliminPro", "Graphic Designer"],
   authors: [{ name: "Muhammad Zhifrantino" }],
   openGraph: {
     title: "Zhifrantino | The Architect of Chaos",
@@ -47,7 +47,7 @@ export default function RootLayout({
     "@type": "Person",
     "name": "Muhammad Zhifrantino",
     "alternateName": ["Tino", "Madz", "Madmofoz"],
-    "url": "https://portolio-beta-black.vercel.app/",
+    "url": ["https://portolio-beta-black.vercel.app/", "https://siliminpro.fly.dev/"],
     "jobTitle": "Mechanical Engineering Student & Web Developer & Graphic Designer",
     "description": "Sole developer of SiliminPro, specializing in mechanical engineering, automotive tuning tools, graphics designer and founder of Arak Empire.",
     "knowsAbout": [

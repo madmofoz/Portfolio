@@ -7,7 +7,7 @@ import { PROJECTS } from "@/constants";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black font-sans text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       {/* navbar */}
       <Navbar />
       

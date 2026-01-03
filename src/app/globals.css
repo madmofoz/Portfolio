@@ -5,6 +5,11 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,19 +17,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* Pake !important biar gak kalah sama class bg-white atau bg-zinc-50 di layout */
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  margin: 0;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark ::selection {
+  background-color: #fff;
+  color: #000;
 }

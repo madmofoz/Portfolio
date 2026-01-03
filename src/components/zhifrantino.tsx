@@ -5,11 +5,11 @@ export default function About() {
   const engineeringSkills = ["SolidWorks", "Engine Tuning"];
   const otherSkills = ["Photoshop", "Calisthenics", "Branding"];
 
-    return (
+  return (
     <section id="about" className="py-32 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-360 mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          
+
           {/* Section Header */}
           <div className="lg:col-span-3">
             <h2 className="text-4xl font-black text-black dark:text-white sticky top-32 tracking-tighter leading-none uppercase">
@@ -19,14 +19,25 @@ export default function About() {
 
           {/* Main Content */}
           <div className="lg:col-span-9 space-y-20">
-            
+
             {/* Short Intro */}
-            <div className="space-y-8">
-              <p className="text-3xl md:text-4xl text-black dark:text-zinc-100 font-medium leading-[1.1] tracking-tight">
-                I am <span className="text-black dark:text-white">Muhammad Zhifrantino</span>. I don't believe in comfort. 
+            <div className="group relative">
+              <p className="text-lg md:text-xl leading-relaxed text-zinc-500 dark:text-zinc-400">
+                I am{" "}
+                <span className="text-black dark:text-white font-bold">
+                  Muhammad Zhifrantino
+                </span>
+                . What will you believe?{" "}
+
+                {/* Easter Egg */}
+                <span className="block mt-2 text-[6px] font-mono uppercase tracking-[0.2em] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none italic">
+                  — Ghost Shaped People. credits to Lamb of God
+                </span>
               </p>
+            </div>
+            <div>
               <p className="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-4xl tracking-tight">
-                My life is a continuous experiment between Digital<span className="text-black dark:text-white font-semibold"> Logic</span> and Mechanical<span className="text-black dark:text-white font-semibold"> Precision</span>. 
+                My life is a continuous experiment between Digital<span className="text-black dark:text-white font-semibold"> Logic</span> and Mechanical<span className="text-black dark:text-white font-semibold"> Precision</span>.
                 Whether it's writing thousands of lines of Flask code or performing an engine swap in the garage, I live to build systems with total control.
               </p>
             </div>
@@ -40,7 +51,7 @@ export default function About() {
                   Building <strong>SiliminPro</strong>. Translating complex engine mechanics into functional lines of code.
                 </p>
               </div>
-              
+
               <div className="group p-8 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-3xl hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-300">
                 <div className="h-2 w-12 bg-zinc-800 dark:bg-zinc-200 mb-6 group-hover:w-full transition-all duration-500"></div>
                 <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4 font-mono">02 / Mechanical</h4>
@@ -66,11 +77,11 @@ export default function About() {
                 </h3>
                 <div className="h-px w-full bg-zinc-200 dark:border-zinc-800"></div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {/* Code */}
                 <div className="space-y-4">
-                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">Code</h4>
+                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">// Code</h4>
                   <div className="flex flex-wrap gap-2">
                     {codeSkills.map(skill => (
                       <span key={skill} className="px-4 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 rounded-full text-sm font-medium border border-zinc-200 dark:border-zinc-800">
@@ -82,7 +93,7 @@ export default function About() {
 
                 {/* Engineering */}
                 <div className="space-y-4">
-                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">Mechanical Engineering</h4>
+                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">// Mechanical Engineering</h4>
                   <div className="flex flex-wrap gap-2">
                     {engineeringSkills.map(skill => (
                       <span key={skill} className="px-4 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 rounded-full text-sm font-medium border border-zinc-200 dark:border-zinc-800">
@@ -94,7 +105,7 @@ export default function About() {
 
                 {/* Others */}
                 <div className="space-y-4">
-                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">Others</h4>
+                  <h4 className="text-sm text-zinc-500 font-semibold uppercase tracking-widest">// Others</h4>
                   <div className="flex flex-wrap gap-2">
                     {otherSkills.map(skill => (
                       <span key={skill} className="px-4 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 rounded-full text-sm font-medium border border-zinc-200 dark:border-zinc-800">
