@@ -7,16 +7,16 @@ export default function Hero() {
       </h1>
       
       <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-        First of all, my name is <span className="font-bold text-zinc-900 dark:text-white">Muhammad Zhifrantino</span>. 
-        I build digital experiences at{" "}
+        I'm <span className="font-bold text-zinc-900 dark:text-white">Muhammad Zhifrantino.</span>
+        I don't just build apps; I build engines. As the lead developer of {" "} 
         <a
           href="https://siliminpro.fly.dev"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-blue-600 underline decoration-blue-200 underline-offset-4 hover:decoration-blue-600 transition-all"
+          className="font-medium text-blue-300 hover:decoration-blue-600 transition-all"
         >
           SiliminPro
-        </a>.
+        </a> and a Mechanical Engineering student, I focus on creating functional, overkill solutions for complex problems.
       </p>
 
       <div className="flex gap-4 mt-4">

@@ -3,7 +3,7 @@ import { NAV_LINKS } from "@/constants";
 
 export default function Navbar() {
   return (
-    <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md z-50 border-b border-zinc-200 dark:border-zinc-800">
+    <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/80 backdrop-blur-xs z-50 border-b border-zinc-200 dark:border-zinc-800">
       <div className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo / Initial */}
         <span className="font-bold text-xl tracking-tighter text-black dark:text-white">
