@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Zhifrantino | The Architect of Chaos",
   description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
   keywords: ["Zhifrantino", "Muhammad Zhifrantino", "Mechanical Engineering", "Web Developer", "SiliminPro", "Graphic Designer"],
@@ -26,22 +26,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Zhifrantino | The Architect of Chaos",
-    description: "Mechanical Engineering Student & Full-stack Developer.",
-  },
-  verification: {
-    google: "s-GwGhCOTJFDTJOrXnnXQPRJtDrx46x6YDv-SjeP7mI",
-  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  // JSON-LD untuk SEO yang lebih kuat
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -67,22 +58,27 @@ export default function RootLayout({
       "https://www.linkedin.com/in/madmofoz"
     ]
   };
-  {/* Inject JSON-LD */ }
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-  />
 
-  //G-TAG
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black`}>
-        {/* Google Analytics  */}
+      <head>
+        {/* Menggunakan Google Fonts standar untuk menghindari error next/font */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet" />
+        
+        {/* Inject JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
+        {/* Google Analytics - Menggunakan tag script HTML standar */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Z607BFHM0N"
         ></script>
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -91,9 +87,22 @@ export default function RootLayout({
               gtag('config', 'G-Z607BFHM0N');
             `,
           }}
-        ></Script>
-
-         <main className="min-h-screen flex flex-col w-full overflow-x-hidden">
+        />
+        
+        <style>{`
+          :root {
+            --font-geist-sans: 'Inter', sans-serif;
+            --font-geist-mono: 'JetBrains Mono', monospace;
+          }
+          body {
+            font-family: var(--font-geist-sans);
+          }
+        `}</style>
+      </head>
+      <body className="antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+        
+        {/**/}
+         <main className="min-h-screen flex flex-col w-full relative">
           {children}
         </main>
       </body>

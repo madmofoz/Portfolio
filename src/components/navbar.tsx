@@ -78,7 +78,7 @@ export default function Navbar() {
             </span>
           </div>
           <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 italic">
-            STATUS: OVERKILL_OPERATIONAL
+            STATUS: STABLE OPERATING...
           </div>
         </div>
 
