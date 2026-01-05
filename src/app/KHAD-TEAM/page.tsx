@@ -21,6 +21,12 @@ import day3_4 from "@/assets/khad-day-3/slide 5.webp";
 import day3_5 from "@/assets/khad-day-3/slide 6.webp";
 import day3_6 from "@/assets/khad-day-3/slide 8.webp";
 
+/**
+ * PROJECT: KHAD TEAM - THE APEX GRID
+ * Fix: Responsive Sticky Scroll for High-Aspect Images (1620x3240)
+ * Gacor di HP, Presisi di Desktop.
+ */
+
 export default function App() {
   const [mounted, setMounted] = useState(false);
 
@@ -33,20 +39,20 @@ export default function App() {
   return (
     <section className="relative w-full bg-[#020617] text-white overflow-x-hidden font-sans">
       <Navbar />
-
-      {/* --- DEKORASI BACKGROUND --- */}
+      
+      {/* --- DEKORASI TRIPLE LINING --- */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-5%] w-[120%] h-[20px] bg-red-600 rotate-[15deg] opacity-20"></div>
         <div className="absolute top-[-8%] left-[-5%] w-[120%] h-[20px] bg-white rotate-[15deg] opacity-20"></div>
         <div className="absolute top-[-6%] left-[-5%] w-[120%] h-[20px] bg-blue-900 rotate-[15deg] opacity-20"></div>
       </div>
 
-      <div className="relative z-10 w-full">
-
+      <div className="relative z-10 w-full py-24">
+        
         {/* --- HERO SECTION --- */}
-        <div className="min-h-[60vh] flex flex-col justify-center pt-32 pb-12 border-l-4 border-red-600 px-[5vw]">
+        <div className="min-h-[60vh] flex flex-col justify-center mb-24 border-l-4 border-red-600 px-[5vw]">
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-red-500 font-black italic tracking-widest text-xs uppercase">
+            <span className="text-red-500 font-black italic tracking-widest text-xs uppercase underline decoration-red-600 underline-offset-8">
               Lights Out & Away We Go!
             </span>
             <div className="h-px w-24 bg-red-600"></div>
@@ -58,18 +64,139 @@ export default function App() {
             Visualizing Velocity
           </h2>
           <p className="max-w-2xl text-lg text-zinc-400 leading-relaxed font-medium">
-            Menerjemahkan telemetri balap yang kompleks menjadi narasi digital.
+            Menerjemahkan telemetri balap menjadi narasi digital.
             <span className="text-white"> 18 bingkai murni pencarian teknik.</span>
           </p>
         </div>
 
-        {/* --- THE TECHNICAL STICKY ENTRY */}
-        <TechnicalEntryScroll imageSrc={EntryPhoto.src} />
+        {/* --- THE TECHNICAL STICKY ENTRY (FIXED RESPONSIVE) --- */}
+        <TechnicalEntryScroll />
 
-        {/* --- THE GRID ENGINE --- */}
+        {/* --- THE GRID ENGINE (LAP 1-3) --- */}
+        <div className="px-[5vw] mt-20">
+          <LapOne />
+          <LapTwo />
+          <LapThree />
+          <Info />
+          <FinishLine />
+        </div>
 
-        {/* LAP 1: THE MACHINE */}
-        <div className="mb-40">
+      </div>
+
+      <footer className="h-2 w-full flex">
+        <div className="flex-1 bg-red-600"></div>
+        <div className="flex-1 bg-white"></div>
+        <div className="flex-1 bg-blue-900"></div>
+      </footer>
+    </section>
+  );
+}
+
+// --- KOMPONEN SCROLL KHUSUS FOTO TINGGI ---
+
+function TechnicalEntryScroll() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Hitung progress scroll di area 300vh
+      const totalScrollable = rect.height - windowHeight;
+      const progress = Math.min(Math.max(-rect.top / totalScrollable, 0), 1);
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    /* h-[300vh] biar scroll-nya berasa berat dan detail */
+    <div ref={containerRef} className="relative h-[300vh] w-full bg-transparent">
+      
+      {/* Sticky container */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 md:px-[5vw]">
+        
+        {/* Background Grid & Blueprints (Vibe Engineer) */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #444 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+        <div className="absolute left-10 top-1/2 -translate-y-1/2 w-[2px] h-32 bg-gradient-to-b from-transparent via-red-600 to-transparent hidden lg:block"></div>
+
+        {/* Frame Foto Utama
+            Desktop: max-w-2xl (biar nggak terlalu lebar dan foto 1:2 nggak gepeng)
+            Mobile: w-full
+        */}
+        <div className="relative w-full max-w-2xl h-[85vh] md:h-[80vh] border border-zinc-800 bg-zinc-950 overflow-hidden rounded-sm group shadow-2xl shadow-red-900/10">
+          
+          {/* FOTO TINGGI (1620x3240) 
+              Logic: Kita geser lebih jauh di desktop agar semua bagian terlihat.
+          */}
+          <div 
+            className="absolute top-0 left-0 w-full transition-transform duration-75 ease-out will-change-transform"
+            style={{ 
+              transform: `translateY(-${scrollProgress * 100}%)`, // Tuning 78% biar pas sampe ujung bawah foto
+            }}
+          >
+            <img 
+              src={EntryPhoto.src || EntryPhoto}
+              alt="Vertical Telemetry"
+              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 brightness-75 group-hover:brightness-100"
+            />
+          </div>
+
+          {/* Overlay HUD (Fixed) */}
+          <div className="absolute inset-0 pointer-events-none p-6 md:p-10 flex flex-col justify-between z-20">
+            <div className="flex justify-between items-start">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
+                  <span className="text-[10px] font-mono text-white tracking-[0.4em] uppercase">Telemetry_Active</span>
+                </div>
+                <p className="text-[8px] font-mono text-zinc-500">RES: 1620x3240 // ASPECT: 1:2</p>
+              </div>
+              <div className="px-3 py-1 border border-zinc-800 bg-black/50 text-[10px] font-mono">
+                SEC_00
+              </div>
+            </div>
+
+            <div className="flex justify-between items-end">
+              <div className="text-[10px] font-mono text-red-500 bg-black/20 p-2">
+                SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
+              </div>
+              <div className="text-right">
+                <h4 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase leading-none mb-2">Technical_Analysis</h4>
+                <p className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest">Team Identity // Deployment 2024</p>
+              </div>
+            </div>
+
+            {/* Brackets Corner */}
+            <div className="absolute top-4 right-4 h-10 w-10 border-t border-r border-red-600/30"></div>
+            <div className="absolute bottom-4 left-4 h-10 w-10 border-b border-l border-red-600/30"></div>
+          </div>
+        </div>
+
+        {/* Vertical Scroll Indicator (Samping) */}
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 h-64 w-[1px] bg-zinc-800 hidden lg:block">
+           <div 
+             className="w-full bg-red-600 shadow-[0_0_10px_#ef4444]"
+             style={{ height: `${scrollProgress * 100}%` }}
+           ></div>
+           <div className="absolute -right-4 top-0 text-[8px] font-mono text-zinc-500 uppercase">Start</div>
+           <div className="absolute -right-4 bottom-0 text-[8px] font-mono text-zinc-500 uppercase">End</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- LAP SECTIONS (MACHINE, TEAM, IDENTITY) ---
+
+function LapOne() {
+  return (
+    <div className="mb-40">
           <div className="flex items-end gap-6 mb-16">
             <h3 className="text-8xl font-black italic opacity-10 leading-none text-white">LAP 01</h3>
             <div className="pb-2">
@@ -110,9 +237,12 @@ export default function App() {
             </div>
           </div>
         </div>
+  );
+}
 
-        {/* LAP 2: THE TEAM */}
-        <div className="mb-40 relative">
+function LapTwo() {
+  return (
+    <div className="mb-40 relative">
           <div className="absolute -left-[5vw] top-1/2 -translate-y-1/2 opacity-5 select-none pointer-events-none">
             <span className="text-[15vw] font-black italic rotate-90 inline-block">PADDOCK</span>
           </div>
@@ -143,9 +273,12 @@ export default function App() {
             <img src={day2_6.src} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
           </div>
         </div>
+  );
+}
 
-        {/* LAP 3: THE IDENTITY */}
-        <div className="mb-40">
+function LapThree() {
+  return (
+    <div className="mb-40">
           <div className="flex items-end gap-6 mb-16">
             <h3 className="text-8xl font-black italic opacity-10 leading-none">LAP 03</h3>
             <div className="pb-2">
@@ -167,9 +300,11 @@ export default function App() {
             </div>
           </div>
         </div>
-
-        {/* --- PITSTOP TECH INFO --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-24 border-y border-zinc-900 bg-zinc-950/50 p-10 rounded-3xl">
+  );
+}
+function Info() {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-24 border-y border-zinc-900 bg-zinc-950/50 p-10 rounded-3xl">
           <div className="space-y-8">
             <h4 className="text-xs font-mono uppercase tracking-[0.5em] text-red-600">Race Livery Colors</h4>
             <div className="flex items-center gap-6">
@@ -189,9 +324,11 @@ export default function App() {
             </div>
           </div>
         </div>
-
-        {/* --- FINISH LINE --- */}
-        <div className="py-32 text-center">
+  );
+}
+function FinishLine() {
+  return (
+    <div className="py-32 text-center">
           <p className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter mb-12 max-w-3xl mx-auto">
             "In racing, clarity is speed. <span className="text-zinc-600">The design must serve the function."</span>
           </p>
@@ -203,139 +340,33 @@ export default function App() {
             View Live Instagram →
           </a>
         </div>
-
-      </div>
-
-      <footer className="h-2 w-full flex">
-        <div className="flex-1 bg-red-600"></div>
-        <div className="flex-1 bg-white"></div>
-        <div className="flex-1 bg-blue-900"></div>
-      </footer>
-    </section>
   );
 }
 
-function TechnicalEntryScroll({ imageSrc }: { imageSrc: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // scroll gap
-      const totalScrollable = rect.height - windowHeight;
-      // Scroll position
-      const currentScroll = -rect.top;
-
-      const currentProgress = Math.min(Math.max(currentScroll / totalScrollable, 0), 1);
-      setProgress(currentProgress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+// --- PHOTO FRAME COMPONENT ---
+function PhotoFrame({ id, className = "", isHighlight = false }) {
   return (
-    /* h-[300vh] memberikan lintasan scroll untuk efek lock */
-    <div ref={containerRef} className="relative h-[150vh] w-full bg-black">
-
-      {/* Konten yang menempel di layar (Sticky) */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-[5vw]">
-
-        {/* Background Decorative Grid */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-
-        {/* Frame Jendela (Viewport Gambar) */}
-        <div className="relative w-full max-w-5xl h-[100vh] border border-white/10 bg-[#050505] rounded-sm shadow-2xl overflow-hidden group">
-
-          <div className="relative w-full h-full">
-
-            {/* GAMBAR PORTRAIT: Digeser naik berdasarkan progress scroll */}
-            <div
-              className="absolute top-0 left-0 w-full will-change-transform"
-              style={{
-                // Geser hingga 80% tinggi gambar agar bagian bawah terlihat sebelum lock lepas
-                transform: `translateY(-${progress * 80}%)`,
-                transition: "transform 0.1s ease-out"
-              }}
-            >
-              <img
-                src={imageSrc}
-                alt="Full Team Telemetry"
-                className="w-full h-auto object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
-              />
-            </div>
-
-            {/* Overlay UI (HUD) */}
-            <div className="absolute inset-0 z-20 pointer-events-none p-6 md:p-12 flex flex-col justify-between">
-              <div className="flex justify-between items-start text-white">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
-                    <span className="text-[10px] font-mono tracking-[0.3em] uppercase opacity-80">System_Active: KHAD</span>
-                  </div>
-                  <div className="text-[8px] font-mono text-zinc-600 uppercase">Coord: Vertical_Sync_Locked</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-[10px] font-mono text-zinc-500">POS_SYNC: {(progress * 100).toFixed(0)}%</div>
-                  <div className="h-1 w-24 md:w-48 bg-zinc-900 mt-2 overflow-hidden">
-                    <div className="h-full bg-red-600 transition-all duration-150" style={{ width: `${progress * 100}%` }}></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-end">
-                <div className="max-w-xs">
-                  <h4 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase leading-none text-red-600">Technical_Analysis</h4>
-                  <p className="text-[9px] font-mono mt-3 text-zinc-500 leading-tight uppercase tracking-wider">Streaming Vertical Telemetry Grid...</p>
-                </div>
-                <div className="hidden md:block border-l border-white/20 pl-4">
-                  <span className="block text-[8px] font-mono text-zinc-600 uppercase">Data_Point</span>
-                  <span className="text-lg font-bold font-mono text-white">RE_2024_01</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// --- Internal UI Components ---
-
-function PhotoFrame({ id, className = "", isHighlight = false, isEpic = false }: { id: number; className?: string; isHighlight?: boolean; isEpic?: boolean }) {
-  return (
-    <div className={`group relative overflow-hidden border border-zinc-900 transition-all duration-700 ${className}`}>
+    <div className={`group relative overflow-hidden border border-zinc-900 transition-all duration-700 bg-zinc-900 ${className}`}>
       <div className="absolute top-2 left-2 z-20">
-        <span className="text-[8px] font-mono bg-black/50 backdrop-blur-md px-2 py-0.5 uppercase tracking-widest">
+        <span className="text-[8px] font-mono bg-black/50 backdrop-blur-md px-2 py-0.5 uppercase tracking-widest text-white">
           Frame_{id.toString().padStart(2, '0')}
         </span>
       </div>
-
       <div className={`relative overflow-hidden ${isHighlight ? 'aspect-video lg:aspect-[21/9]' : 'aspect-square'}`}>
-        <img
+        <img 
           src={`https://images.unsplash.com/photo-1547744037-b80bdba1b6f0?q=80&w=800&auto=format&fit=crop&v=${id}`}
           alt={`Racing Frame ${id}`}
-          className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
         />
-        <div className="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-        {isEpic && (
-          <div className="absolute inset-0 bg-gradient-to-t from-red-600/40 to-transparent"></div>
-        )}
       </div>
-
       <div className="absolute inset-0 border-0 group-hover:border-2 border-red-600 transition-all pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 group-hover:w-full transition-all duration-1000"></div>
     </div>
   );
 }
 
+// --- COLOR SWATCH COMPONENT ---
 function ColorSwatch({ color, label, hex }: { color: string; label: string; hex: string }) {
   return (
     <div className="flex items-center gap-3">
