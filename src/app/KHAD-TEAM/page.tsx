@@ -116,7 +116,7 @@ function TechnicalEntryScroll() {
 
   return (
     /* h-[300vh] biar scroll-nya berasa berat dan detail */
-    <div ref={containerRef} className="relative h-[300vh] w-full bg-transparent">
+    <div ref={containerRef} className="relative h-[150vh] w-full bg-transparent mobile-h-[300vh]">
       
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 md:px-[5vw]">
@@ -137,13 +137,13 @@ function TechnicalEntryScroll() {
           <div 
             className="absolute top-0 left-0 w-full transition-transform duration-75 ease-out will-change-transform"
             style={{ 
-              transform: `translateY(-${scrollProgress * 100}%)`, // Tuning 78% biar pas sampe ujung bawah foto
+              transform: `translateY(-${scrollProgress * 50}%)`, // Tuning 78% biar pas sampe ujung bawah foto
             }}
           >
             <img 
               src={EntryPhoto.src || EntryPhoto}
-              alt="Vertical Telemetry"
-              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 brightness-75 group-hover:brightness-100"
+              alt="KHAD TEAM 2024 - The Apex Structure"
+              className="w-full h-auto grayscale [@media(any-hover:hover)]:group-hover:grayscale-0 transition-all duration-1000 brightness-75 [@media(any-hover:hover)]:group-hover:brightness-100"
             />
           </div>
 
@@ -163,7 +163,7 @@ function TechnicalEntryScroll() {
             </div>
 
             <div className="flex justify-between items-end">
-              <div className="text-[10px] font-mono text-red-500 bg-black/20 p-2">
+              <div className="text-[10px] font-mono-bold text-red-500 bg-black/45 p-2">
                 SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
               </div>
               <div className="text-right">
@@ -178,14 +178,14 @@ function TechnicalEntryScroll() {
           </div>
         </div>
 
-        {/* Vertical Scroll Indicator (Samping) */}
+        {/* Side Vertical Scroll Indicator */}
         <div className="absolute right-12 top-1/2 -translate-y-1/2 h-64 w-[1px] bg-zinc-800 hidden lg:block">
            <div 
              className="w-full bg-red-600 shadow-[0_0_10px_#ef4444]"
              style={{ height: `${scrollProgress * 100}%` }}
            ></div>
            <div className="absolute -right-4 top-0 text-[8px] font-mono text-zinc-500 uppercase">Start</div>
-           <div className="absolute -right-4 bottom-0 text-[8px] font-mono text-zinc-500 uppercase">End</div>
+           <div className="absolute -right-4 bottom-0 text-[8px] font-mono text-zinc-500 uppercase">FInish</div>
         </div>
       </div>
     </div>
@@ -340,29 +340,6 @@ function FinishLine() {
             View Live Instagram →
           </a>
         </div>
-  );
-}
-
-
-// --- PHOTO FRAME COMPONENT ---
-function PhotoFrame({ id, className = "", isHighlight = false }) {
-  return (
-    <div className={`group relative overflow-hidden border border-zinc-900 transition-all duration-700 bg-zinc-900 ${className}`}>
-      <div className="absolute top-2 left-2 z-20">
-        <span className="text-[8px] font-mono bg-black/50 backdrop-blur-md px-2 py-0.5 uppercase tracking-widest text-white">
-          Frame_{id.toString().padStart(2, '0')}
-        </span>
-      </div>
-      <div className={`relative overflow-hidden ${isHighlight ? 'aspect-video lg:aspect-[21/9]' : 'aspect-square'}`}>
-        <img 
-          src={`https://images.unsplash.com/photo-1547744037-b80bdba1b6f0?q=80&w=800&auto=format&fit=crop&v=${id}`}
-          alt={`Racing Frame ${id}`}
-          className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
-        />
-      </div>
-      <div className="absolute inset-0 border-0 group-hover:border-2 border-red-600 transition-all pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 group-hover:w-full transition-all duration-1000"></div>
-    </div>
   );
 }
 
