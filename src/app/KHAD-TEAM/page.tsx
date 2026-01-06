@@ -115,8 +115,7 @@ function TechnicalEntryScroll() {
   }, []);
 
   return (
-    /* h-[300vh] biar scroll-nya berasa berat dan detail */
-    <div ref={containerRef} className="relative h-[150vh] w-full bg-transparent mobile-h-[300vh]">
+    <div ref={containerRef} className="relative h-[175vh] w-full bg-transparent md:h-[150vh]">
       
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 md:px-[5vw]">
@@ -125,23 +124,16 @@ function TechnicalEntryScroll() {
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #444 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute left-10 top-1/2 -translate-y-1/2 w-[2px] h-32 bg-gradient-to-b from-transparent via-red-600 to-transparent hidden lg:block"></div>
 
-        {/* Frame Foto Utama
-            Desktop: max-w-2xl (biar nggak terlalu lebar dan foto 1:2 nggak gepeng)
-            Mobile: w-full
-        */}
         <div className="relative w-full max-w-2xl h-[85vh] md:h-[80vh] border border-zinc-800 bg-zinc-950 overflow-hidden rounded-sm group shadow-2xl shadow-red-900/10">
           
-          {/* FOTO TINGGI (1620x3240) 
-              Logic: Kita geser lebih jauh di desktop agar semua bagian terlihat.
-          */}
           <div 
             className="absolute top-0 left-0 w-full transition-transform duration-75 ease-out will-change-transform"
             style={{ 
-              transform: `translateY(-${scrollProgress * 50}%)`, // Tuning 78% biar pas sampe ujung bawah foto
+              transform: `translateY(-${scrollProgress * 50}%)`,
             }}
           >
             <img 
-              src={EntryPhoto.src || EntryPhoto}
+              src={typeof EntryPhoto === 'string' ? EntryPhoto : EntryPhoto.src}
               alt="KHAD TEAM 2024 - The Apex Structure"
               className="w-full h-auto grayscale [@media(any-hover:hover)]:group-hover:grayscale-0 transition-all duration-1000 brightness-75 [@media(any-hover:hover)]:group-hover:brightness-100"
             />
@@ -167,7 +159,7 @@ function TechnicalEntryScroll() {
                 SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
               </div>
               <div className="text-right">
-                <h4 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase leading-none mb-2">Technical_Analysis</h4>
+                <h4 className="text-3xl md:text-4xl text-blue-950 font-black italic tracking-tighter uppercase leading-none mb-2 ">Structure</h4>
                 <p className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest">Team Identity // Deployment 2024</p>
               </div>
             </div>
