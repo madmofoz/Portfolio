@@ -21,12 +21,6 @@ import day3_4 from "@/assets/khad-day-3/slide 5.webp";
 import day3_5 from "@/assets/khad-day-3/slide 6.webp";
 import day3_6 from "@/assets/khad-day-3/slide 8.webp";
 
-/**
- * PROJECT: KHAD TEAM - THE APEX GRID
- * Fix: Responsive Sticky Scroll for High-Aspect Images (1620x3240)
- * Gacor di HP, Presisi di Desktop.
- */
-
 export default function App() {
   const [mounted, setMounted] = useState(false);
 
@@ -40,7 +34,7 @@ export default function App() {
     <section className="relative w-full bg-[#020617] text-white overflow-x-hidden font-sans">
       <Navbar />
       
-      {/* --- DEKORASI TRIPLE LINING --- */}
+      {/* --- TRIPLE LINING DECOR --- */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-5%] w-[120%] h-[20px] bg-red-600 rotate-[15deg] opacity-20"></div>
         <div className="absolute top-[-8%] left-[-5%] w-[120%] h-[20px] bg-white rotate-[15deg] opacity-20"></div>
@@ -92,7 +86,7 @@ export default function App() {
   );
 }
 
-// --- KOMPONEN SCROLL KHUSUS FOTO TINGGI ---
+// --- SCROLL COMPONENT ---
 
 function TechnicalEntryScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -104,7 +98,7 @@ function TechnicalEntryScroll() {
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Hitung progress scroll di area 300vh
+      // progress calc
       const totalScrollable = rect.height - windowHeight;
       const progress = Math.min(Math.max(-rect.top / totalScrollable, 0), 1);
       setScrollProgress(progress);
@@ -198,7 +192,7 @@ function LapOne() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 items-start">
-            {/* Grup Kiri: 2 Gambar Kotak */}
+            {/* 2 p[ic */}
             <div className="lg:col-span-3 grid grid-cols-2 gap-6">
               <div className="aspect-square overflow-hidden border border-white/5">
                 <img src={day1_1.src} className="w-full h-full object-cover md:-translate-y-8 transition-transform duration-500 hover:scale-110" />
@@ -208,14 +202,14 @@ function LapOne() {
               </div>
             </div>
 
-            {/* Grup Kanan: 1 Gambar Highlight (Video Aspect) */}
+            {/* Highlight */}
             <div className="lg:col-span-3">
               <div className="aspect-square lg:aspect-video overflow-hidden border border-white/5">
                 <img src={day1_3.src} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
               </div>
             </div>
 
-            {/* Baris Bawah: 3 Gambar Grid */}
+            {/* 3 pic */}
             <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="aspect-square overflow-hidden border border-white/5">
                 <img src={day1_4.src} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
