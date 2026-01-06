@@ -44,7 +44,7 @@ export default function App() {
       <div className="relative z-10 w-full py-24">
         
         {/* --- HERO SECTION --- */}
-        <div className="min-h-[60vh] flex flex-col justify-center mb-24 border-l-4 border-red-600 px-[5vw]">
+        <div className="min-h-[40vh] flex flex-col justify-center mb-24 border-l-4 border-red-600 px-[5vw]">
           <div className="flex items-center gap-4 mb-6">
             <span className="text-red-500 font-black italic tracking-widest text-xs uppercase underline decoration-red-600 underline-offset-8">
               Lights Out & Away We Go!
@@ -52,18 +52,18 @@ export default function App() {
             <div className="h-px w-24 bg-red-600"></div>
           </div>
           <h1 className="text-[10vw] font-black leading-[0.8] tracking-tighter uppercase mb-4">
-            KHAD <span className="text-zinc-800">TEAM.</span>
+            KHAD <span className="text-zinc-700 opacity-75">TEAM.</span>
           </h1>
           <h2 className="text-3xl md:text-5xl font-black italic text-red-600 uppercase tracking-tighter mb-8">
-            Visualizing Velocity
+            Visualizing Dynamics
           </h2>
           <p className="max-w-2xl text-lg text-zinc-400 leading-relaxed font-medium">
-            Menerjemahkan telemetri balap menjadi narasi digital.
-            <span className="text-white"> 18 bingkai murni pencarian teknik.</span>
+            Designed architecture for sustainable mobility. Structuring the identity of efficiency from scratch.
+            <span className="text-white"> —— 18 BEST FRAMES ABOUT KMHE 2024.</span>
           </p>
         </div>
 
-        {/* --- THE TECHNICAL STICKY ENTRY (FIXED RESPONSIVE) --- */}
+        {/* --- THE TECHNICAL STICKY ENTRY --- */}
         <TechnicalEntryScroll />
 
         {/* --- THE GRID ENGINE (LAP 1-3) --- */}
@@ -109,27 +109,29 @@ function TechnicalEntryScroll() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-[175vh] w-full bg-transparent md:h-[150vh]">
+    <div ref={containerRef} className="relative h-[150vh] w-full bg-transparent md:h-[120vh]">
       
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 md:px-[5vw]">
         
-        {/* Background Grid & Blueprints (Vibe Engineer) */}
-        <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #444 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+        <div className="absolute inset-0 opacity-50 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #444 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute left-10 top-1/2 -translate-y-1/2 w-[2px] h-32 bg-gradient-to-b from-transparent via-red-600 to-transparent hidden lg:block"></div>
 
-        <div className="relative w-full max-w-2xl h-[85vh] md:h-[80vh] border border-zinc-800 bg-zinc-950 overflow-hidden rounded-sm group shadow-2xl shadow-red-900/10">
+        <div className="relative w-full max-w-2xl aspect-[2/3] md:aspect-auto md:h-[80vh] border border-zinc-800 bg-zinc-950 overflow-hidden rounded-sm group shadow-2xl shadow-red-900/10">
           
           <div 
-            className="absolute top-0 left-0 w-full transition-transform duration-75 ease-out will-change-transform"
+            className="absolute top-0 left-0 w-full h-[125%] xl:h-[300%] transition-transform duration-100 ease-out will-change-transform"
             style={{ 
-              transform: `translateY(-${scrollProgress * 50}%)`,
+              transform: `translateY(-${scrollProgress * 30}%)`,
             }}
           >
             <img 
-              src={typeof EntryPhoto === 'string' ? EntryPhoto : EntryPhoto.src}
-              alt="KHAD TEAM 2024 - The Apex Structure"
-              className="w-full h-auto grayscale [@media(any-hover:hover)]:group-hover:grayscale-0 transition-all duration-1000 brightness-75 [@media(any-hover:hover)]:group-hover:brightness-100"
+              src={EntryPhoto.src}
+              alt="KHAD TEAM"
+              className="w-full h-auto transition-all duration-1000 
+                         grayscale-0 brightness-100 
+                         [@media(any-hover:hover)]:grayscale [@media(any-hover:hover)]:brightness-75 
+                         [@media(any-hover:hover)]:group-hover:grayscale-0 [@media(any-hover:hover)]:group-hover:brightness-100"
             />
           </div>
 
@@ -139,9 +141,9 @@ function TechnicalEntryScroll() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
-                  <span className="text-[10px] font-mono text-white tracking-[0.4em] uppercase">Telemetry_Active</span>
+                  <span className="text-[10px] font-mono text-white tracking-[0.4em] uppercase">KHAD_Team_2024</span>
                 </div>
-                <p className="text-[8px] font-mono text-zinc-500">RES: 1620x3240 // ASPECT: 1:2</p>
+                <p className="text-[8px] font-mono text-zinc-500">RES: 1620x3240 // ASPECT_RATIO: 1:2</p>
               </div>
               <div className="px-3 py-1 border border-zinc-800 bg-black/50 text-[10px] font-mono">
                 SEC_00
@@ -149,29 +151,28 @@ function TechnicalEntryScroll() {
             </div>
 
             <div className="flex justify-between items-end">
-              <div className="text-[10px] font-mono-bold text-red-500 bg-black/45 p-2">
+              <div className="text-[10px] font-black text-red-500 bg-black/45 p-2 xl:hidden">
                 SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
               </div>
               <div className="text-right">
-                <h4 className="text-3xl md:text-4xl text-blue-950 font-black italic tracking-tighter uppercase leading-none mb-2 ">Structure</h4>
-                <p className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest">Team Identity // Deployment 2024</p>
+                <h4 className="text-3xl md:hidden text-blue-700 underline decoration-red-600 underline-offset-8 font-black italic tracking-tighter uppercase leading-none mb-2">Structure</h4>
+                <p className="text-[8px] font-mono text-zinc-900 uppercase tracking-widest">Team Identity // Deployment 2024</p>
               </div>
             </div>
 
-            {/* Brackets Corner */}
-            <div className="absolute top-4 right-4 h-10 w-10 border-t border-r border-red-600/30"></div>
-            <div className="absolute bottom-4 left-4 h-10 w-10 border-b border-l border-red-600/30"></div>
+            <div className="absolute top-4 right-4 h-10 w-10 border-t-3 border-r-3 border-red-600/50"></div>
+            <div className="absolute bottom-4 left-4 h-10 w-10 border-b-3 border-l-3 border-red-600/50"></div>
           </div>
         </div>
 
         {/* Side Vertical Scroll Indicator */}
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 h-64 w-[1px] bg-zinc-800 hidden lg:block">
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 h-64 w-[3px] bg-zinc-800 hidden lg:block">
            <div 
              className="w-full bg-red-600 shadow-[0_0_10px_#ef4444]"
              style={{ height: `${scrollProgress * 100}%` }}
            ></div>
-           <div className="absolute -right-4 top-0 text-[8px] font-mono text-zinc-500 uppercase">Start</div>
-           <div className="absolute -right-4 bottom-0 text-[8px] font-mono text-zinc-500 uppercase">FInish</div>
+           <div className="absolute -right-3 top-0 text-[10px] font-mono text-zinc-500 uppercase">Start</div>
+           <div className="absolute -right-3 bottom-0 text-[10px] font-mono text-zinc-500 uppercase">FInish</div>
         </div>
       </div>
     </div>
@@ -192,7 +193,7 @@ function LapOne() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 items-start">
-            {/* 2 p[ic */}
+            {/* 2 pic */}
             <div className="lg:col-span-3 grid grid-cols-2 gap-6">
               <div className="aspect-square overflow-hidden border border-white/5">
                 <img src={day1_1.src} className="w-full h-full object-cover md:-translate-y-8 transition-transform duration-500 hover:scale-110" />
@@ -279,11 +280,9 @@ function LapThree() {
             <img src={day3_4.src} className="md:translate-x-4 transition-transform duration-500 hover:scale-110" />
             <img src={day3_5.src} className="md:-translate-x-4 transition-transform duration-500 hover:scale-110" />
             <img src={day3_1.src} className="md:col-span-2 transition-transform duration-500 hover:scale-110" />
-            <div>
-              <div className="h-184 w-184 aspect-square lg:aspect-video overflow-hidden border border-white/5">
-                <img src={day3_6.src} className="object-top w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+              <div className="md:col-span-2 aspect-video overflow-hidden border border-white/5 relative">
+                <img src={day3_6.src} className="w-full h-full object-top object-cover transition-transform duration-500 hover:scale-105" />
               </div>
-            </div>
           </div>
         </div>
   );
@@ -294,18 +293,17 @@ function Info() {
           <div className="space-y-8">
             <h4 className="text-xs font-mono uppercase tracking-[0.5em] text-red-600">Race Livery Colors</h4>
             <div className="flex items-center gap-6">
-              <ColorSwatch color="#020617" label="NAVY" hex="#020617" />
-              <ColorSwatch color="#ef4444" label="RED" hex="#EF4444" />
-              <ColorSwatch color="#ffffff" label="WHITE" hex="#FFFFFF" />
+              <ColorSwatch className="hover:scale-120" color="#020617" label="NAVY" hex="#020617" />
+              <ColorSwatch className="hover:scale-120" color="#ef4444" label="RED" hex="#EF4444" />
+              <ColorSwatch className="hover:scale-120" color="#ffffff" label="WHITE" hex="#FFFFFF" />
             </div>
           </div>
           <div className="space-y-6">
             <h4 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-500">Pitstop Info</h4>
             <div className="space-y-4">
-              <p className="text-sm font-bold uppercase">Typeface: Bold Sans Serif</p>
+              <p className="text-sm font-bold uppercase">— — . .</p>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                Maximum readability at high speeds. The broken grid system mimics the
-                unpredictability and intensity of the racetrack.
+                *The three-line is inspired by BMW's 'Giugiargo M', based on their suit color combination of red, white and navy blue. It symbolises speed, efficiency, and precision. 
               </p>
             </div>
           </div>
@@ -319,27 +317,27 @@ function FinishLine() {
             "In racing, clarity is speed. <span className="text-zinc-600">The design must serve the function."</span>
           </p>
           <a
-            href="https://instagram.com/khadteam"
+            href="https://instagram.com/madmofoz"
             target="_blank"
-            className="inline-flex items-center gap-6 bg-red-600 hover:bg-red-700 text-white px-12 py-6 rounded-sm text-xs font-black uppercase tracking-[0.4em] transition-all active:scale-95 shadow-[0_10px_30px_rgba(239,68,68,0.3)]"
+            className="inline-flex items-center gap-6 bg-red-600 hover:bg-red-700 hover:scale-103 text-white px-12 py-6 rounded-sm text-xs font-black uppercase tracking-[0.4em] transition-all active:scale-95 shadow-[0_10px_30px_rgba(239,68,68,0.3)]"
           >
-            View Live Instagram →
+            I Like This →
           </a>
         </div>
   );
 }
 
 // --- COLOR SWATCH COMPONENT ---
-function ColorSwatch({ color, label, hex }: { color: string; label: string; hex: string }) {
+function ColorSwatch({ color, label, hex, className }: { color: string; label: string; hex: string; className?: string }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className={`flex items-center gap-3 ${className || ''}`}>
       <div
-        className="h-10 w-10 rounded-sm border border-zinc-800"
+        className="h-10 w-10 rounded-xl border border-zinc-800"
         style={{ backgroundColor: color }}
       ></div>
       <div className="flex flex-col">
-        <span className="text-[10px] font-black uppercase tracking-widest">{label}</span>
-        <span className="text-[8px] font-mono text-zinc-600">{hex}</span>
+        <span className="text-[12px] font-black text-white uppercase tracking-widest">{label}</span>
+        <span className="text-[10px] font-mono text-zinc-500">{hex}</span>
       </div>
     </div>
   );
