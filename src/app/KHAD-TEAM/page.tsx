@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from '@/components/navbar';
 import EntryPhoto from "@/assets/khad-all-team-2024.webp";
 import day1_1 from "@/assets/khad-day-1/slide 2.webp";
