@@ -1,19 +1,11 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/navbar';
-
-/**
- * DIGITAL ENGINE BLOCK PORTFOLIO - SILIMINPRO
- * Vibe: Industrial, Dark Mode, Technical Blueprint
- * Update: Internal Navbar removed. Ready for global Navbar import.
- */
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
-  // 1. Inisialisasi Tema saat Mount
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme');
@@ -23,7 +15,6 @@ export default function App() {
     setIsDark(initialDark);
   }, []);
 
-  // 2. Sinkronisasi State isDark ke Elemen HTML (DOM)
   useEffect(() => {
     if (!mounted) return;
 
@@ -41,7 +32,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
       
-      {/* navbar */}
         <Navbar />
       
       <main>
@@ -60,67 +50,30 @@ export default function App() {
   );
 }
 
-// --- Komponen Pendukung ---
+// --- components ---
 
 function HeroSection() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  // Logic untuk generate Ticks
+  const center = 160;
+  const radiusOuter = 110;
+  const radiusInnerMinor = 102;
+  const radiusInnerMajor = 96;
+  const totalTicks = 27; // 270° / 10°
+  const startAngle = -135; // degrees
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+  const ticks = [];
+  for (let i = 0; i <= totalTicks; i++) {
+    const angle = (startAngle + i * 10) * Math.PI / 180;
+    const isMajor = i % 3 === 0;
 
-    let animationFrameId: number;
-    let rotation = 0;
+    const x1 = center + Math.cos(angle) * radiusOuter;
+    const y1 = center + Math.sin(angle) * radiusOuter;
+    const x2 = center + Math.cos(angle) * (isMajor ? radiusInnerMajor : radiusInnerMinor);
+    const y2 = center + Math.sin(angle) * (isMajor ? radiusInnerMajor : radiusInnerMinor);
 
-    const render = () => {
-      rotation += 0.01;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-      const size = 100;
+    ticks.push({ x1, y1, x2, y2, isMajor });
+  }
 
-      ctx.strokeStyle = '#3b82f6'; 
-      ctx.lineWidth = 1;
-      ctx.setLineDash([5, 5]);
-
-      ctx.beginPath();
-      for (let i = 0; i < 360; i += 30) {
-        const angle = (i * Math.PI) / 180 + rotation;
-        const x = centerX + Math.cos(angle) * size;
-        const y = centerY + Math.sin(angle) * size;
-        ctx.lineTo(x, y);
-        ctx.moveTo(centerX, centerY);
-        ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-
-      ctx.setLineDash([]);
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, size + 10 + Math.sin(rotation * 2) * 5, 0, Math.PI * 2);
-      ctx.stroke();
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    const handleResize = () => {
-      if (canvas && canvas.parentElement) {
-        canvas.width = canvas.parentElement.clientWidth;
-        canvas.height = canvas.parentElement.clientHeight;
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    render();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[radial-gradient(#80808012_1px,transparent_1px)] bg-[size:32px_32px]">
@@ -142,7 +95,7 @@ function HeroSection() {
             The Precision Engine.
           </h2>
           <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-lg leading-relaxed font-medium">
-            Built by engineers, for engineers. No spreadsheets, no bullshit. <span className="text-zinc-900 dark:text-white">Just pure torque.</span>
+            Built by engineers, for engineers. No spreadsheets, no bullshit. <span className="text-zinc-900 dark:text-white">Just pure torque</span> and device agnostic.
           </p>
           <div className="pt-4">
             <a href="#projects" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black font-black uppercase tracking-widest text-xs overflow-hidden no-underline">
@@ -152,12 +105,77 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="relative h-[400px] md:h-[600px] flex items-center justify-center">
-          <canvas ref={canvasRef} className="w-full h-full" />
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             <span className="text-9xl font-black opacity-13 select-none text-blue-500">S</span>
+        {/* RADIAL DIAL SVG INTEGRATION */}
+        <div className="relative flex items-center justify-center scale-125 md:scale-150">
+          <style>{`
+            .radial-dial {
+              opacity: 0.9;
+              filter: drop-shadow(0 0 20px rgba(10, 132, 255, 0.2));
+            }
+            .ticks line {
+              stroke: currentColor;
+              stroke-width: 1;
+              opacity: 0.4;
+            }
+            .ticks line.major {
+              stroke-width: 2;
+              opacity: 0.7;
+            }
+            .pointer {
+              stroke: #0a84ff;
+              stroke-width: 2;
+              transform-origin: 160px 160px;
+              animation: pointerIdle 7s infinite ease-in-out;
+            }
+            @keyframes pointerIdle {
+              0%   { transform: rotate(-30deg); }
+              50%  { transform: rotate(180deg); }
+              100% { transform: rotate(-30deg); }
+            }
+          `}</style>
+          
+          <svg
+            className="radial-dial text-zinc-400 dark:text-zinc-500"
+            width="320"
+            height="320"
+            viewBox="0 0 320 320"
+          >
+            <path
+              d="M 80 80 A 100 100 0 1 1 240 242"
+              fill="none"
+              stroke="rgba(0,140,255,0.25)"
+              strokeWidth="2"
+            />  
+
+            <g className="ticks">
+              {ticks.map((t, i) => (
+                <line
+                  key={i}
+                  x1={t.x1}
+                  y1={t.y1}
+                  x2={t.x2}
+                  y2={t.y2}
+                  className={t.isMajor ? "major" : "minor"}
+                />
+              ))}
+            </g>
+
+            <line
+              x1="160"
+              y1="160"
+              x2="160"
+              y2="75"
+              className="pointer"
+            />
+
+            <circle cx="160" cy="160" r="4" fill="#0a84ff" />
+          </svg>
+          
+          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-24">
+             <span className="text-2xl font-black italic opacity-20"><br />x 1000</span>
           </div>
         </div>
+        
       </div>
     </section>
   );
@@ -177,11 +195,11 @@ function ProblemSolutionSection() {
             <div className="p-6 border-2 border-dashed border-red-500/20 bg-red-500/5 rounded-lg opacity-60 filter blur-[1px] group-hover:blur-0 transition-all duration-700">
                <pre className="text-[10px] font-mono text-zinc-400">
                  {`[!] Error: Formula not found
-Piston D: 52mm ?
-Stroke: 57.9mm ?
-Compression: (Vd + Vc) / Vc ...
-Wait, Vc is unknown?
-# CORE_DUMP: Paper messy`}
+                  Piston D: 52mm ?
+                  Stroke: 57.9mm ?
+                  Compression: (Vd + Vc) / Vc ...
+                  Wait, Vc is unknown?
+                  # CORE_DUMP: Paper messy`}
                </pre>
             </div>
             <p className="text-zinc-500">Messy spreadsheets, manual formulas prone to error, and oil-stained paper won't build a champion engine.</p>
@@ -191,7 +209,7 @@ Wait, Vc is unknown?
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-zinc-200 dark:border-zinc-800 -rotate-12 transform origin-center z-20"></div>
 
         <div className="flex-1 p-12 lg:p-24 bg-zinc-50 dark:bg-black flex flex-col justify-center relative group overflow-hidden">
-          <div className="absolute bottom-10 left-10 text-[8rem] font-black opacity-5 italic select-none">PRECISION</div>
+          <div className="absolute bottom-10 left-10 text-[8rem] font-black opacity-9 italic select-none">PRECISION</div>
           <div className="space-y-6 relative z-10">
             <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-blue-500">02 / Digital Standard</h3>
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-none italic">
@@ -265,9 +283,9 @@ function CoreFeaturesSection() {
                <div className="mt-12 overflow-hidden h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
                   <pre className="text-[8px] font-mono leading-tight">
                     {`def calculate_displacement(bore, stroke, cylinders):
-    radius = bore / 2
-    area = Math.PI * (radius ** 2)
-    return (area * stroke * cylinders) / 1000`}
+                      radius = bore / 2
+                      area = Math.PI * (radius ** 2)
+                        return (area * stroke * cylinders) / 1000`}
                   </pre>
                </div>
             </div>
@@ -281,23 +299,17 @@ function CoreFeaturesSection() {
 function NarrativeSection() {
   return (
     <section className="py-32 bg-zinc-900 text-white overflow-hidden relative">
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+      <div className="absolute inset-0 opacity-25 scale-150 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
       
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         <div className="relative aspect-square md:aspect-video lg:aspect-square group overflow-hidden border border-white/10 rounded-3xl">
            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-orange-600/20 mix-blend-overlay"></div>
            <div className="flex h-full w-full">
-              <div className="w-1/2 h-full bg-zinc-800 flex items-center justify-center border-r border-white/10 overflow-hidden">
+              <div className="w-1/2 h-full bg-zinc-800 flex items-center justify-center border-r border-white/10 overflow-hidden hover-scale:105">
                  <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">MECHANICAL_HANDS_DIRTY</div>
-                 <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                    <span className="text-6xl">🔧</span>
-                 </div>
               </div>
               <div className="w-1/2 h-full bg-zinc-950 flex items-center justify-center overflow-hidden">
                  <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">DIGITAL_TERMINAL_CLEAN</div>
-                 <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                    <span className="text-6xl">💻</span>
-                 </div>
               </div>
            </div>
            <div className="absolute inset-0 flex items-center justify-center">
@@ -312,7 +324,7 @@ function NarrativeSection() {
            </blockquote>
            <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-blue-500"></div>
-              <span className="text-xl font-bold italic">— Tino, Architect of Chaos.</span>
+              <span className="text-xl font-mono italic">— Tino, an oulier system.</span>
            </div>
         </div>
       </div>
@@ -324,10 +336,10 @@ function TechnicalSpecsSection() {
   const specs = [
     { label: "Core Architecture", value: "Next.js 16 + Tailwind v4" },
     { label: "Backend Logic", value: "Python Flask // Microservices" },
-    { label: "Calculations", value: "Thermo-Dynamics Precision v2" },
-    { label: "Design Philosophy", value: "Industrial Functionalism" },
+    { label: "Calculations", value: "Engine Tuning +" },
+    { label: "Design Philosophy", value: "Clean Industrial Functionalism" },
     { label: "Deployment", value: "Fly.io // Global Distribution" },
-    { label: "Author Status", value: "Overkill_Enabled" }
+    { label: "Author Status", value: "Developing...." }
   ];
 
   return (
@@ -369,7 +381,7 @@ function CTASection() {
         
         <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-400">
            Engine Safety: Locked & Loaded // Waiting for Signal
-        </div>
+        </div>    
       </div>
     </section>
   );

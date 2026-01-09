@@ -11,10 +11,10 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
   return (
     <div className="group relative w-full p-10 md:p-16 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-[3rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500">
       
-      {/* Background Index Decor - Memberikan kesan sistem penomoran */}
+      {/* Background Index Decor */}
       <div className="absolute top-10 right-10 opacity-[0.03] dark:opacity-[0.07] select-none pointer-events-none">
         <span className="text-[12vw] font-black leading-none uppercase tracking-tighter italic">
-          Project
+           - Project
         </span>
       </div>
 
@@ -30,17 +30,17 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </div>
 
-          {/* Title - Bold Italic Uppercase */}
+          {/* Title */}
           <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase italic leading-[0.8] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
             {title}
           </h3>
 
-          {/* Description - Lebih besar dan lega */}
+          {/* Description */}
           <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 max-w-3xl leading-relaxed font-medium">
             {description}
           </p>
 
-          {/* Tech Stack - Gaya industrial tags */}
+          {/* Tech Stack */}
           <div className="flex flex-wrap gap-3">
             {tech.map((item) => (
               <span 
@@ -66,7 +66,6 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </a>
           
-          {/* Detail kecil penambah vibe engineer */}
           <div className="hidden lg:block text-right">
             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-tight">
               Deployment: Ready <br />
@@ -78,7 +77,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
 
       </div>
 
-      {/* Decorative Progress Bar - Animasi pas di-hover */}
+      {/* Decorative Progress Bar */}
       <div className="absolute bottom-0 left-0 h-1.5 bg-black dark:bg-white w-0 group-hover:w-full transition-all duration-1000 ease-out"></div>
     </div>
   )

@@ -86,7 +86,7 @@ export default function App() {
   );
 }
 
-// --- SCROLL COMPONENT ---
+// --- SCROLL COMPONENTS ---
 
 function TechnicalEntryScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -135,7 +135,7 @@ function TechnicalEntryScroll() {
             />
           </div>
 
-          {/* Overlay HUD (Fixed) */}
+          {/* Overlay HUD */}
           <div className="absolute inset-0 pointer-events-none p-6 md:p-10 flex flex-col justify-between z-20">
             <div className="flex justify-between items-start">
               <div className="space-y-2">

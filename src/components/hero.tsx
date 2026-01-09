@@ -3,15 +3,13 @@ import React from 'react';
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 flex flex-col items-start w-full">
-      {/* Background Subtle Label - Biar berasa vibe engineer */}
       <div className="absolute top-56 right-0 hidden lg:block select-none opacity-5 dark:opacity-13 pointer-events-none">
         <span className="text-[15vw] font-black leading-none uppercase tracking-tighter">
-          // .MADZ
+        .MADZ
         </span>
       </div>
 
       <div className="relative z-10 w-full">
-        {/* Meta info kecil di atas headline */}
         <div className="flex items-center gap-4 mb-8">
           <span className="h-[1px] w-12 bg-zinc-800 dark:bg-zinc-200"></span>
           <span className="text-xs font-mono uppercase tracking-[0.3em] text-zinc-500">
@@ -19,7 +17,7 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline Utama - Pake viewport width (vw) biar melar seukuran layar */}
+        {/* Primary Headline */}
         <h1 className="text-[clamp(3rem,10vw,12rem)] font-black leading-[0.8] tracking-tighter uppercase mb-12">
           CRAFTING <br />
           <span className="text-zinc-400 dark:text-zinc-800 italic">DIGITAL</span> <br />
@@ -27,10 +25,10 @@ export default function Hero() {
         </h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
-          {/* Deskripsi - Porsi kolom 7 dari 12 */}
+          {/* Desc */}
           <div className="lg:col-span-7 space-y-8">
             <p className="text-xl md:text-3xl text-zinc-600 dark:text-zinc-400 leading-tight font-medium">
-              I am <span className="text-black dark:text-white font-bold">Muhammad Zhifrantino.</span> <br />
+              The <span className="text-black dark:text-white font-bold">Architec of System.</span> <br />
               Bridging the gap between <span className="italic">Mechanical Engineering</span> and <span className="italic font-bold text-black dark:text-white">Full-stack Development.</span>
             </p>
             
@@ -56,7 +54,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats/Side Info - Porsi kolom 5 dari 12 buat ngisi space monitor lebar */}
+          {/* Stats/Side Info - 5 rfom 12 */}
           <div className="lg:col-span-5 flex lg:justify-end items-end pb-4">
             <div className="space-y-4 text-right hidden lg:block">
               <div className="group relative">

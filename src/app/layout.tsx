@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Zhifrantino | The Architect of Chaos",
+  title: "Zhifrantino | An Outlier by Design",
   description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
   keywords: ["Zhifrantino", "Muhammad Zhifrantino", "Mechanical Engineering", "Web Developer", "SiliminPro", "Graphic Designer"],
   authors: [{ name: "Muhammad Zhifrantino" }],
   openGraph: {
-    title: "Zhifrantino | The Architect of Chaos",
+    title: "Zhifrantino | An Outlier by Design",
     description: "Bridging Digital Logic and Mechanical Precision.",
     url: "https://portolio-beta-black.vercel.app/",
     siteName: "Zhifrantino Portfolio",
@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Menggunakan Google Fonts standar untuk menghindari error next/font */}
+        {/* gfont avoid error */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet" />
@@ -73,7 +73,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         
-        {/* Google Analytics - Menggunakan tag script HTML standar */}
+        {/* Google Analytics */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Z607BFHM0N"
@@ -101,7 +101,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
         
-        {/**/}
+        {/* Main */}
          <main className="min-h-screen flex flex-col w-full relative">
           {children}
         </main>

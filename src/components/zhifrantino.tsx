@@ -64,7 +64,7 @@ export default function About() {
                 <div className="h-2 w-12 bg-zinc-800 dark:bg-zinc-200 mb-6 group-hover:w-full transition-all duration-500"></div>
                 <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4 font-mono">03 / Human Power</h4>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  <strong>Grounding.</strong> 4 AM calisthenics is my method for maintaining mental discipline.
+                  <strong>Grounding.</strong> 2 AM calisthenics is my method for maintaining mental discipline.
                 </p>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function About() {
               <p className="text-xl text-zinc-600 dark:text-zinc-400 leading-snug">
                 I seek challenges that force my brain to think 10 steps ahead. <br />
                 <span className="text-black dark:text-white font-black italic text-xl mt-4 block tracking-tighter uppercase">
-                  Let's build something overkill.
+                  Let's build something.
                 </span>
               </p>
             </div>
