@@ -98,7 +98,7 @@ function HeroSection() {
             Built by engineers, for engineers. No spreadsheets, no bullshit. <span className="text-zinc-900 dark:text-white">Just pure torque</span> and device agnostic.
           </p>
           <div className="pt-4">
-            <a href="#projects" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black font-black uppercase tracking-widest text-xs overflow-hidden no-underline">
+            <a href="#desc" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black font-black uppercase tracking-widest text-xs overflow-hidden no-underline">
               <span className="relative z-10">Initialize System</span>
               <div className="absolute inset-0 bg-blue-600 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-3000"></div>
             </a>
@@ -183,7 +183,7 @@ function HeroSection() {
 
 function ProblemSolutionSection() {
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden border-y border-zinc-200 dark:border-zinc-800">
+    <section id="desc" className="relative min-h-[80vh] flex items-center overflow-hidden border-y border-zinc-200 dark:border-zinc-800">
       <div className="flex flex-col lg:flex-row w-full h-full min-h-[80vh]">
         <div className="flex-1 p-12 lg:p-24 bg-zinc-100 dark:bg-zinc-900 flex flex-col justify-center relative group overflow-hidden">
           <div className="absolute top-10 right-10 text-[8rem] font-black opacity-5 italic select-none">MESS</div>
@@ -324,7 +324,7 @@ function NarrativeSection() {
            </blockquote>
            <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-blue-500"></div>
-              <span className="text-xl font-mono italic">— Tino, an oulier system.</span>
+              <span className="text-xl font-mono italic">— Tino, an outlier system.</span>
            </div>
         </div>
       </div>
