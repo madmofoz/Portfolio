@@ -17,13 +17,15 @@ export default function Home() {
         {/* Hero section */}
         <Hero />
 
-        {/* project section */}
+        {/* Project Section - Updated to 2 columns on large screens */}
         <section id="projects" className="py-32 border-t border-zinc-200 dark:border-zinc-800">
           <div className="flex items-center gap-10 mb-20">
             <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Recent Projects</h2>
             <div className="h-[2px] w-full bg-zinc-900 dark:bg-zinc-100"></div>
           </div>
-          <div className="grid grid-cols-1 gap-16">
+
+          {/* CHANGE: Added lg:grid-cols-2 to create the 2-column layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {PROJECTS.map((project, index) => (
               <ProjectCard 
                 key={index}

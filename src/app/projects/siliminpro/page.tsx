@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/navbar';
+import Footer from "@/components/footer";
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
@@ -10,7 +11,7 @@ export default function App() {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme');
     const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     const initialDark = savedTheme ? savedTheme === 'dark' : supportDarkMode;
     setIsDark(initialDark);
   }, []);
@@ -31,9 +32,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
-      
-        <Navbar />
-      
+
+      <Navbar />
+
       <main>
         <HeroSection />
         <ProblemSolutionSection />
@@ -42,10 +43,7 @@ export default function App() {
         <TechnicalSpecsSection />
         <CTASection />
       </main>
-
-      <footer className="py-12 border-t border-zinc-200 dark:border-zinc-800 text-center text-[10px] font-mono uppercase tracking-[0.5em] text-zinc-500">
-        Engineered by Zhifrantino © 2026 // SiliminPro Terminal
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -133,7 +131,7 @@ function HeroSection() {
               100% { transform: rotate(-30deg); }
             }
           `}</style>
-          
+
           <svg
             className="radial-dial text-zinc-400 dark:text-zinc-500"
             width="320"
@@ -145,7 +143,7 @@ function HeroSection() {
               fill="none"
               stroke="rgba(0,140,255,0.25)"
               strokeWidth="2"
-            />  
+            />
 
             <g className="ticks">
               {ticks.map((t, i) => (
@@ -170,12 +168,12 @@ function HeroSection() {
 
             <circle cx="160" cy="160" r="4" fill="#0a84ff" />
           </svg>
-          
+
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-24">
-             <span className="text-2xl font-black italic opacity-20"><br />x 1000</span>
+            <span className="text-2xl font-black italic opacity-20"><br />x 1000</span>
           </div>
         </div>
-        
+
       </div>
     </section>
   );
@@ -190,17 +188,17 @@ function ProblemSolutionSection() {
           <div className="space-y-6 relative z-10">
             <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-red-500">01 / The Legacy Mess</h3>
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-none italic">
-              Guesswork & <br/> Paper Trail.
+              Guesswork & <br /> Paper Trail.
             </h4>
             <div className="p-6 border-2 border-dashed border-red-500/20 bg-red-500/5 rounded-lg opacity-60 filter blur-[1px] group-hover:blur-0 transition-all duration-700">
-               <pre className="text-[10px] font-mono text-zinc-400">
-                 {`[!] Error: Formula not found
+              <pre className="text-[10px] font-mono text-zinc-400">
+                {`[!] Error: Formula not found
                   Piston D: 52mm ?
                   Stroke: 57.9mm ?
                   Compression: (Vd + Vc) / Vc ...
                   Wait, Vc is unknown?
                   # CORE_DUMP: Paper messy`}
-               </pre>
+              </pre>
             </div>
             <p className="text-zinc-500">Messy spreadsheets, manual formulas prone to error, and oil-stained paper won't build a champion engine.</p>
           </div>
@@ -213,19 +211,19 @@ function ProblemSolutionSection() {
           <div className="space-y-6 relative z-10">
             <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-blue-500">02 / Digital Standard</h3>
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-none italic">
-              Digital <br/> Precision.
+              Digital <br /> Precision.
             </h4>
             <div className="p-6 border-2 border-blue-500/30 bg-blue-500/5 rounded-lg shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all duration-500 group-hover:border-blue-500">
-               <div className="flex justify-between items-center mb-4">
-                  <span className="text-[10px] font-mono uppercase text-blue-500">Module: Compression_Calc</span>
-                  <span className="h-2 w-2 rounded-full bg-green-500"></span>
-               </div>
-               <div className="text-4xl font-black text-zinc-900 dark:text-white font-mono tracking-tighter">
-                  12.5 : 1
-               </div>
-               <div className="mt-2 h-1 w-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
-                  <div className="h-full bg-blue-500 w-[75%]"></div>
-               </div>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-[10px] font-mono uppercase text-blue-500">Module: Compression_Calc</span>
+                <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              </div>
+              <div className="text-4xl font-black text-zinc-900 dark:text-white font-mono tracking-tighter">
+                12.5 : 1
+              </div>
+              <div className="mt-2 h-1 w-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+                <div className="h-full bg-blue-500 w-[75%]"></div>
+              </div>
             </div>
             <p className="text-zinc-500">One calculator, instant results, absolute accuracy. Focus on the engine, let SiliminPro handle the math.</p>
           </div>
@@ -268,26 +266,26 @@ function CoreFeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((f) => (
             <div key={f.id} className="group relative p-10 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 rounded-sm hover:border-blue-500 transition-all duration-500">
-               <div className="absolute top-2 left-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
-               <div className="absolute top-2 right-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
-               <div className="absolute bottom-2 left-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
-               <div className="absolute bottom-2 right-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
+              <div className="absolute top-2 left-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
+              <div className="absolute top-2 right-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
+              <div className="absolute bottom-2 left-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
+              <div className="absolute bottom-2 right-2 w-1 h-1 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
 
-               <div className="text-4xl mb-8 group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
-                 {f.icon}
-               </div>
-               <h4 className="text-xs font-mono uppercase tracking-[0.4em] text-zinc-500 mb-4">{f.id} // System</h4>
-               <h5 className="text-2xl font-black uppercase tracking-tight mb-6">{f.title}</h5>
-               <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{f.desc}</p>
-               
-               <div className="mt-12 overflow-hidden h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                  <pre className="text-[8px] font-mono leading-tight">
-                    {`def calculate_displacement(bore, stroke, cylinders):
+              <div className="text-4xl mb-8 group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                {f.icon}
+              </div>
+              <h4 className="text-xs font-mono uppercase tracking-[0.4em] text-zinc-500 mb-4">{f.id} // System</h4>
+              <h5 className="text-2xl font-black uppercase tracking-tight mb-6">{f.title}</h5>
+              <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{f.desc}</p>
+
+              <div className="mt-12 overflow-hidden h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                <pre className="text-[8px] font-mono leading-tight">
+                  {`def calculate_displacement(bore, stroke, cylinders):
                       radius = bore / 2
                       area = Math.PI * (radius ** 2)
                         return (area * stroke * cylinders) / 1000`}
-                  </pre>
-               </div>
+                </pre>
+              </div>
             </div>
           ))}
         </div>
@@ -300,32 +298,32 @@ function NarrativeSection() {
   return (
     <section className="py-32 bg-zinc-900 text-white overflow-hidden relative">
       <div className="absolute inset-0 opacity-25 scale-150 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-      
+
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         <div className="relative aspect-square md:aspect-video lg:aspect-square group overflow-hidden border border-white/10 rounded-3xl">
-           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-orange-600/20 mix-blend-overlay"></div>
-           <div className="flex h-full w-full">
-              <div className="w-1/2 h-full bg-zinc-800 flex items-center justify-center border-r border-white/10 overflow-hidden hover-scale:105">
-                 <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">MECHANICAL_HANDS_DIRTY</div>
-              </div>
-              <div className="w-1/2 h-full bg-zinc-950 flex items-center justify-center overflow-hidden">
-                 <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">DIGITAL_TERMINAL_CLEAN</div>
-              </div>
-           </div>
-           <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center text-black font-black italic shadow-2xl">VS</div>
-           </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-orange-600/20 mix-blend-overlay"></div>
+          <div className="flex h-full w-full">
+            <div className="w-1/2 h-full bg-zinc-800 flex items-center justify-center border-r border-white/10 overflow-hidden hover-scale:105">
+              <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">MECHANICAL_HANDS_DIRTY</div>
+            </div>
+            <div className="w-1/2 h-full bg-zinc-950 flex items-center justify-center overflow-hidden">
+              <div className="text-[10px] font-mono opacity-40 rotate-90 whitespace-nowrap">DIGITAL_TERMINAL_CLEAN</div>
+            </div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center text-black font-black italic shadow-2xl">VS</div>
+          </div>
         </div>
 
         <div className="space-y-8">
-           <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-blue-400">Garage to Code</h3>
-           <blockquote className="text-3xl md:text-5xl font-black tracking-tight leading-tight italic uppercase">
-             "I don't trust a tool if I don't know how it works. <span className="text-zinc-500">SiliminPro was born in the garage,</span> forged in the terminal."
-           </blockquote>
-           <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-blue-500"></div>
-              <span className="text-xl font-mono italic">— Tino, an outlier system.</span>
-           </div>
+          <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-blue-400">Garage to Code</h3>
+          <blockquote className="text-3xl md:text-5xl font-black tracking-tight leading-tight italic uppercase">
+            "I don't trust a tool if I don't know how it works. <span className="text-zinc-500">SiliminPro was born in the garage,</span> forged in the terminal."
+          </blockquote>
+          <div className="flex items-center gap-4">
+            <div className="h-px w-12 bg-blue-500"></div>
+            <span className="text-xl font-mono italic">— Tino, an outlier system.</span>
+          </div>
         </div>
       </div>
     </section>
@@ -364,13 +362,13 @@ function CTASection() {
     <section id="ignite" className="py-40 px-6 flex flex-col items-center justify-center bg-[radial-gradient(#80808012_1px,transparent_1px)] bg-[size:48px_48px]">
       <div className="text-center space-y-12 max-w-2xl">
         <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic">
-          Ready to <br/> <span className="text-blue-600 dark:text-blue-400 animate-pulse">Ignite?</span>
+          Ready to <br /> <span className="text-blue-600 dark:text-blue-400 animate-pulse">Ignite?</span>
         </h2>
         <p className="text-zinc-500 text-lg">Stop the doubt, start the calculation. Enter the SiliminPro ecosystem now.</p>
-        
+
         <div className="relative group p-1">
           <div className="absolute inset-0 bg-blue-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-          
+
           <a href="https://siliminpro.fly.dev" target="_blank" className="relative block w-full md:w-[400px] h-[80px] bg-red-600 dark:bg-red-500 hover:bg-red-700 dark:hover:bg-red-600 rounded-full border-[8px] border-zinc-900/10 dark:border-white/10 shadow-inner overflow-hidden transition-all active:scale-95 flex items-center justify-center group no-underline">
             <span className="text-white text-xl font-black italic uppercase tracking-[0.2em] relative z-10 flex items-center gap-4">
               [ IGNITE THE TOOL → ]
@@ -378,10 +376,10 @@ function CTASection() {
             <div className="absolute top-0 left-0 w-full h-1/2 bg-white/10"></div>
           </a>
         </div>
-        
+
         <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-400">
-           Engine Safety: Locked & Loaded // Waiting for Signal
-        </div>    
+          Engine Safety: Locked & Loaded // Waiting for Signal
+        </div>
       </div>
     </section>
   );

@@ -9,20 +9,18 @@ interface ProjectProps {
 
 export default function ProjectCard({ title, description, tech, link }: ProjectProps) {
   return (
-    <div className="group relative w-full p-10 md:p-16 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-[3rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500">
+    <div className="group relative w-full p-8 md:p-12 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500 flex flex-col justify-between">
       
       {/* Background Index Decor */}
-      <div className="absolute top-10 right-10 opacity-[0.03] dark:opacity-[0.07] select-none pointer-events-none">
-        <span className="text-[12vw] font-black leading-none uppercase tracking-tighter italic">
-           - Project
+      <div className="absolute top-8 right-8 opacity-[0.03] dark:opacity-[0.07] select-none pointer-events-none">
+        <span className="text-[10vw] font-black leading-none uppercase tracking-tighter italic">
+            - Project
         </span>
       </div>
 
-      <div className="relative z-10 flex flex-col lg:flex-row justify-between gap-12 items-start lg:items-center">
-        
+      <div className="relative z-10 space-y-8">
         {/* Info Section */}
-        <div className="space-y-8 flex-1">
-          {/* Badge Status */}
+        <div className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="flex h-2 w-2 rounded-full bg-black dark:bg-white animate-pulse"></span>
             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-zinc-500">
@@ -30,22 +28,20 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </div>
 
-          {/* Title */}
-          <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase italic leading-[0.8] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
+          {/* Title - Reduced size slightly for 2-column fit */}
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase italic leading-[0.9] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
             {title}
           </h3>
 
-          {/* Description */}
-          <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 max-w-3xl leading-relaxed font-medium">
+          <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 max-w-full leading-relaxed font-medium">
             {description}
           </p>
 
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {tech.map((item) => (
               <span 
                 key={item} 
-                className="px-5 py-2 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-zinc-300 text-[10px] font-black uppercase tracking-widest rounded-full border border-transparent hover:border-zinc-400 transition-colors"
+                className="px-4 py-1.5 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-zinc-300 text-[9px] font-black uppercase tracking-widest rounded-full border border-transparent hover:border-zinc-400 transition-colors"
               >
                 {item}
               </span>
@@ -54,27 +50,22 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
         </div>
 
         {/* Action Section */}
-        <div className="w-full lg:w-auto flex flex-col items-start lg:items-end gap-6 pt-6 lg:pt-0">
+        <div className="pt-6 flex flex-col gap-4">
           <a 
             href={link} 
             target="_blank"
             rel="noopener noreferrer"
-            className="group/btn relative inline-flex items-center gap-4 text-2xl font-black italic uppercase tracking-tighter text-black dark:text-white no-underline"
+            className="group/btn relative inline-flex items-center gap-4 text-xl font-black italic uppercase tracking-tighter text-black dark:text-white no-underline"
           >
-            <span className="relative z-10 underline decoration-[4px] underline-offset-8 decoration-zinc-500 group-hover/btn:decoration-black dark:group-hover/btn:decoration-white transition-all">
-              Try System →
+            <span className="relative z-10 underline decoration-[3px] underline-offset-8 decoration-zinc-500 group-hover/btn:decoration-black dark:group-hover/btn:decoration-white transition-all">
+            wtf is that →
             </span>
           </a>
           
-          <div className="hidden lg:block text-right">
-            <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-tight">
-              Deployment: Ready <br />
-              Encryption: Active <br />
-              Architecture: High-Performance
-            </p>
+          <div className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest leading-tight">
+            Deployment: Ready // Encryption: Active
           </div>
         </div>
-
       </div>
 
       {/* Decorative Progress Bar */}

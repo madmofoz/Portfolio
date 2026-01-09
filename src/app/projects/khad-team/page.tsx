@@ -20,6 +20,7 @@ import day3_3 from "@/assets/khad-day-3/slide 4.webp";
 import day3_4 from "@/assets/khad-day-3/slide 5.webp";
 import day3_5 from "@/assets/khad-day-3/slide 6.webp";
 import day3_6 from "@/assets/khad-day-3/slide 8.webp";
+import Footer from "@/components/footer";
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
@@ -76,12 +77,7 @@ export default function App() {
         </div>
 
       </div>
-
-      <footer className="h-2 w-full flex">
-        <div className="flex-1 bg-red-600"></div>
-        <div className="flex-1 bg-white"></div>
-        <div className="flex-1 bg-blue-900"></div>
-      </footer>
+      <Footer/>
     </section>
   );
 }

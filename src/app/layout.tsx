@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
+import { rootMetadata, jsonLd } from "@/constants/metadata";
 
+// Initialize fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,67 +13,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Zhifrantino | An Outlier by Design",
-  description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
-  keywords: ["Zhifrantino", "Muhammad Zhifrantino", "Mechanical Engineering", "Web Developer", "SiliminPro", "Graphic Designer"],
-  authors: [{ name: "Muhammad Zhifrantino" }],
-  openGraph: {
-    title: "Zhifrantino | An Outlier by Design",
-    description: "Bridging Digital Logic and Mechanical Precision.",
-    url: "https://portolio-beta-black.vercel.app/",
-    siteName: "Zhifrantino Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-};
+export const metadata = rootMetadata;
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Muhammad Zhifrantino",
-    "alternateName": ["Tino", "Madz", "Madmofoz"],
-    "url": ["https://portolio-beta-black.vercel.app/", "https://siliminpro.fly.dev/"],
-    "jobTitle": "Mechanical Engineering Student & Web Developer & Graphic Designer",
-    "description": "Sole developer of SiliminPro, specializing in mechanical engineering, automotive tuning tools, graphics designer and founder of Arak Empire.",
-    "knowsAbout": [
-      "Mechanical Engineering",
-      "Automotive Tuning",
-      "Web Development",
-      "Python",
-      "Calisthenics",
-      "Entrepreneurship",
-      "Graphic Designer",
-      "Empire Business"
-    ],
-    "image": "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.png",
-    "sameAs": [
-      "https://www.instagram.com/madmofoz",
-      "https://github.com/madmofoz",
-      "https://www.linkedin.com/in/madmofoz"
-    ]
-  };
-
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* gfont avoid error */}
+        {/* Google Fonts Preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet" />
         
-        {/* Inject JSON-LD */}
+        {/* SEO: Inject JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         
-        {/* Google Analytics */}
+        {/* Tracking: Google Analytics */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Z607BFHM0N"
@@ -88,7 +49,27 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Theme: Anti-flicker script (Wajib di Head) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (theme === 'dark' || (!theme && supportDarkMode)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         
+        {/* CSS Variable Fallbacks */}
         <style>{`
           :root {
             --font-geist-sans: 'Inter', sans-serif;
@@ -99,10 +80,9 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body className="antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
-        
-        {/* Main */}
-         <main className="min-h-screen flex flex-col w-full relative">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300`}>
+        {/* Primary Page Layout */}
+        <main className="min-h-screen flex flex-col w-full relative">
           {children}
         </main>
       </body>

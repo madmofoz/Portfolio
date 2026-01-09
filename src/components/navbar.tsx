@@ -14,19 +14,29 @@ export default function Navbar() {
   const [isDark, setIsDark] = useState(true);
   const [mounted, setMounted] = useState(false);
 
-  // init theme client side
+  // FIX: Handling hydration and initial theme detection
   useEffect(() => {
     setMounted(true);
-    // check saved theme
-    const savedTheme = localStorage.getItem("theme");
-    const isDarkModeActive = savedTheme 
-      ? savedTheme === "dark" 
-      : document.documentElement.classList.contains("dark");
     
+    // Check initial state from the actual DOM element
+    const isDarkModeActive = document.documentElement.classList.contains("dark");
     setIsDark(isDarkModeActive);
+
+    // FIX: Sync state if the HTML class changes from outside this component
+    const observer = new MutationObserver(() => {
+      const isNowDark = document.documentElement.classList.contains("dark");
+      setIsDark(isNowDark);
+    });
+
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ["class"] 
+    });
+
+    return () => observer.disconnect();
   }, []);
 
-  // toggle func 
+  // CHANGE: Centralized theme toggle logic
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
@@ -40,13 +50,12 @@ export default function Navbar() {
     }
   };
 
-  // avioid hydration mismatch
+  // Avoid hydration mismatch (flicker)
   if (!mounted) {
     return (
-      <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/90 backdrop-blur-md z-[100] border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-500">
+      <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/90 backdrop-blur-md z-[100] border-b border-zinc-200 dark:border-zinc-800">
         <div className="w-full px-[5vw] py-5 flex justify-between items-center">
           <div className="font-black text-xl tracking-[0.2em] uppercase">.MADMOFOZ</div>
-          <div className="h-10 w-10"></div>
         </div>
       </nav>
     );
