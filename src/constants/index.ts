@@ -7,9 +7,15 @@ export const NAV_LINKS = [
 export const PROJECTS = [
   {
     title: "SiliminPro",
-    description: "An innovative platform for functional digital solutions.",
-    tech: ["flask", "HTML", "Tailwind", "Fly.io"],
+    description: "High-precision digital architecture for mechanical diagnostics and automotive tuning.",
+    tech: ["Flask", "Python", "Next.js", "Fly.io"],
     link: "/projects/siliminpro"
+  },
+  {
+    title: "Silimin",
+    description: "Re-engineering an underbone chassis to stabilize a high-torque VVA engine. A study in structural integrity and power-to-weight optimization.",
+    tech: ["Mechanical Engineering", "Fabrication", "Engine Swap"],
+    link: "/projects/silimin"
   },
   {
     title: "KHAD Team",
@@ -19,14 +25,14 @@ export const PROJECTS = [
   },
   {
     title: "ARAK Empire",
-    description: "Crafting a Bold Brand for the Restless Souls; Logo Design and Visual Identity for ARAK Empire",
-    tech: ["Digital Flyer", "Branding", "Negotiation", "Strategy"],
+    description: "Pure Fuel for Restless Souls. Defining a high-octane urban identity and visual ecosystem for premium traditional spirits.",
+    tech: ["Digital Flyer", "Branding", "Negotiation", "Strategy", "Logo Design", "Strategy"],
     link: "/projects/empire"
   },
   {
     title: "Kawa-Kawa Label",
     description: "Designing a Refreshing Visual Identity for representing youth vibes for Kawa-Kawa Bottle Label; Identity and Brand Aesthetics",
-    tech: ["Graphic Design", "Layouting", "Photoshop"],
+    tech: ["Graphic Design", "Aesthetics", "Identity"],
     link: "/projects/kawa-kawa"
   }
 ];

@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 
-/**
- * Global site configuration for easy maintenance
- */
+
 export const siteConfig = {
   name: "Muhammad Zhifrantino",
   description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
-  url: "https://portolio-beta-black.vercel.app/",
+  url: "https://portolio-beta-black.vercel.app",
   ogImage: "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.png",
+  email: "zhifrantino@gmail.com",
   links: {
     instagram: "https://www.instagram.com/madmofoz",
     github: "https://github.com/madmofoz",
     linkedin: "https://www.linkedin.com/in/madmofoz",
+    contra: "https://contra.com/muhammad_zhifrantino_g39g8ebx?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=muhammad_zhifrantino_g39g8ebx",
   },
 };
 
-/**
- * Main metadata object used in the root layout
- */
+
 export const rootMetadata: Metadata = {
   title: {
     default: `${siteConfig.name} | An Outlier by Design`,
@@ -62,17 +60,20 @@ export const rootMetadata: Metadata = {
   }
 };
 
-/**
- * Structured Data (JSON-LD) for SEO
- */
+
 export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Muhammad Zhifrantino",
   "alternateName": ["Tino", "Madz", "Madmofoz"],
   "url": siteConfig.url,
+  "email": siteConfig.email,
   "jobTitle": "Mechanical Engineering Student & Web Developer",
-  "image": siteConfig.ogImage,
+  "image": [
+    "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.webp",
+    `${siteConfig.url}/muhammad_zhifrantino.webp`,
+    `${siteConfig.url}/zhifrantino.webp`
+  ],
   "sameAs": [
     siteConfig.links.instagram,
     siteConfig.links.github,

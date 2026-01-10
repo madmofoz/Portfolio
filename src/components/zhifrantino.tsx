@@ -1,3 +1,4 @@
+import { siteConfig } from '@/constants/metadata';
 import React from 'react';
 
 export default function About() {
@@ -94,14 +95,16 @@ export default function About() {
         </div>
 
         {/* BOTTOM SECTION: The "Wide" Socials */}
-        <div className="w-full pt-16 border-t-1 border-zinc-900 dark:border-zinc-100">
+        <div className="w-full pt-16 border-t border-zinc-900 dark:border-zinc-100 relative z-20">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
             <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400 dark:text-zinc-600">Connectivity / Node_Socials</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400 dark:text-zinc-600">Connectivity / Socials</h4>
               <div className="flex flex-wrap gap-x-12 gap-y-4 text-3xl md:text-3xl font-black uppercase italic tracking-tighter">
-                <a href="https://instagram.com/madmofoz" target="_blank" className="hover:text-blue-600 transition-all">Instagram</a>
-                <a href="https://github.com/madmofoz" target="_blank" className="hover:text-blue-600 transition-all">GitHub</a>
-                <a href="https://linkedin.com/in/madmofoz" target="_blank" className="hover:text-blue-600 transition-all">LinkedIn</a>
+                <a href={siteConfig.links.instagram} target="_blank" className="hover:text-blue-600 transition-all no-underline text-black dark:text-white">Instagram</a>
+                <a href={siteConfig.links.github} target="_blank" className="hover:text-blue-600 transition-all no-underline text-black dark:text-white">GitHub</a>
+                <a href={siteConfig.links.linkedin} target="_blank" className="hover:text-blue-600 transition-all no-underline text-black dark:text-white">LinkedIn</a>
+                <a href={siteConfig.links.contra} target="_blank" className="hover:text-blue-600 transition-all no-underline text-black dark:text-white">Contra</a>
+                <a href={`mailto:${siteConfig.email}`} target="_blank" className="hover:text-blue-600 transition-all no-underline text-black dark:text-white">Email</a>
               </div>
             </div>
             

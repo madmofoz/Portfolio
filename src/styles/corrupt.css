@@ -1,0 +1,67 @@
+@keyframes dataCorruption {
+          0%, 100% { clip-path: inset(0 0 0 0); }
+          5% { clip-path: inset(10% 0 45% 0); }
+          15% { clip-path: inset(45% 0 31% 0); }
+          25% { clip-path: inset(31% 0 27% 0); }
+          35% { clip-path: inset(27% 0 39% 0); }
+          45% { clip-path: inset(39% 0 17% 0); }
+          55% { clip-path: inset(17% 0 12% 0); }
+          65% { clip-path: inset(12% 0 34% 0); }
+          75% { clip-path: inset(34% 0 0% 0); }
+          85% { clip-path: inset(0% 0 23% 0); }
+          95% { clip-path: inset(23% 0 0% 0); }
+        }
+
+        @keyframes scan {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 0% 100%; }
+        }
+
+        @keyframes blink-cursor {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+
+        /* Glitch Style Base */
+        .glitch-tear {
+          position: relative;
+          display: inline-block;
+        }
+
+        .glitch-tear::before,
+        .glitch-tear::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: none;
+        }
+
+        .glitch-tear::before {
+          left: 2px;
+          text-shadow: -1px 0 #ff2e63;
+          animation: dataCorruption 2s infinite linear alternate-reverse;
+        }
+
+        .glitch-tear::after {
+          left: -2px;
+          text-shadow: 1px 0 #08d9d6;
+          animation: dataCorruption 3s infinite linear alternate-reverse;
+        }
+
+        .scan-line {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent, rgba(77, 126, 159, 0.08) 50%, transparent);
+          background-size: 100% 100px;
+          animation: scan 4s linear infinite;
+          pointer-events: none;
+          z-index: 10;
+        }
+        
+.animate-blink-cursor { animation: blink-cursor 1s step-end infinite; }

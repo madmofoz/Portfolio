@@ -31,7 +31,7 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Universal Status Bar - Stays Right */}
+          {/* Universal Status Bar */}
           <div className="flex-1 flex justify-end w-full md:w-auto">
             <div className="flex items-center gap-4 py-2 px-4 border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 rounded-full">
               <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
               <div className="h-3 w-px bg-zinc-300 dark:bg-zinc-700"></div>
               <span className="text-[8px] font-mono text-zinc-400 uppercase tracking-widest">
-                Calisthenics_Mode
+                Calisthenics Mode
               </span>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
                 // Node_Location
               </h4>
               <p className="text-[10px] font-mono text-zinc-500 uppercase">
-                Yogyakarta, ID // 7.7956° S, 110.3695° E
+                Yogyakarta, ID // x.xxxx° S, xxx.xxxx° E
               </p>
             </div>
           </div>
