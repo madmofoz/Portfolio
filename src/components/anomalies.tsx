@@ -3,9 +3,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useSpring, AnimatePresence } from 'framer-motion';
 
-// --- Komponen Mata (Eye Tracking Logic) ---
-const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos, color = "bg-white" }) => {
-  const eyeRef = useRef(null);
+interface MousePos {
+  x: number;
+  y: number;
+}
+
+interface EyeProps {
+  size?: string;
+  pupilSize?: string;
+  mousePos: MousePos;
+  color?: string;
+}
+
+const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos, color = "bg-white" }: EyeProps) => {
+  const eyeRef = useRef<HTMLDivElement>(null);
   const x = useSpring(0, { stiffness: 150, damping: 15, mass: 0.1 });
   const y = useSpring(0, { stiffness: 150, damping: 15, mass: 0.1 });
 
@@ -41,7 +52,7 @@ const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos, colo
   );
 };
 
-const NeonGremlin = ({ mousePos, active }) => (
+const NeonGremlin = ({ mousePos, active }: { mousePos: MousePos; active: boolean }) => (
   <motion.div 
     animate={{ y: active ? 0 : 60 }}
     className="relative w-24 h-24 bg-[#000000] rounded-t-full flex items-start justify-center pt-6 gap-1 z-30 shadow-[0_0_20px_rgba(255,255,255,0.5)]"
@@ -65,7 +76,7 @@ const BlueprintDrone = ({ mousePos, active }) => (
   </motion.div>
 ); */}
 
-const GlitchStalker = ({ mousePos, active }) => (
+const GlitchStalker = ({ mousePos, active }: { mousePos: MousePos; active: boolean }) => (
   <motion.div 
     animate={{ y: active ? 0 : 100 }}
     transition={{ delay: 0.2 }}
@@ -75,7 +86,7 @@ const GlitchStalker = ({ mousePos, active }) => (
   </motion.div>
 );
 
-export default function SystemAnomalies({ isEasterEggActive }) {
+export default function SystemAnomalies({ isEasterEggActive }: { isEasterEggActive: boolean }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFooterHovered, setIsFooterHovered] = useState(false);
 
