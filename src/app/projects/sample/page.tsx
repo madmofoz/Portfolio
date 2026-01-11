@@ -1,14 +1,27 @@
-"use client"
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, useSpring, useTransform } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useSpring } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Github, Chrome } from 'lucide-react';
 
+// --- Interfaces ---
+interface MousePosition {
+  x: number;
+  y: number;
+}
+
+interface EyeProps {
+  size?: string;
+  pupilSize?: string;
+  mousePos: MousePosition;
+}
+
+interface MonsterProps {
+  mousePos: MousePosition;
+}
+
 // --- Eye Component ---
-// This handles the trigonometry to make the pupils follow the cursor
-const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos }) => {
-  const eyeRef = useRef(null);
+const TrackingEye: React.FC<EyeProps> = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos }) => {
+  const eyeRef = useRef<HTMLDivElement>(null);
   
-  // Spring configuration for organic, smooth movement
   const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
   const x = useSpring(0, springConfig);
   const y = useSpring(0, springConfig);
@@ -23,13 +36,10 @@ const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos }) =>
     const deltaX = mousePos.x - centerX;
     const deltaY = mousePos.y - centerY;
     
-    // Distance from center to mouse
     const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-    // Limit movement to keep pupil inside the eye
     const maxMove = rect.width / 4; 
     const angle = Math.atan2(deltaY, deltaX);
     
-    // Calculate new position
     const moveX = Math.cos(angle) * Math.min(distance / 15, maxMove);
     const moveY = Math.sin(angle) * Math.min(distance / 15, maxMove);
 
@@ -51,7 +61,7 @@ const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos }) =>
 };
 
 // --- Character Components ---
-const OrangeMonster = ({ mousePos }) => (
+const OrangeMonster: React.FC<MonsterProps> = ({ mousePos }) => (
   <motion.div 
     initial={{ y: 50, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
@@ -62,7 +72,7 @@ const OrangeMonster = ({ mousePos }) => (
   </motion.div>
 );
 
-const PurpleMonster = ({ mousePos }) => (
+const PurpleMonster: React.FC<MonsterProps> = ({ mousePos }) => (
   <motion.div 
     initial={{ y: 100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
@@ -73,7 +83,7 @@ const PurpleMonster = ({ mousePos }) => (
   </motion.div>
 );
 
-const YellowMonster = ({ mousePos }) => (
+const YellowMonster: React.FC<MonsterProps> = ({ mousePos }) => (
   <motion.div 
     initial={{ y: 80, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
@@ -86,12 +96,11 @@ const YellowMonster = ({ mousePos }) => (
 
 // --- Main App ---
 export default function App() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mousePos, setMousePos] = useState<MousePosition>({ x: 0, y: 0 });
   const [showPassword, setShowPassword] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -110,7 +119,6 @@ export default function App() {
              <YellowMonster mousePos={mousePos} />
           </div>
           
-          {/* Decorative background shapes */}
           <div className="absolute top-10 left-10 w-4 h-4 bg-indigo-200 rounded-full animate-pulse" />
           <div className="absolute bottom-20 right-20 w-8 h-8 border-4 border-orange-200 rounded-lg rotate-12" />
         </div>
@@ -130,8 +138,6 @@ export default function App() {
                 <input 
                   type="email"
                   placeholder="name@company.com"
-                  onFocus={() => setIsFocused(true)}
-                  onBlur={() => setIsFocused(false)}
                   className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
                 />
               </div>
@@ -144,8 +150,6 @@ export default function App() {
                 <input 
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  onFocus={() => setIsFocused(true)}
-                  onBlur={() => setIsFocused(false)}
                   className="w-full pl-12 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
                 />
                 <button 
@@ -158,22 +162,9 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between px-1">
-              <label className="flex items-center gap-2 cursor-pointer group">
-                <input type="checkbox" className="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
-                <span className="text-sm text-slate-600 group-hover:text-slate-900 transition-colors">Remember for 30 days</span>
-              </label>
-              <button type="button" className="text-sm font-bold text-indigo-600 hover:text-indigo-700">Forgot password?</button>
-            </div>
-
             <button className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-lg hover:bg-slate-800 transform active:scale-[0.98] transition-all shadow-lg shadow-slate-200">
               Sign In
             </button>
-
-            <div className="relative py-4">
-              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-100"></div></div>
-              <div className="relative flex justify-center text-sm uppercase"><span className="bg-white px-4 text-slate-400 font-medium">Or continue with</span></div>
-            </div>
 
             <div className="grid grid-cols-2 gap-4">
               <button className="flex items-center justify-center gap-2 py-3 px-4 border border-slate-200 rounded-2xl hover:bg-slate-50 transition-colors font-semibold">
