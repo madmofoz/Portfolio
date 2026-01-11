@@ -15,7 +15,17 @@ interface EyeProps {
   color?: string;
 }
 
-const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos, color = "bg-white" }: EyeProps) => {
+interface MonsterProps {
+  mousePos: MousePos;
+  active: boolean;
+}
+
+const TrackingEye = ({ 
+  size = "w-12 h-12", 
+  pupilSize = "w-5 h-5", 
+  mousePos, 
+  color = "bg-white" 
+}: EyeProps) => {
   const eyeRef = useRef<HTMLDivElement>(null);
   const x = useSpring(0, { stiffness: 150, damping: 15, mass: 0.1 });
   const y = useSpring(0, { stiffness: 150, damping: 15, mass: 0.1 });
@@ -52,7 +62,7 @@ const TrackingEye = ({ size = "w-12 h-12", pupilSize = "w-5 h-5", mousePos, colo
   );
 };
 
-const NeonGremlin = ({ mousePos, active }: { mousePos: MousePos; active: boolean }) => (
+const NeonGremlin = ({ mousePos, active }: MonsterProps) => (
   <motion.div 
     animate={{ y: active ? 0 : 60 }}
     className="relative w-24 h-24 bg-[#000000] rounded-t-full flex items-start justify-center pt-6 gap-1 z-30 shadow-[0_0_20px_rgba(255,255,255,0.5)]"
@@ -76,7 +86,7 @@ const BlueprintDrone = ({ mousePos, active }) => (
   </motion.div>
 ); */}
 
-const GlitchStalker = ({ mousePos, active }: { mousePos: MousePos; active: boolean }) => (
+const GlitchStalker = ({ mousePos, active }: MonsterProps) => (
   <motion.div 
     animate={{ y: active ? 0 : 100 }}
     transition={{ delay: 0.2 }}
@@ -87,32 +97,35 @@ const GlitchStalker = ({ mousePos, active }: { mousePos: MousePos; active: boole
 );
 
 export default function SystemAnomalies({ isEasterEggActive }: { isEasterEggActive: boolean }) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isFooterHovered, setIsFooterHovered] = useState(false);
+  const [mousePos, setMousePos] = useState<MousePos>({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMove = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
+    const handleMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
     window.addEventListener('mousemove', handleMove);
     return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
   return (
     <>
-
       <AnimatePresence>
         {isEasterEggActive && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 pointer-events-none z-200 flex items-center justify-center"
+            className="fixed inset-0 pointer-events-none z-[200] flex items-center justify-center"
           >
             <div className="absolute top-20 right-20 rotate-12 scale-150">
                 <NeonGremlin mousePos={mousePos} active={true} />
             </div>
+            
             <div className="absolute bottom-40 left-20 -rotate-12 scale-110">
                 <GlitchStalker mousePos={mousePos} active={true} />
             </div>
+
+            {/* Error Message Overlay */}
             <div className="bg-red-600/10 backdrop-blur-sm border border-red-600 p-4 font-mono text-red-600 text-xs uppercase tracking-widest animate-pulse">
                 Critical Anomaly: System_Infected_by_Ghosts
             </div>
