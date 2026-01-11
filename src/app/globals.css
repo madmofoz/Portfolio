@@ -18,7 +18,6 @@
 }
 
 body {
-  /* Pake !important biar gak kalah sama class bg-white atau bg-zinc-50 di layout */
   background-color: var(--background) !important;
   color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
@@ -41,10 +40,42 @@ html {
 }
 
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+@keyframes glow-5 {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(57, 255, 20, 0.8),
+      0 0 30px rgba(57, 255, 20, 0.4);
+    transform: scale(1.1);
+  }
+}
+.animate-glow-5 {
+  animation: glow-5 2s ease-in-out infinite;
 }

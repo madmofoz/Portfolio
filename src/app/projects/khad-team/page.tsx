@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Navbar from '@/components/navbar';
+import { siteConfig } from '@/constants/metadata';
 import EntryPhoto from "@/assets/khad-all-team-2024.webp";
 import day1_1 from "@/assets/khad-day-1/slide 2.webp";
 import day1_2 from "@/assets/khad-day-1/slide 3.webp";
@@ -32,7 +33,7 @@ export default function App() {
   if (!mounted) return null;
 
   return (
-    <section className="relative w-full bg-[#020617] text-white overflow-x-hidden font-sans">
+    <section className="relative w-full text-white overflow-x-hidden font-sans">
       <Navbar />
       
       {/* --- TRIPLE LINING DECOR --- */}
@@ -47,19 +48,12 @@ export default function App() {
         {/* --- HERO SECTION --- */}
         <div className="min-h-[40vh] flex flex-col justify-center mb-24 border-l-4 border-red-600 px-[5vw]">
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-red-500 font-black italic tracking-widest text-xs uppercase underline decoration-red-600 underline-offset-8">
-              Lights Out & Away We Go!
-            </span>
+            <span className="text-red-500 font-black italic tracking-widest text-xs uppercase underline decoration-red-600 underline-offset-8">Lights Out & Away We Go!</span>
             <div className="h-px w-24 bg-red-600"></div>
           </div>
-          <h1 className="text-[10vw] font-black leading-[0.8] tracking-tighter uppercase mb-4">
-            KHAD <span className="text-zinc-700 opacity-75">TEAM.</span>
-          </h1>
-          <h2 className="text-3xl md:text-5xl font-black italic text-red-600 uppercase tracking-tighter mb-8">
-            Visualizing Dynamics
-          </h2>
-          <p className="max-w-2xl text-lg text-zinc-400 leading-relaxed font-medium">
-            Designed architecture for sustainable mobility. Structuring the identity of efficiency from scratch.
+          <h1 className="text-[10vw] font-black leading-[0.8] tracking-tighter uppercase mb-4">KHAD <span className="text-zinc-700 opacity-75">TEAM.</span></h1>
+          <h2 className="text-3xl md:text-5xl font-black italic text-red-600 uppercase tracking-tighter mb-8">Visualizing Dynamics</h2>
+          <p className="max-w-2xl text-lg text-zinc-400 leading-relaxed font-medium">Designed architecture for sustainable mobility. Structuring the identity of efficiency from scratch.
             <span className="text-white"> —— 18 BEST FRAMES ABOUT KMHE 2024.</span>
           </p>
         </div>
@@ -141,14 +135,12 @@ function TechnicalEntryScroll() {
                 </div>
                 <p className="text-[8px] font-mono text-zinc-500">RES: 1620x3240 // ASPECT_RATIO: 1:2</p>
               </div>
-              <div className="px-3 py-1 border border-zinc-800 bg-black/50 text-[10px] font-mono">
-                SEC_00
+              <div className="px-3 py-1 border border-zinc-800 bg-black/50 text-[10px] font-mono">SEC_00
               </div>
             </div>
 
             <div className="flex justify-between items-end">
-              <div className="text-[10px] font-black text-red-500 bg-black/45 p-2 xl:hidden">
-                SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
+              <div className="text-[10px] font-black text-red-500 bg-black/45 p-2 xl:hidden">SCAN_PROG: <span className="inline-block w-8">{(scrollProgress * 100).toFixed(0)}%</span>
               </div>
               <div className="text-right">
                 <h4 className="text-3xl md:hidden text-blue-700 underline decoration-red-600 underline-offset-8 font-black italic tracking-tighter uppercase leading-none mb-2">Structure</h4>
@@ -298,9 +290,7 @@ function Info() {
             <h4 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-500">Pitstop Info</h4>
             <div className="space-y-4">
               <p className="text-sm font-bold uppercase">— — . .</p>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                *The three-line is inspired by BMW's 'Giugiargo M', based on their suit color combination of red, white and navy blue. It symbolises speed, efficiency, and precision. 
-              </p>
+              <p className="text-zinc-400 text-sm leading-relaxed">*The three-line is inspired by BMW's 'Giugiargo M', based on their suit color combination of red, white and navy blue. It symbolises speed, efficiency, and precision.</p>
             </div>
           </div>
         </div>
@@ -309,11 +299,9 @@ function Info() {
 function FinishLine() {
   return (
     <div className="py-32 text-center">
-          <p className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter mb-12 max-w-3xl mx-auto">
-            "In racing, clarity is speed. <span className="text-zinc-600">The design must serve the function."</span>
-          </p>
+          <p className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter mb-12 max-w-3xl mx-auto">"In racing, clarity is speed.<span className="text-zinc-600">The design must serve the function."</span></p>
           <a
-            href="https://instagram.com/madmofoz"
+            href={siteConfig.links.contra}
             target="_blank"
             className="inline-flex items-center gap-6 bg-red-600 hover:bg-red-700 hover:scale-103 text-white px-12 py-6 rounded-sm text-xs font-black uppercase tracking-[0.4em] transition-all active:scale-95 shadow-[0_10px_30px_rgba(239,68,68,0.3)]"
           >

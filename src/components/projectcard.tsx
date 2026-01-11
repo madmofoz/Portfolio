@@ -28,7 +28,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </div>
 
-          {/* Title - Reduced size slightly for 2-column fit */}
+          {/* Title */}
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase italic leading-[0.9] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
             {title}
           </h3>
@@ -53,7 +53,6 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
         <div className="pt-6 flex flex-col gap-4">
           <a 
             href={link} 
-            target="_blank"
             rel="noopener noreferrer"
             className="group/btn relative inline-flex items-center gap-4 text-xl font-black italic uppercase tracking-tighter text-black dark:text-white no-underline"
           >

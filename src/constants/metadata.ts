@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Muhammad Zhifrantino",
   description: "Muhammad Zhifrantino's personal portfolio. Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner.",
-  url: "https://portolio-beta-black.vercel.app",
+  url: "https://portolio-zhifrantino.vercel.app",
   ogImage: "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.png",
   email: "zhifrantino@gmail.com",
   links: {

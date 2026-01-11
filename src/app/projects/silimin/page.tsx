@@ -53,7 +53,7 @@ export default function SiliminProject() {
     ];
 
     return (
-        <div className="bg-[#02040a] text-zinc-100 min-h-screen font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
+        <div className=" text-zinc-100 min-h-screen font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
             <CustomCursor isSpecArea={isSpecArea} />
             <Navbar />
 
@@ -163,7 +163,7 @@ export default function SiliminProject() {
             </section>
 
             {/* LOG */}
-            <section className="py-40 bg-black relative overflow-hidden">
+            <section className="py-40 relative overflow-hidden">
                 {/* Subtle Background Texture */}
                 <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
                     <img
@@ -256,7 +256,7 @@ export default function SiliminProject() {
                     </div>
 
                     {/* Engineer's Note */}
-                    <div className="mt-32 p-12 bg-zinc-950 border border-zinc-800 relative group overflow-hidden">
+                    <div className="mt-32 p-12 bg-zinc-950/30 border border-zinc-800 relative group overflow-hidden">
                         <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
                             <Cpu className="w-12 h-12 text-blue-600" />
                         </div>
@@ -269,7 +269,7 @@ export default function SiliminProject() {
             </section>
 
             {/* PERFORMANCE DATA & VISUALIZATION */}
-            <section className="py-40 bg-[#040813] relative overflow-hidden">
+            <section className="py-40 relative overflow-hidden">
                 {/* Dyno Graph Background Overlay */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <svg className="w-full h-full" viewBox="0 0 1000 400">
@@ -328,7 +328,7 @@ export default function SiliminProject() {
             </section>
 
             {/* ENGINEERING CHALLENGES */}
-            <section className="py-40 bg-black">
+            <section className="py-40">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-24">
                         <h3 className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">Challenge Logbook</h3>
@@ -361,8 +361,8 @@ export default function SiliminProject() {
                 </div>
             </section>
 
-            {/* FOOTER: "Optimized for Chaos" */}
-            <section className="py-32 border-t border-zinc-900 bg-[#050505]">
+            {/* FOOTER */}
+            <section className="py-32 border-t border-zinc-900">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                         <div className="space-y-6 max-w-xl">

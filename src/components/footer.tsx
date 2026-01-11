@@ -17,7 +17,7 @@ export default function Footer() {
             </h4>
             <p className="text-[11px] font-bold uppercase leading-tight">
               Next.js & Tailwind <br />
-              <span className="text-zinc-400 dark:text-zinc-500 text-[9px] font-mono">Build_v2.5.0 // Operational</span>
+              <span className="text-zinc-400 dark:text-zinc-500 text-[9px] font-mono">Build_v2.5.0 // Operational...</span>
             </p>
           </div>
 
@@ -33,20 +33,16 @@ export default function Footer() {
 
           {/* Universal Status Bar */}
           <div className="flex-1 flex justify-end w-full md:w-auto">
-            <div className="flex items-center gap-4 py-2 px-4 border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 rounded-full">
+            <div className="flex items-center gap-4 py-2 px-4 border border-zinc-200 dark:border-zinc-800 bg-blend-multiply rounded-full">
               <div className="flex items-center gap-2">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-[8px] font-mono text-zinc-600 dark:text-zinc-400 uppercase tracking-widest whitespace-nowrap">
-                  Status: Stable
-                </span>
+                <span className="text-[9px] font-mono text-zinc-900 dark:text-zinc-300 uppercase tracking-widest whitespace-nowrap">Status: Stable</span>
               </div>
-              <div className="h-3 w-px bg-zinc-300 dark:bg-zinc-700"></div>
-              <span className="text-[8px] font-mono text-zinc-400 uppercase tracking-widest">
-                Calisthenics Mode
-              </span>
+              <div className="h-3 w-px bg-zinc-200 dark:bg-zinc-200"></div>
+              <span className="text-[9px] font-mono text-zinc-900 dark:text-zinc-300 uppercase tracking-widest">Calisthenics Mode</span>
             </div>
           </div>
 

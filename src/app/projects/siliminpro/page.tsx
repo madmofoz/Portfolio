@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/navbar';
 import Footer from "@/components/footer";
 
-export default function App() {
+export default function SiliminPro() {
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
@@ -31,7 +31,7 @@ export default function App() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen text-zinc-900 dark:text-zinc-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
 
       <Navbar />
 
@@ -296,8 +296,8 @@ function CoreFeaturesSection() {
 
 function NarrativeSection() {
   return (
-    <section className="py-32 bg-zinc-900 text-white overflow-hidden relative">
-      <div className="absolute inset-0 opacity-25 scale-150 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+    <section className="py-3 text-white dark:text-zinc-900 overflow-hidden relative">
+      <div className="absolute inset-0 opacity-25 scale-150"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         <div className="relative aspect-square md:aspect-video lg:aspect-square group overflow-hidden border border-white/10 rounded-3xl">
@@ -341,7 +341,7 @@ function TechnicalSpecsSection() {
   ];
 
   return (
-    <section className="py-32 px-6 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
+    <section className="py-32 px-6 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-4xl mx-auto">
         <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-400 mb-12 text-center">Technical Data Sheet</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
