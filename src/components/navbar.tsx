@@ -71,7 +71,7 @@ export default function Navbar() {
             <span className="text-white dark:text-black font-black text-xs">Z</span>
           </div>
           <span className="font-black text-xl tracking-[0.2em] text-black dark:text-white uppercase">
-            .MADMOFO<span className="text-zinc-800 dark:text-zinc-400">Z</span>
+            .MΛDMOFO<span className="text-zinc-800 dark:text-zinc-400">Z</span>
           </span>
         </Link>
 

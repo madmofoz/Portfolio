@@ -1,4 +1,5 @@
 import React from 'react'
+import '@/styles/corrupt.css';
 
 interface ProjectProps {
   title: string;
@@ -9,7 +10,7 @@ interface ProjectProps {
 
 export default function ProjectCard({ title, description, tech, link }: ProjectProps) {
   return (
-    <div className="group relative w-full p-8 md:p-12 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500 flex flex-col justify-between">
+    <div className="scan-line group relative w-full p-8 md:p-12 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500 flex flex-col justify-between">
       
       {/* Background Index Decor */}
       <div className="absolute top-8 right-8 opacity-[0.03] dark:opacity-[0.07] select-none pointer-events-none">
@@ -29,7 +30,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
           </div>
 
           {/* Title */}
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase italic leading-[0.9] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
+          <h3 className="glitch-tear text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase italic leading-[0.9] text-black dark:text-white transition-transform group-hover:translate-x-2 duration-500">
             {title}
           </h3>
 

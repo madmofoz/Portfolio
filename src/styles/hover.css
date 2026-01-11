@@ -1,0 +1,51 @@
+@keyframes wiggle {
+    0% { -webkit-transform: skewX(24deg); } 
+    10% { -webkit-transform: skewX(-8deg); }
+    20% { -webkit-transform: skewX(55deg); }
+    30% { -webkit-transform: skewX(-90deg); }
+    40% { -webkit-transform: skewX(29deg); }
+    50% { -webkit-transform: skewX(-90deg); }
+    60% { -webkit-transform: skewX(3deg); }
+    70% { -webkit-transform: skewX(-2deg); }
+    80% { -webkit-transform: skewX(1deg); }
+    90% { -webkit-transform: skewX(10deg); }
+    100% { -webkit-transform: skewX(0deg); }
+}
+
+header {
+  display: flex;
+}
+
+header:hover {
+  animation: wiggle 0.4s;
+}
+
+.wiggle-text {
+  position: relative;
+  display: inline-block;
+  font-size: inherit;
+  text-align: center;
+  cursor: pointer;
+  color: zinc-800;
+  transition: text-shadow 0.1s ease-out;
+}
+
+.wiggle-text:hover {
+  animation: wiggle 0.25s infinite;
+  color: rgba(255, 255, 255, 0.95);
+  transition:all ease-out 0.1s;
+  text-shadow:30px 13px rgba(246, 0, 153,0.8),
+             -38px -4px rgba(15, 210, 255,0.8),
+             -2px -4px rgba(255, 210, 0, 1);
+
+}
+
+.wiggle-text:hover:after {
+  content:':̪̺̠̺͗ͨ̋ͩ͗:̛͇̱̥̥̙̎͆̑ͮ̐͢:̷̲ͮ̃́̅ͦ̔͐̆:̴͈͖̮̪̗̈́̆̀:̨̙̗̺̞̥͗̐ͫ:̗̰̜̟̮̦̉̂';
+  z-index:1000;
+  position:absolute;
+  font-size: 0.5em;
+  left: 0.5em;  
+  top: -0.5em;
+  transform:rotate(36deg);
+}
