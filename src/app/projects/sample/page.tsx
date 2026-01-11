@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useSpring } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Github, Chrome } from 'lucide-react';
