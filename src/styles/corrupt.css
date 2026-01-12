@@ -63,7 +63,7 @@
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(57, 255, 20, 0.05) 70%,
+    rgba(57, 255, 20, 0.1) 50%,
     transparent
   );
   background-size: 100% 100px;

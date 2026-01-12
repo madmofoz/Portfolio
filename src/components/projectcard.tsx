@@ -38,16 +38,18 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             {description}
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            {tech.map((item) => (
-              <span 
-                key={item} 
-                className="px-4 py-1.5 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-zinc-300 text-[9px] font-black uppercase tracking-widest rounded-full border border-transparent hover:border-zinc-400 transition-colors"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
+          <div className="relative z-10">
+        <div className="flex flex-wrap gap-2">
+          {tech.map((item, index) => (
+            <span 
+              key={`${item}-${index}`} 
+              className="px-4 py-1.5 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-zinc-300 text-[9px] font-black uppercase tracking-widest rounded-full border border-transparent hover:border-zinc-400 transition-colors"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
         </div>
 
         {/* Action Section */}
@@ -58,7 +60,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             className="group/btn relative inline-flex items-center gap-4 text-xl font-black italic uppercase tracking-tighter text-black dark:text-white no-underline"
           >
             <span className="relative z-10 underline decoration-[3px] underline-offset-8 decoration-zinc-500 group-hover/btn:decoration-black dark:group-hover/btn:decoration-white transition-all">
-            wtf is that →
+            huh? →
             </span>
           </a>
           
