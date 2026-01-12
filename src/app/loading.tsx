@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
-const StartupLoader = () => {
+const Loader = () => {
     const pathname = usePathname();
 
     const [isVisible, setIsVisible] = useState(true);
@@ -13,14 +13,6 @@ const StartupLoader = () => {
     const [dots, setDots] = useState('');
     const [msgIndex, setMsgIndex] = useState(0);
     const [progress, setProgress] = useState(0);
-
-    // constant sync path
-    if (pathname !== lastPathname) {
-        setLastPathname(pathname);
-        setIsVisible(true);
-        setIsReady(false);
-        setProgress(0);
-    }
 
     const messages = useMemo(() => [
         "Warming up the engines...",
@@ -91,18 +83,27 @@ const StartupLoader = () => {
     ], []);
     const [currentIcon, setCurrentIcon] = useState(customIcons[0]);
 
+    // constant sync path
+    if (pathname !== lastPathname) {
+        setLastPathname(pathname);
+        setIsVisible(true);
+        setIsReady(false);
+        setProgress(0);
+    }
+
     useEffect(() => {
         if (!isVisible) return;
-
-        const handleLoad = () => {
-            setIsReady(true);
-        };
+        const handleLoad = () => setIsReady(true);;
 
         if (document.readyState === 'complete') {
             setIsReady(true);
         } else {
             window.addEventListener('load', handleLoad);
         }
+    }, [isVisible, pathname]);
+
+    useEffect(() => {
+        if (!isVisible) return;
 
         const msgInterval = setInterval(() => {
             setMsgIndex((prev) => {
@@ -117,7 +118,7 @@ const StartupLoader = () => {
 
         const progressInterval = setInterval(() => {
             setProgress((prev) => {
-                if (prev < 10) return prev + 1.5;
+                if (prev < 20) return prev + 1.5;
                 if (isReady && prev < 100) return prev + 5;
                 return prev;
             });
@@ -130,13 +131,17 @@ const StartupLoader = () => {
             return () => clearTimeout(finishTimer);
         }
 
-        return () => {
-            clearInterval(msgInterval);
-            clearInterval(progressInterval);
-            window.removeEventListener('load', handleLoad);
-        };
-    }, [isVisible, isReady, progress, messages.length, customIcons]);
-
+    }, [isVisible, isReady, messages.length, customIcons]);
+    
+    // end logic
+    useEffect(() => {
+        if (progress >= 100 && isReady && isVisible) {
+            const timer = setTimeout(() => setIsVisible(false), 600);
+            return () => clearTimeout(timer);
+        }
+    }, [progress, isReady, isVisible]);
+    
+    //dot logic
     useEffect(() => {
         if (!isVisible) return;
         const interval = setInterval(() => {
@@ -149,7 +154,7 @@ const StartupLoader = () => {
         <AnimatePresence mode="wait">
             {isVisible && (
                 <motion.div
-                    key="startup-loader-canvas"
+                    key="loader-canvas"
                     initial={{ opacity: 1 }}
                     exit={{
                         y: "-100%", // Curtain effect
@@ -186,7 +191,7 @@ const StartupLoader = () => {
               className="w-24 h-24 bg-[#2563eb] rounded-full shadow-2xl shadow-blue-300 flex items-center justify-center relative z-10"
             >*/}
 
-                            <img src="gear.svg" className="w-56 h-56 relative flex items-center justify-center"></img>
+                            <img src="/gear.svg" className="w-56 h-56 relative flex items-center justify-center"></img>
 
                             {/* Initial M that shakes along */}
                             <span className="text-white text-6xl font-black tracking-tighter">Z</span>
@@ -266,4 +271,4 @@ const StartupLoader = () => {
     );
 };
 
-export default StartupLoader;
+export default Loader;

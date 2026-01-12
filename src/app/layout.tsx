@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { rootMetadata, jsonLd } from "@/constants/metadata";
-import DoodleLoader from "./loading";
+import Loader from "./loading";
 
 // Initialize fonts
 const geistSans = Geist({
@@ -82,7 +82,7 @@ export default function RootLayout({
         `}</style>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300`}>
-        <DoodleLoader />
+        <Loader />
         <main className="min-h-screen flex flex-col w-full relative">
           {children}
         </main>
