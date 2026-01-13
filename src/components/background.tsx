@@ -32,6 +32,7 @@ export default function Background() {
           particleCount={150}
           speed={0.15}
           particleBaseSize={80}
+          className="w-full h-full"
           moveParticlesOnHover={true}
           disableRotation={false}
           pixelRatio={1}
