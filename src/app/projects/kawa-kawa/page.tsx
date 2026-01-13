@@ -3,31 +3,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Type, Eye, Zap, Search, Sun, Moon, AlertTriangle } from 'lucide-react';
-import Navbar from '@/components/navbar';
-import Footer from "@/components/footer";
+import Image from 'next/image';
 import ads from "@/assets/kawa-kawa/ads- v2.webp";
 import label from "@/assets/kawa-kawa/artboard-1.webp";
 import text from "@/assets/kawa-kawa/artboard-5.webp";
 
 export default function KawaKawaProject() {
-  const [isHighContrast, setIsHighContrast] = useState(true); // true = Black (Default), false = White
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-700 overflow-x-hidden selection:bg-[#39FF14] selection:text-black ${isHighContrast ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      <Navbar />
-
-      {/* CONTRAST TOGGLE BUTTON */}
-      <button 
-        onClick={() => setIsHighContrast(!isHighContrast)}
-        className={`fixed bottom-10 right-10 z-[100] p-4 rounded-full border shadow-2xl transition-all active:scale-90 ${isHighContrast ? 'bg-white text-black border-zinc-200' : 'bg-black text-white border-zinc-800'}`}
-        title="Toggle Contrast Index"
-      >
-        {isHighContrast ? <Sun size={20} /> : <Moon size={20} />}
-      </button>
+    <div className="font-sans duration-700 overflow-x-hidden">
 
       {/* HERO SECTION: "The Urban Release" */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
-        <div className={`absolute inset-0 opacity-10 ${isHighContrast ? 'bg-[radial-gradient(circle_at_center,rgba(57,255,20,0.4)_0%,transparent_70%)]' : 'bg-[radial-gradient(circle_at_center,rgba(57,255,20,0.8)_0%,transparent_70%)]'}`}></div>
         
         <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <motion.div 
@@ -35,15 +22,15 @@ export default function KawaKawaProject() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <div className={`inline-block px-3 py-1 border text-[10px] font-black uppercase tracking-[0.4em] ${isHighContrast ? 'border-[#39FF14]/50 text-[#39FF14]' : 'border-black text-black'}`}>
+            <div className={`inline-block px-3 py-1 border text-[10px] font-black uppercase tracking-[0.4em]`}>
               Project: Visual Identity
             </div>
             <h1 className="text-[8vw] lg:text-[6vw] font-black leading-[0.85] tracking-tighter uppercase italic">
               THE URBAN <br /> 
-              <span className={`drop-shadow-[0_0_15px_rgba(57,255,20,0.5)] ${isHighContrast ? 'text-[#39FF14]' : 'text-black'}`}>RELEASE:</span> <br /> 
+              <span className={`drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]`}>RELEASE:</span> <br /> 
               STAY WILD <br /> N FREE.
             </h1>
-            <p className={`max-w-md text-lg md:text-xl font-medium leading-tight ${isHighContrast ? 'text-zinc-400' : 'text-zinc-600'}`}>
+            <p className={`max-w-md text-lg md:text-xl font-medium leading-tight`}>
               A visual manifestation of youth freedom and freestyle energy, designed for the iconic Kawa Kawa label contest.
             </p>
           </motion.div>
@@ -53,9 +40,9 @@ export default function KawaKawaProject() {
             whileInView={{ opacity: 1, scale: 1 }}
             className="relative flex justify-center"
           >
-            <div className={`relative w-full aspect-[3/4] max-w-md overflow-hidden group border shadow-2xl transition-colors duration-700 ${isHighContrast ? 'bg-zinc-900/50 border-white/5' : 'bg-zinc-100 border-black/5'}`}>
-              <img 
-                src={ads.src} 
+            <div className={`relative w-full aspect-[3/4] max-w-md overflow-hidden group border shadow-2xl transition-colors duration-7000`}>
+              <Image 
+                src={ads} 
                 alt="Kawa Kawa Bottle Mockup" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />
@@ -69,23 +56,23 @@ export default function KawaKawaProject() {
       </section>
 
       {/* TECHNICAL REPORT: Precision Graphics & Compliance Audit */}
-      <section className={`py-40 relative overflow-hidden transition-colors duration-700 ${isHighContrast ? 'bg-zinc-950' : 'bg-zinc-50'}`}>
+      <section className={`py-40 relative overflow-hidden transition-colors duration-700`}>
         <div className="container mx-auto px-6 max-w-6xl relative z-10">
           <div className="mb-24 space-y-4">
-            <h3 className="text-[#39FF14] font-mono text-[10px] uppercase tracking-[0.5em] font-bold">
-              [TECHNICAL REPORT]: Precision Graphics & Compliance Audit
+            <h3 className="text-[#30ec0e]/70 dark:text-[#39FF14] font-mono text-[14px] uppercase tracking-[0.5em] font-bold">
+              [TECHNICAL REPORT]: Graphics & Compliance Audit
             </h3>
-            <h2 className={`text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-none ${isHighContrast ? 'text-white' : 'text-black'}`}>
-              ENGINEERING <br /> VISUAL ASSETS.
+            <h2 className={`text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-none`}>
+              VISUAL ASSETS<br />  BREAKDOWN.
             </h2>
-            <p className={`max-w-3xl text-sm md:text-base font-mono leading-relaxed mt-6 ${isHighContrast ? 'text-zinc-500' : 'text-zinc-600'}`}>
+            <p className={`max-w-3xl text-sm md:text-base font-mono leading-relaxed mt-6`}>
               While the visual aesthetic leans into the "Stay Wild" urban culture, the execution remains rooted in the rigorous standards of Mechanical Engineering. I treated the label like a high-performance machine part—flawless, legal, and optimized.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-mono">
             {/* Audit Point 1 */}
-            <div className={`p-10 border transition-all group ${isHighContrast ? 'border-zinc-900 bg-black/40 hover:border-[#39FF14]/30' : 'border-zinc-200 bg-white hover:border-[#39FF14]'}`}>
+            <div className={`p-10 border transition-all group bg-black/5`}>
               <div className="flex items-center gap-4 mb-8">
                 <Search className="text-[#39FF14]" size={24} />
                 <h4 className="text-sm font-bold uppercase tracking-widest">01. System Audit</h4>
@@ -93,7 +80,7 @@ export default function KawaKawaProject() {
               <div className="space-y-4 text-[11px] leading-relaxed uppercase">
                 <p>Identified critical linguistic errors in contest assets (e.g., 'Fermentas' in mandatory copy).</p>
                 <div className="relative inline-block group/tip cursor-help">
-                  <span className="bg-[#39FF14]/20 text-[#39FF14] px-2 py-1 rounded-sm font-bold border border-[#39FF14]/30">
+                  <span className="bg-[#28ec05]/20 text-[#30ec0e] px-2 py-1 rounded-sm font-bold border border-[#39FF14]/30">
                     [ACTION]: Rectified to 'Fermentasi'
                   </span>
                   {/* Spotlight Tooltip */}
@@ -106,31 +93,31 @@ export default function KawaKawaProject() {
             </div>
 
             {/* Audit Point 2 */}
-            <div className={`p-10 border transition-all ${isHighContrast ? 'border-zinc-900 bg-black/40 hover:border-[#39FF14]/30' : 'border-zinc-200 bg-white hover:border-[#39FF14]'}`}>
+            <div className={`p-10 border transition-all bg-black/5`}>
               <div className="flex items-center gap-4 mb-8">
                 <ShieldCheck className="text-[#39FF14]" size={24} />
                 <h4 className="text-sm font-bold uppercase tracking-widest">02. Risk Mitigation</h4>
               </div>
               <div className="space-y-4 text-[11px] leading-relaxed uppercase">
                 <p>Ensured 100% Free-for-Commercial-Use licenses to shield brand from copyright infringement.</p>
-                <p className="text-zinc-500">Result: Production-ready asset that is legally bulletproof.</p>
+                <p className="text-zinc-600 dark:text-zinc-200">Result: Production-ready asset that is legally bulletproof.</p>
               </div>
             </div>
 
             {/* Audit Point 3 */}
-            <div className={`p-10 border transition-all ${isHighContrast ? 'border-zinc-900 bg-black/40 hover:border-[#39FF14]/30' : 'border-zinc-200 bg-white hover:border-[#39FF14]'}`}>
+            <div className={`p-10 border transition-all bg-black/5`}>
               <div className="flex items-center gap-4 mb-8">
                 <Zap className="text-[#39FF14]" size={24} />
                 <h4 className="text-sm font-bold uppercase tracking-widest">03. Chromatic Optimization</h4>
               </div>
               <div className="space-y-4 text-[11px] leading-relaxed uppercase">
                 <p>Strategic application of Neon Green against deep monochromatic index for maximum standout.</p>
-                <p className={`${isHighContrast ? 'text-white' : 'text-black'}`}>Status: immediate psychological link to "Green Grape" established.</p>
+                <p className="text-zinc-600 dark:text-zinc-200">Status: immediate psychological link to <span className="dark:text-[#39FF14]">Green Grape</span> established.</p>
               </div>
             </div>
 
             {/* Audit Point 4 */}
-            <div className={`p-10 border transition-all ${isHighContrast ? 'border-zinc-900 bg-black/40 hover:border-[#39FF14]/30' : 'border-zinc-200 bg-white hover:border-[#39FF14]'}`}>
+            <div className={`p-10 border transition-all bg-black/5`}>
               <div className="flex items-center gap-4 mb-8">
                 <Eye className="text-[#39FF14]" size={24} />
                 <h4 className="text-sm font-bold uppercase tracking-widest">04. Structured Compliance</h4>
@@ -143,8 +130,8 @@ export default function KawaKawaProject() {
           </div>
 
           {/* Engineer's Note */}
-          <div className={`mt-24 p-12 border-l-4 border-[#39FF14] relative ${isHighContrast ? 'bg-zinc-900/30' : 'bg-zinc-100'}`}>
-            <h5 className="font-mono text-[#39FF14] text-[10px] uppercase tracking-widest mb-4">Engineer's Note:</h5>
+          <div className={`mt-24 p-12 border-l-4 border-[#30ec0e]/70 dark:border-[#39FF14] relative`}>
+            <h5 className="font-mono text-[#30ec0e]/70 dark:text-[#39FF14] text-[16px] uppercase tracking-widest mb-4">Engineer's Note:</h5>
             <p className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter leading-[0.85]">
               "Design without precision is just noise. I don't just build visuals; I build assets that are structurally sound, legally compliant, and strategically lethal."
             </p>
@@ -164,28 +151,28 @@ export default function KawaKawaProject() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Full View */}
             <div className="md:col-span-8 group relative aspect-video bg-zinc-900 overflow-hidden border border-white/5">
-              <img 
-                src={text.src}
+              {/*v<Image 
+                src={text}
                 alt="Full Label Layout" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                 onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop'; }}
-              />
+              /> */}
               <div className="absolute top-6 left-6 px-3 py-1 bg-[#39FF14] text-black text-[10px] font-black uppercase">LAYOUT SYSTEM 01</div>
             </div>
 
             {/* Tagline & Silhouette */}
             <div className="md:col-span-4 grid grid-rows-2 gap-8">
-              <div className={`border p-10 flex flex-col justify-center transition-colors duration-700 ${isHighContrast ? 'bg-zinc-900 border-white/5' : 'bg-zinc-50 border-black/5'}`}>
-                <span className="text-[#39FF14] font-mono text-[10px] uppercase tracking-widest mb-4">#Identity Tag</span>
+              <div className={`border p-10 flex flex-col justify-center transition-colors duration-700`}>
+                <span className="text-[#30ec0e]/70 dark:text-[#39FF14] font-mono text-[12px] uppercase tracking-widest mb-4">#Identity Tag</span>
                 <h4 className="text-4xl lg:text-5xl font-black italic uppercase leading-none tracking-tighter">
                   STAY YOUNG <br /> N DANGEROU
                   <span className="text-[#39FF14] inline-block animate-glow-5">5</span>
                 </h4>
-                <p className="text-[10px] font-mono text-zinc-500 mt-4 uppercase tracking-widest">5 Years Kawa Kawa Homage</p>
+                <p className="text-[12px] font-mono text-zinc-500 mt-4 uppercase tracking-widest">5 Years Kawa Kawa Homage</p>
               </div>
               <div className="relative group overflow-hidden bg-zinc-900 aspect-square md:aspect-auto">
-                 <img 
-                  src={label.src} 
+                 <Image 
+                  src={label} 
                   alt="Silhouette Detail" 
                   className="w-full h-full object-cover opacity-30 group-hover:opacity-100 transition-opacity duration-700" 
                   onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1542156822-6924d1a71ace?q=80&w=2070&auto=format&fit=crop'; }}
@@ -197,7 +184,7 @@ export default function KawaKawaProject() {
       </section>
 
       {/* FOOTER: "Responsible Freedom" */}
-      <section className={`py-40 border-t transition-colors duration-700 ${isHighContrast ? 'bg-black border-white/5' : 'bg-white border-black/5'}`}>
+      <section className={`py-40 border-t transition-colors duration-700`}>
         <div className="container mx-auto px-6 text-center space-y-12">
           <div className="flex justify-center">
              <div className="h-16 w-16 bg-[#39FF14] flex items-center justify-center text-black">
@@ -205,19 +192,13 @@ export default function KawaKawaProject() {
              </div>
           </div>
           <h2 className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-[0.8]">
-            A CELEBRATION OF <br /> RESPONSIBLE <span className="text-[#39FF14]">FREEDOM.</span>
+            A CELEBRATION OF <br /> RESPONSIBLE <span className="text-[#39FF14] underline underline-offset-10 ">FREEDOM.</span>
           </h2>
           <p className="text-zinc-500 font-mono text-xs uppercase tracking-[0.5em]">
             Precisely designed, wildly executed.
           </p>
-          <div className="pt-24 opacity-10">
-            <span className="text-9xl font-black tracking-tighter uppercase select-none">.MADMOFOZ</span>
-          </div>
         </div>
       </section>
-
-      <Footer />
-
     </div>
   );
 }

@@ -12,12 +12,12 @@ export default function Hero() {
   const yBackground = useTransform(scrollY, [0, 500], [0, -60]);
 
   return (
-    <div>
+    <div className="relative">
         <motion.div
           style={{ y: yBackground }}
           className="absolute inset-0 w-full opacity-20 dark:opacity-50 bg-[linear-gradient(to_right,#3b82f622_1px,transparent_1px),linear-gradient(to_bottom,#3b82f622_1px,transparent_1px)] bg-[size:40px_40px]"
         ></motion.div>
-        <section className="relative min-h-screen flex flex-col items-start w-full overflow-hidden pt-32 pb-20 px-[5vw]">
+        <section className="relative min-h-screen flex flex-col items-start w-full overflow-hidden pt-32 pb-20 px-[5vw] bg-transparent">
 
           {/* 1. INDUSTRIAL NOISE & GRAIN OVERLAY */}
           <div className="absolute inset-0 pointer-events-none z-50 opacity-[0.04] dark:opacity-[0.06] mix-blend-overlay">
@@ -28,21 +28,6 @@ export default function Hero() {
               <rect width="100%" height="100%" filter="url(#noiseFilter)" />
             </svg>
           </div>
-
-          {/* 2. CAD BLUEPRINT GRID */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-
-            {/* PARALLAX BG TEXT ".MADZ" */}
-            <motion.div
-              style={{ y: yBackground }}
-              className="absolute top-64 right-0 hidden lg:block select-none opacity-5 dark:opacity-15 pointer-events-none"
-            >
-              <span className="text-[20vw] font-black leading-none uppercase tracking-tighter italic opacity-39">
-                .MADZ
-              </span>
-            </motion.div>
-          </div>
-
           <motion.div
             style={{ y: yHeadline }}
             className="relative z-10 w-full"
@@ -55,7 +40,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* 3. PRIMARY HEADLINE */}
+            {/* PRIMARY HEADLINE */}
             <h1 className="text-[clamp(3rem,10vw,12rem)] font-black leading-[0.8] tracking-tighter uppercase mb-16">CRAFTING
               <br />
             <span className="wiggle-text italic text-zinc-800" data-text="DIGITAL">DIGITAL</span>

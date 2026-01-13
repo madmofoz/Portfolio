@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/zhifrantino";
@@ -10,27 +10,42 @@ import { PROJECTS } from "@/constants";
 
 export default function Home() {
   const [clickCount, setClickCount] = useState(0);
-  const [isEasterEggActive, setIsEasterEggActive] = useState(false);
+  const [isBugActive, setIsBugActive] = useState(false);
 
   const handleSecurityClick = () => {
-    const newCount = clickCount + 1;
-    setClickCount(newCount);
-    if (newCount >= 3) {
-      setIsEasterEggActive(true);
-      setTimeout(() => {
-        setIsEasterEggActive(false);
-        setClickCount(0);
-      }, 20000);
-    }
+    setClickCount((prev) => {
+      const newCount = prev + 1;
+
+      if (newCount >= 3) {
+        setIsBugActive(true);
+
+        setTimeout(() => {
+          setIsBugActive(false);
+          setClickCount(0);
+        }, 20000);
+
+        return 0;
+      }
+      return newCount;
+    });
   };
+
+  useEffect(() => {
+    if (clickCount > 0 && !isBugActive) {
+      const timer = setTimeout(() => {
+        setClickCount(0);
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+  }, [clickCount, isBugActive]);
 
   return (
     <div className="min-h-screen overflow-x-hidden transition-colors duration-300">
-      <Navbar />
-      
+
       <main className="w-full px-[5vw]">
         <div onClick={handleSecurityClick}>
-          <Hero />
+          <section id="home"><Hero /></section>
         </div>
 
         <section id="projects" className="py-32 border-t border-zinc-200 dark:border-zinc-800">
@@ -41,7 +56,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {PROJECTS.map((project, index) => (
-              <ProjectCard 
+              <ProjectCard
                 key={index}
                 title={project.title}
                 description={project.description}
@@ -52,13 +67,10 @@ export default function Home() {
           </div>
         </section>
 
-        <About /> 
+        <About />
       </main>
 
-      {/* Komponen Anomali (Monster) */}
-      <Anomalies isEasterEggActive={isEasterEggActive} />
-
-      <Footer />
+      <Anomalies isBugActive={isBugActive} />
     </div>
   );
 }

@@ -2,6 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { rootMetadata, jsonLd } from "@/constants/metadata";
 import Loader from "./loading";
+import Background from "@/components/background";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 // Initialize fonts
 const geistSans = Geist({
@@ -28,13 +31,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet" />
-        
+
         {/* SEO: Inject JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
+
         {/* Tracking: Google Analytics */}
         <script
           async
@@ -69,7 +72,7 @@ export default function RootLayout({
             `,
           }}
         />
-        
+
         {/* CSS Variable Fallbacks */}
         <style>{`
           :root {
@@ -83,9 +86,12 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300`}>
         <Loader />
+        <Background />
+        <Navbar />
         <main className="min-h-screen flex flex-col w-full relative">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
 import '@/styles/corrupt.css';
+import { ChevronRight } from 'lucide-react';
 
 interface ProjectProps {
   title: string;
@@ -64,8 +65,8 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </a>
           
-          <div className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest leading-tight">
-            Deployment: Ready // Encryption: Active
+          <div className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest animate-blink-cursor">
+           <ChevronRight className="inline w-3 h-3 text-white mb-.5" /> --Deployment: Ready // Encryption: Active
           </div>
         </div>
       </div>

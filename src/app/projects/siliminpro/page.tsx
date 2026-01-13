@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import Navbar from '@/components/navbar';
-import Footer from "@/components/footer";
 
 export default function SiliminPro() {
   const [mounted, setMounted] = useState(false);
@@ -33,8 +31,6 @@ export default function SiliminPro() {
   return (
     <div className="min-h-screen text-zinc-900 dark:text-zinc-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
 
-      <Navbar />
-
       <main>
         <HeroSection />
         <ProblemSolutionSection />
@@ -43,7 +39,6 @@ export default function SiliminPro() {
         <TechnicalSpecsSection />
         <CTASection />
       </main>
-      <Footer />
     </div>
   );
 }
@@ -317,12 +312,14 @@ function NarrativeSection() {
 
         <div className="space-y-8">
           <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-blue-400">Garage to Code</h3>
-          <blockquote className="text-3xl md:text-5xl font-black tracking-tight leading-tight italic uppercase">
-            "I don't trust a tool if I don't know how it works. <span className="text-zinc-500">SiliminPro was born in the garage,</span> forged in the terminal."
+          <blockquote className="text-3xl md:text-5xl font-black text-zinc-800 dark:text-zinc-400 tracking-tight leading-tight italic uppercase">
+            "I don't trust a tool if I don't know how it works. <span className="text-zinc-500 dark:text-zinc-300 dark:[text-shadow:0_0_15px_rgba(59,130,246,0.5)]">
+              SiliminPro was born in the garage,
+            </span> forged in the terminal."
           </blockquote>
           <div className="flex items-center gap-4">
             <div className="h-px w-12 bg-blue-500"></div>
-            <span className="text-xl font-mono italic">— Tino, an outlier system.</span>
+            <span className="text-xl font-mono italic text-zinc-500 dark:text-zinc-300">— Tino, an outlier system.</span>
           </div>
         </div>
       </div>
@@ -343,11 +340,11 @@ function TechnicalSpecsSection() {
   return (
     <section className="py-32 px-6 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-4xl mx-auto">
-        <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-400 mb-12 text-center">Technical Data Sheet</h3>
+        <h3 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-700 dark:text-zinc-300 mb-12 text-center">Technical Data Sheet</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
           {specs.map((s, i) => (
             <div key={i} className="flex justify-between items-end border-b border-zinc-100 dark:border-zinc-800 pb-2 group">
-              <span className="text-[10px] font-mono uppercase text-zinc-400 group-hover:text-blue-500 transition-colors">{s.label}</span>
+              <span className="text-[10px] font-mono uppercase text-zinc-700 dark:text-zinc-300 group-hover:text-blue-500 dark:group-hover:text-blue-500 transition-colors">{s.label}</span>
               <span className="text-sm font-black uppercase tracking-tight">{s.value}</span>
             </div>
           ))}

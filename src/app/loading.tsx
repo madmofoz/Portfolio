@@ -175,38 +175,18 @@ const Loader = () => {
 
                     <div className="relative flex flex-col items-center">
                         <motion.div>
-                            {/* Center Piece: The Bouncy Bbox 
-          <div className="relative flex flex-col items-center">
-            <motion.div
-              animate={{
-                scale: [0.9, 1, 1.15, 1, 0.9],
-                rotate: [0, 10, -10, 5, 0],
-                borderRadius: ["30%", "50%", "30%", "45%", "30%"],
-              }}
-              transition={{
-                duration: 1.2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="w-24 h-24 bg-[#2563eb] rounded-full shadow-2xl shadow-blue-300 flex items-center justify-center relative z-10"
-            >*/}
-
                             <img src="/gear.svg" className="w-56 h-56 relative flex items-center justify-center"></img>
 
-                            {/* Initial M that shakes along */}
-                            <span className="text-white text-6xl font-black tracking-tighter">Z</span>
-
-                            {/* Dancing Icon (Floating & Bouncing) */}
                             <motion.div
                                 key={currentIcon}
-                                initial={{ scale: 0, rotate: -45 }}
+                                initial={{ scale: 0, rotate: -30 }}
                                 animate={{ scale: 1, rotate: 0 }}
                                 className="absolute -top-4 -right-4 w-12 h-12"
                             >
                                 <motion.img
                                     animate={{
                                         y: [0, -20, 0],
-                                        rotate: [0, 15, -15, 0],
+                                        rotate: [0, 20, -20, 0],
                                     }}
                                     transition={{ duration: 1, repeat: Infinity }}
                                     src={currentIcon}

@@ -5,9 +5,9 @@ import React, { useState, useEffect } from "react";
 
 // basic nav
 const NAV_LINKS = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
+  { name: "Home", href: "/#home" },
+  { name: "Projects", href: "/#projects" },
+  { name: "About", href: "/#about" },
 ];
 
 export default function Navbar() {
@@ -71,7 +71,7 @@ export default function Navbar() {
             <span className="text-white dark:text-black font-black text-xs">Z</span>
           </div>
           <span className="font-black text-xl tracking-[0.2em] text-black dark:text-white uppercase">
-            .MΛDMOFO<span className="text-zinc-800 dark:text-zinc-400">Z</span>
+            .MΛDMOFOZ
           </span>
         </Link>
 

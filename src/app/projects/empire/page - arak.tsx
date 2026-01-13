@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Image from 'next/image';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 import label2 from "@/assets/empire/label2.webp";
 import primary from "@/assets/empire/primary.webp";
 
@@ -28,6 +30,17 @@ const CustomCursor = () => {
     );
 };
 
+const NoiseOverlay = () => (
+    <div className="fixed inset-0 pointer-events-none z-[9998] opacity-[0.05] contrast-150 brightness-100">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <filter id="noiseFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
+    </div>
+);
+
 // --- HALAMAN UTAMA ---
 
 export default function App() {
@@ -35,8 +48,10 @@ export default function App() {
     const bottleRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
     return (
-        <div className=" text-zinc-100 min-h-screen font-sans overflow-x-hidden">
+        <div className="bg-[#050505] text-zinc-100 selection:bg-[#8B0000] selection:text-white min-h-screen font-sans overflow-x-hidden">
             <CustomCursor />
+            <NoiseOverlay />
+            <Navbar />
 
             <main>
                 {/* 1. HERO SECTION (The Ignition) */}
@@ -55,8 +70,8 @@ export default function App() {
                             <p className="text-lg md:text-2xl font-light italic tracking-[0.2em] text-zinc-400 max-w-2xl mx-auto mb-12">
                                 "Tradition Distilled. A high-octane spirit for the restless soul."
                             </p>
-                            <button className="group relative px-12 py-5 border border-red-200 [@media(any-hover:hover)]:hover:border-[#8B0000] transition-all duration-500 overflow-hidden">
-                                <span className="relative z-10 font-bold uppercase tracking-widest text-xs text-zinc-600 [@media(any-hover:hover)]:group-hover:text-white transition-colors">
+                            <button className="group relative px-12 py-5 border border-white/20 [@media(any-hover:hover)]:hover:border-[#8B0000] transition-all duration-500 overflow-hidden">
+                                <span className="relative z-10 font-bold uppercase tracking-widest text-xs [@media(any-hover:hover)]:group-hover:text-white transition-colors">
                                     [ VIEW THE CRAFT ]
                                 </span>
                                 <div className="absolute inset-0 bg-[#8B0000] translate-y-full [@media(any-hover:hover)]:group-hover:translate-y-0 transition-transform duration-500"></div>
@@ -84,28 +99,28 @@ export default function App() {
                         </p>
                         <div className="mt-12 text-zinc-500 font-mono text-xs uppercase tracking-widest flex items-center gap-4">
                             <div className="w-2 h-2 rounded-full bg-[#8B0000] animate-pulse"></div>
-                            <span></span>
+                            <span>Note: Visual Impact Critical</span>
                         </div>
                     </div>
                 </section>
 
                 {/* 3. VISUAL IDENTITY (The Blueprint) */}
-                <section className="py-40">
+                <section className="py-40 bg-[#050505]">
                     <div className="container mx-auto px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                             <div className="lg:col-span-4 space-y-12">
-                                <h3 className="text-6xl font-black text-zinc-700 dark:text-zinc-300 uppercase italic tracking-tighter">THE <br /> BLUEPRINT.</h3>
+                                <h3 className="text-6xl font-black uppercase italic tracking-tighter">THE <br /> BLUEPRINT.</h3>
 
                                 <div className="space-y-4">
                                     <h4 className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500">// Fuel Composition</h4>
                                     <div className="flex gap-4">
-                                        <div className="h-20 w-16 bg-[#050505] border border-zinc-800 flex items-end p-2"><span className="text-[8px] tracking-wider font-mono text-zinc-200">#050505</span></div>
-                                        <div className="h-20 w-16 bg-[#8B0000] flex items-end p-2"><span className="text-[8px] font-mono tracking-wider text-white/50">#RED...</span></div>
-                                        <div className="h-20 w-16 bg-[#C0C0C0] flex items-end p-2"><span className="text-[8px] font-mono tracking-wider text-black/50">#F0F0F0</span></div>
+                                        <div className="h-20 w-16 bg-[#050505] border border-zinc-800 flex items-end p-2"><span className="text-[8px] font-mono text-zinc-500">#050505</span></div>
+                                        <div className="h-20 w-16 bg-[#8B0000] flex items-end p-2"><span className="text-[8px] font-mono text-white/50">#RED...</span></div>
+                                        <div className="h-20 w-16 bg-[#C0C0C0] flex items-end p-2"><span className="text-[8px] font-mono text-black/50">#F0F0F0</span></div>
                                     </div>
                                 </div>
 
-                                <div className="p-8 border border-zinc-200/10 bg-zinc-950/20 rounded-2xl">
+                                <div className="p-8 border border-zinc-900 bg-zinc-950">
                                     <h4 className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500 mb-6">// Under Developing...</h4>
                                     <p className="text-5xl font-black uppercase italic tracking-tighter">Under Dev . . .</p>
                                     <p className="text-sm text-zinc-500 mt-4 leading-relaxed font-mono">Under Developing...</p>
@@ -133,7 +148,7 @@ export default function App() {
                 </section>
 
                 {/* 4. THE SOLUTION (The Engineering) */}
-                <section className="py-40 border-t border-zinc-900 dark:border-zinc-800">
+                <section className="py-40 border-t border-zinc-900 bg-[#080808]">
                     <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16">
                         {[
                             { title: "Dark Aesthetic", desc: "Under Developing..." },
@@ -142,7 +157,7 @@ export default function App() {
                         ].map((feature, i) => (
                             <div key={i} className="space-y-6 group">
                                 <div className="text-[#8B0000] text-3xl font-black italic">0{i + 1}.</div>
-                                <h4 className="text-2xl font-bold uppercase tracking-tight text-zinc-600 dark:text-zinc-300">{feature.title}</h4>
+                                <h4 className="text-2xl font-bold uppercase tracking-tight">{feature.title}</h4>
                                 <p className="text-zinc-500 leading-relaxed [@media(any-hover:hover)]:group-hover:text-zinc-300 transition-colors">{feature.desc}</p>
                                 <div className="h-1 w-0 bg-[#8B0000] [@media(any-hover:hover)]:group-hover:w-full transition-all duration-500"></div>
                             </div>
@@ -150,7 +165,7 @@ export default function App() {
                     </div>
                 </section>
 
-                {/* 5. CONCEPT GALLERY */}
+                {/* 5. CONCEPT GALLERY (The Chaos) */}
                 <section className="py-40 px-6">
                     <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                         <div className="aspect-video bg-zinc-900 flex items-center justify-center border border-zinc-800 text-zinc-700 font-mono text-xs">[ Under Developing... ]</div>
@@ -177,7 +192,7 @@ export default function App() {
                 </section>
 
                 {/* 6. The Business Logic */}
-                <section className="py-40 border-y border-[#8B0000]/20">
+                <section className="py-40 bg-black border-y border-[#8B0000]/20">
                     <div className="max-w-4xl mx-auto px-6">
                         <h3 className="text-[10px] font-mono uppercase tracking-[0.5em] text-[#8B0000] mb-12">Performance Metrics // Profit Ratio (%)</h3>
                         <div className="flex items-end gap-2 h-64 border-l border-b border-zinc-900 p-4">
@@ -201,7 +216,7 @@ export default function App() {
             </main>
 
             {/* 7. DISCLAIMER & LEGAL */}
-            <div className="py-20 text-center px-6">
+            <div className="py-20 bg-black text-center px-6">
                 <div className="max-w-xl mx-auto p-8 md:p-12 border border-zinc-900/50 bg-zinc-950/20">
                     <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#8B0000] mb-4">Top Secret Document // Legal Access Only</p>
                     <p className="text-2xl font-black italic uppercase tracking-widest text-white mb-6">21+. Drink Safely & Responsibly.</p>
@@ -210,6 +225,8 @@ export default function App() {
                     </p>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }
