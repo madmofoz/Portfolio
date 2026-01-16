@@ -22,12 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {/*
-      url: `${baseUrl}/empire`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    */},
     {
       url: `${baseUrl}/silimin`,
       lastModified: new Date(),
