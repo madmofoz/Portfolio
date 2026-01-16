@@ -23,12 +23,6 @@ export const PROJECTS = [
     tech: ["Graphic Design", "Layouting", "Photoshop"],
     link: "/projects/khad-team"
   },
-  {/*
-    title: "ARAK Empire",
-    description: "Pure Fuel for Restless Souls. Defining a high-octane urban identity and visual ecosystem for premium traditional spirits.",
-    tech: ["Digital Flyer", "Branding", "Negotiation", "Strategy", "Logo Design", "Strategy"],
-    link: "/projects/empire"
-  */},
   {
     title: "Kawa-Kawa Label",
     description: "Designing a Refreshing Visual Identity for representing youth vibes for Kawa-Kawa Bottle Label; Identity and Brand Aesthetics",
