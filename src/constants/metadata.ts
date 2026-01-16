@@ -65,7 +65,7 @@ export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Muhammad Zhifrantino",
-  "alternateName": ["Tino", "Madz", "Madmofoz"],
+  "alternateName": ["Tino", "Madz", "Madmofoz", "Pran"],
   "url": siteConfig.url,
   "email": siteConfig.email,
   "jobTitle": "Mechanical Engineering Student & Web Developer",
