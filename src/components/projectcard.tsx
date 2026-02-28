@@ -66,7 +66,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
           </a>
           
           <div className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest animate-blink-cursor">
-           <ChevronRight className="inline w-3 h-3 text-white mb-.5" /> --Deployment: Ready // Encryption: Active
+           <ChevronRight className="inline w-3 h-3 text-white mb-.5" /> --Deployment: Ready--
           </div>
         </div>
       </div>

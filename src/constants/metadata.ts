@@ -12,6 +12,7 @@ export const siteConfig = {
     github: "https://github.com/madmofoz",
     linkedin: "https://www.linkedin.com/in/madmofoz",
     contra: "https://contra.com/muhammad_zhifrantino_g39g8ebx?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=muhammad_zhifrantino_g39g8ebx",
+    certs: "/projects/certificates"
   },
 };
 
@@ -66,24 +67,68 @@ export const jsonLd = {
   "@type": "Person",
   "name": "Muhammad Zhifrantino",
   "alternateName": ["Tino", "Madz", "Madmofoz", "Pran"],
+  "description": "Mechanical Engineering student, Full-stack Developer, and Calisthenics Practitioner focused on bridging digital logic and mechanical precision.",
   "url": siteConfig.url,
   "email": siteConfig.email,
-  "jobTitle": "Mechanical Engineering Student & Web Developer",
+  "gender": "https://schema.org/Male",
+  "jobTitle": "Web Developer & Mechanical Engineering Student",
+  
+ "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Universitas Muhammadiyah Yogyakarta",
+      "url": "https://www.umy.ac.id",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q14917503"
+      ]
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Teknik Mesin UMY",
+      "url": "https://mesin.umy.ac.id/",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universitas Muhammadiyah Yogyakarta"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "SiliminPro",
+      "url": "https://siliminpro.fly.dev"
+    }
+  ],
+
   "image": [
     "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.webp",
+    "https://siliminpro.fly.dev/static/img/Muhammad_Zhifrantino.png",
     `${siteConfig.url}/muhammad_zhifrantino.webp`,
     `${siteConfig.url}/zhifrantino.webp`
   ],
+
   "sameAs": [
     siteConfig.links.instagram,
     siteConfig.links.github,
-    siteConfig.links.linkedin
+    siteConfig.links.linkedin,
+    siteConfig.links.contra
   ],
+
   "knowsAbout": [
-    "Mechanical Engineering",
+    {
+      "@type": "Thing",
+      "name": "Mechanical Engineering",
+      "sameAs": "https://www.google.com/search?q=Mechanical+Engineering"
+    },
+    {
+      "@type": "Thing",
+      "name": "Web Development",
+      "sameAs": "https://www.google.com/search?q=Web+Development"
+    },
+    {
+      "@type": "Thing",
+      "name": "Python",
+      "sameAs": "https://www.google.com/search?q=Python+programming+language"
+    },
     "Automotive Tuning",
-    "Web Development",
-    "Python",
     "Graphic Design"
   ]
 };

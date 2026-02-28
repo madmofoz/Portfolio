@@ -108,18 +108,19 @@ export default function About() {
               </div>
 
               {/* Links Grid */}
-              <div className="flex flex-wrap gap-x-12 gap-y-6 text-2xl md:text-3xl font-black uppercase italic tracking-tighter">
+              <div className="flex flex-wrap gap-x-12 gap-y-6 text-xl md:text-2xl font-black uppercase italic tracking-tighter">
                 {[
                   { name: "Instagram", href: siteConfig.links.instagram },
                   { name: "GitHub", href: siteConfig.links.github },
                   { name: "LinkedIn", href: siteConfig.links.linkedin },
                   { name: "Contra", href: siteConfig.links.contra },
                   { name: "Email", href: `mailto:${siteConfig.email}` },
+                  { name: "Certs", href: siteConfig.links.certs },
                 ].map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
-                    target="_blank"
+                    target="blank"
                     rel="noopener noreferrer"
                     className="group relative flex items-center gap-3 text-black dark:text-white no-underline transition-all duration-500 hover:text-red-600 hover:translate-x-2"
                   >
@@ -131,13 +132,6 @@ export default function About() {
                   </a>
                 ))}
               </div>
-            </div>
-
-            <div className="text-right hidden md:block">
-              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">
-                Data_Transfer: Active <br />
-                Signal: Encrypted
-              </span>
             </div>
           </div>
         </div>

@@ -79,8 +79,7 @@ export default function SiliminProject() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-[8vw] lg:text-[10vw] font-black leading-none tracking-tighter uppercase italic mb-8"
-                        >
-                            PROJECT <br /> <span className="text-red-600 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">SILIMIN:</span> TYPE-01
+                        ><br />— <span className="text-red-600/80 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">SILIMIN </span>;
                         </motion.h1>
 
                         <p className="max-w-3xl text-lg md:text-xl text-zinc-400 font-medium leading-relaxed mb-12">

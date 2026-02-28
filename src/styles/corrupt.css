@@ -49,7 +49,7 @@
 }
 
 .scan-line {
-  position: relative; /* Menjadi anchor untuk pseudo-element */
+  position: relative;
   overflow: hidden;
 }
 
@@ -63,7 +63,7 @@
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(57, 255, 20, 0.1) 50%,
+    rgba(27, 153, 5, 0.1) 50%,
     transparent
   );
   background-size: 100% 100px;

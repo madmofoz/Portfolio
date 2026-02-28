@@ -75,22 +75,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* System Status */}
-        <div className="hidden lg:flex items-center gap-6 px-6 border-l border-r border-zinc-200 dark:border-zinc-800 h-full">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-zinc-400' : 'bg-black'}`}></span>
-              <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-zinc-500' : 'bg-zinc-800'}`}></span>
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
-              System: {isDark ? 'Dark_Mode' : 'Light_Mode'}
-            </span>
-          </div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 italic">
-            STATUS: STABLE OPERATING...
-          </div>
-        </div>
-
         {/* Navigation & Theme Toggle */}
         <div className="flex items-center gap-6">
           <div className="hidden md:flex space-x-8 items-center">
