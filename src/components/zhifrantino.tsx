@@ -30,9 +30,9 @@ export default function About() {
                 <div className="group relative">
                   <p className="text-lg md:text-xl leading-relaxed text-zinc-500 dark:text-zinc-400">
                     I am <span className="text-black dark:text-white font-bold">Muhammad Zhifrantino</span>.
-                    What will you believe?
-                    <span className="block mt-2 text-[6px] font-mono uppercase tracking-[0.2em] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none italic">
-                      — Ghost Shaped People. credits to Lamb of God
+                    I cut the weight of connection That led myself astray
+                    <span className="block mt-2 text-[7px] font-mono uppercase tracking-[0.2em] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none italic">
+                      — Omens. credits to Lamb of God
                     </span>
                   </p>
                 </div>

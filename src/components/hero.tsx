@@ -80,15 +80,15 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Stats */}
+              {/* lil foot */}
               <div className="lg:col-span-5 flex lg:justify-end items-end pb-4">
                 <div className="space-y-6 text-right hidden lg:block border-r border-zinc-200 dark:border-zinc-800 pr-8">
                   <div className="group relative">
                     <p className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Core</p>
                     <p className="text-xs font-bold uppercase leading-none">
-                      The world doesn't owe me a thing
+                      You are the cause, I am the effect
                       <span className="block mt-2 text-[7px] font-mono uppercase tracking-[0.2em] opacity-0 group-hover:opacity-40 transition-all pointer-events-none italic">
-                        — Boot Scraper. Credits to Lamb of God.
+                        — One Gun. Credits to Lamb of God.
                       </span>
                     </p>
                   </div>
@@ -97,8 +97,8 @@ export default function Hero() {
                     <p className="text-xs font-bold uppercase">VSCode / PS / SolidWorks</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Current_Build</p>
-                    <p className="text-xs font-bold uppercase underline decoration-zinc-500">Engine_Calc v2.1.0</p>
+                    <p className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1">*</p>
+                    <p className="text-xs font-bold uppercase underline decoration-zinc-500">*</p>
                   </div>
                 </div>
               </div>

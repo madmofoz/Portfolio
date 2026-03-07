@@ -9,11 +9,11 @@ import lsp from "@/assets/certs/LSP-P1-tino.jpeg";
 
 // Data
 const certificates = [
-    { id: 1, title: "KKNI 2 Certificate Competency of Maintenance Vehicle Injection System and Chassis System", issuer: "LSP SMK DP1 Jakarta", category: "Skill", image: lsp },
-    { id: 2, title: "Completion Final Project at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Skill", image: ReservoirCompletion },
-    { id: 3, title: "Participant at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Achievement", image: ReservoirPart },
-    { id: 4, title: "Secretarial Staff at 'MATAF PRODI UMY 2024'", issuer: "HMM UMY 2023/ 2024", category: "Organization", image: ksk },
-    { id: 5, title: "Equipment Division Staff at 'Refreshing & Spritual Building 2025'", issuer: "HMM UMY 2024/ 2025", category: "Organization", image: perkap },
+    { id: 1, title: "KKNI 2 Certificate Competency of Maintenance Vehicle Injection System and Chassis System", issuer: "LSP SMK DP1 Jakarta", category: "Skill", desc: "KKNI 2 Certificate", image: lsp },
+    { id: 2, title: "Completion Final Project at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Skill", desc: "Completion Certificate", image: ReservoirCompletion },
+    { id: 3, title: "Participant at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Achievement", desc: "Participant Certificate", image: ReservoirPart },
+    { id: 4, title: "Secretarial Staff at 'MATAF PRODI UMY 2024'", issuer: "HMM UMY 2023/ 2024", category: "Organization", desc: "Secretarial Certificate", image: ksk },
+    { id: 5, title: "Equipment Division Staff at 'Refreshing & Spritual Building 2025'", issuer: "HMM UMY 2024/ 2025", category: "Organization", desc: "Equipment Division Certificate", image: perkap },
 ];
 
 const categories = ["All", "Skill", "Organization", "Achievement"];
@@ -131,6 +131,7 @@ export default function GalleryPage() {
                             alt="Certificate Full"
                             className="w-full h-auto shadow-2xl animate-in zoom-in-95 duration-500 cursor-default rounded-sm"
                         />
+                    <p className="text-[16px] text-zinc-500 font-medium">{cert.desc}</p>
 
                         <div className="mt-8 mb-4 text-center">
                             <p className="text-zinc-500 text-[10px] font-black tracking-[0.4em] uppercase italic">
