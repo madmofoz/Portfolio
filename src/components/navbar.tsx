@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/constants/metadata";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
@@ -8,6 +9,7 @@ const NAV_LINKS = [
   { name: "Home", href: "/#home" },
   { name: "Projects", href: "/#projects" },
   { name: "About", href: "/#about" },
+  { name: "Certs", href: siteConfig.links.certs },
 ];
 
 export default function Navbar() {
@@ -65,12 +67,12 @@ export default function Navbar() {
     <nav className="fixed w-full top-0 bg-white/80 dark:bg-black/10 backdrop-blur-xs z-[100] border-b border-zinc-200 dark:border-zinc-800">
       <div className="w-full px-[5vw] py-5 flex justify-between items-center">
         
-        {/* Logo / Branding */}
+        {/* Z */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="h-8 w-8 bg-black dark:bg-white flex items-center justify-center rounded-sm transition-transform group-hover:rotate-720 duration-1000">
-            <span className="text-white dark:text-black font-black text-xs">Z</span>
+          <div className="h-8 w-8 bg-black dark:bg-white flex items-center justify-center rounded-sm transition-transform group-hover:rotate-3600 duration-2500">
+            <span className="text-white dark:text-black font-black text-[14px]">Z</span>
           </div>
-          <span className="font-black text-xl tracking-[0.2em] text-black dark:text-white uppercase">
+          <span className="font-black text-[23px] tracking-[0.2em] text-black dark:text-white uppercase">
             .MΛDMOFOZ
           </span>
         </Link>

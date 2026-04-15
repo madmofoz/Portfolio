@@ -7,13 +7,13 @@ export const NAV_LINKS = [
 export const PROJECTS = [
   {
     title: "SiliminPro",
-    description: "High-precision digital architecture for mechanical diagnostics and automotive tuning.",
+    description: "State of the art digital architecture for mechanical diagnostics and automotive tuning.",
     tech: ["Flask", "Python", "Next.js", "Fly.io"],
     link: "/projects/siliminpro"
   },
   {
     title: "Silimin",
-    description: "Re-engineering an underbone chassis to stabilize a high-torque VVA engine. A study in structural integrity and power-to-weight optimization.",
+    description: "Taming high-torque into a lightweight frame. A study in structural violence and power.",
     tech: ["Mechanical Engineering", "Fabrication", "Engine Swap"],
     link: "/projects/silimin"
   },

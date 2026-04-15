@@ -6,6 +6,7 @@ import ReservoirCompletion from "@/assets/certs/reservoir-oil-gas-workshop.png";
 import ksk from "@/assets/certs/ksk-mataf-2024.png";
 import perkap from "@/assets/certs/perkap-makrab-2025.png";
 import lsp from "@/assets/certs/LSP-P1-tino.jpeg";
+import efset from "@/assets/certs/EF SET Certificate_ZHIFRANTINO.jpg";
 
 // Data
 const certificates = [
@@ -14,6 +15,7 @@ const certificates = [
     { id: 3, title: "Participant at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Achievement", desc: "Participant Certificate", image: ReservoirPart },
     { id: 4, title: "Secretarial Staff at 'MATAF PRODI UMY 2024'", issuer: "HMM UMY 2023/ 2024", category: "Organization", desc: "Secretarial Certificate", image: ksk },
     { id: 5, title: "Equipment Division Staff at 'Refreshing & Spritual Building 2025'", issuer: "HMM UMY 2024/ 2025", category: "Organization", desc: "Equipment Division Certificate", image: perkap },
+    { id: 6, title: "EF SET English Certificate", issuer: "EF SET", category: "Skill", desc: "English Proficiency Certificate", image: efset },
 ];
 
 const categories = ["All", "Skill", "Organization", "Achievement"];
@@ -78,7 +80,7 @@ export default function GalleryPage() {
                     <div
                         key={cert.id}
                         onClick={() => setSelectedImg(cert.image)}
-                        className="group relative border border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-zinc-950/50 p-4 transition-all duration-500 hover:border-emerald-500/30 cursor-pointer"
+                        className="group relative border border-zinc-300 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950/50 p-4 transition-all duration-500 hover:border-emerald-500/30 cursor-pointer"
                     >
                         <div className="aspect-auto overflow-hidden bg-zinc-200 dark:bg-zinc-900 relative border border-zinc-200 dark:border-zinc-800">
                             <img
@@ -88,7 +90,7 @@ export default function GalleryPage() {
                             />
                             {/* Overlay hover hint */}
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span className="text-[10px] font-black text-white tracking-[0.3em] uppercase bg-black/60 px-4 py-2">View Full Image</span>
+                                <span className="text-[10px] font-black text-white tracking-[0.3em] uppercase bg-black/60 px-4 py-2">View Larger Image</span>
                             </div>
                         </div>
 
@@ -131,7 +133,7 @@ export default function GalleryPage() {
                             alt="Certificate Full"
                             className="w-full h-auto shadow-2xl animate-in zoom-in-95 duration-500 cursor-default rounded-sm"
                         />
-                    <p className="text-[16px] text-zinc-500 font-medium">{cert.desc}</p>
+                    <p className="text-[16px] text-zinc-500 font-medium">{selectedImg.desc}</p>
 
                         <div className="mt-8 mb-4 text-center">
                             <p className="text-zinc-500 text-[10px] font-black tracking-[0.4em] uppercase italic">

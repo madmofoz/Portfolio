@@ -34,9 +34,9 @@ export default function Hero() {
           >
             {/* Status indicator */}
             <div className="flex items-center gap-4 mb-10">
-              <span className="h-[1px] w-12 bg-zinc-800 dark:bg-zinc-200"></span>
+              <span className="h-[2px] w-16 bg-zinc-800 dark:bg-zinc-200"></span>
               <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500 animate-pulse">
-                Status: ACTIVE EVOLUTING // SYSTEM READY
+                ----
               </span>
             </div>
 
@@ -59,7 +59,7 @@ export default function Hero() {
 
                 <p className="text-lg text-zinc-500 max-w-2xl leading-relaxed font-mono text-sm opacity-80">
                   &gt; Analyzing engine dynamics... <br />
-                  &gt; Solving complex technical problems through functional logic. <br />
+                  &gt; Solving complex technical problems through solid instinct. <br />
                   &gt; Lead developer of <a href="https://siliminpro.fly.dev" target="_blank" className="underline decoration-1 underline-offset-4 hover:text-black dark:hover:text-white transition-colors">SiliminPro</a>.
                 </p>
 

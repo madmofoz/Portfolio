@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function About() {
   const codeSkills = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Flask"];
-  const engineeringSkills = ["SolidWorks", "Engine Tuning"];
+  const engineeringSkills = ["SolidWorks", "Engine Tuning", "Maintenance"];
   const otherSkills = ["Photoshop", "Calisthenics", "Branding"];
 
   return (
@@ -37,17 +37,17 @@ export default function About() {
                   </p>
                 </div>
                 <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed tracking-tight">
-                  My life is a continuous experiment between Digital <span className="text-black dark:text-white font-semibold">Logic</span> and Mechanical <span className="text-black dark:text-white font-semibold">Precision</span>.
-                  I live to build systems with total control.
+                  My life is a continuous experiment between Digital <span className="text-black dark:text-white font-semibold">Intuition</span> and Mechanical <span className="text-black dark:text-white font-semibold">Mind</span>.
+                  I live to build a totally controlled version of myself.
                 </p>
               </div>
 
               {/* The Three Pillars Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { id: "01", title: "Digital Craft", desc: "Building SiliminPro. Translating engine mechanics into functional code." },
-                  { id: "02", title: "Mechanical", desc: "Mind operates with thermodynamic precision. From CAD to manual fabrication." },
-                  { id: "03", title: "Human Power", desc: "2 AM calisthenics is my method for maintaining mental discipline." }
+                  { id: "01", title: "Digital Craft", desc: "Building SiliminPro. Translating engine mechanics into battle-tested code." },
+                  { id: "02", title: "Mechanical", desc: "The mind works with precision and meticulousness down to the smallest detail. From CAD to manual fabrication." },
+                  { id: "03", title: "Humanity", desc: "2 AM calisthenics is a way to maintain mental discipline." }
                 ].map((pillar) => (
                   <div key={pillar.id} className="group p-8 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-3xl hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-300">
                     <div className="h-1.5 w-8 bg-zinc-800 dark:bg-zinc-200 mb-6 group-hover:w-full transition-all duration-500"></div>
@@ -60,7 +60,7 @@ export default function About() {
               {/* Technical Stack List */}
               <div className="space-y-12">
                 <div className="flex items-center gap-4">
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400 whitespace-nowrap">Technical_Stack</h3>
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400 whitespace-nowrap">The Arsenal</h3>
                   <div className="h-px w-full bg-zinc-100 dark:bg-zinc-900"></div>
                 </div>
 
@@ -87,7 +87,7 @@ export default function About() {
               {/* Closing Quote */}
               <div className="pt-16 border-t border-zinc-100 dark:border-zinc-900">
                 <p className="text-xl text-zinc-600 dark:text-zinc-400 italic">
-                  "I seek challenges that force my brain to think 10 steps ahead."
+                  "I seek challenges that force my brain to think 2 steps ahead."
                   <span className="text-black dark:text-white font-black italic text-2xl mt-4 block tracking-tighter uppercase">Let's build something.</span>
                 </p>
               </div>
@@ -115,7 +115,6 @@ export default function About() {
                   { name: "LinkedIn", href: siteConfig.links.linkedin },
                   { name: "Contra", href: siteConfig.links.contra },
                   { name: "Email", href: `mailto:${siteConfig.email}` },
-                  { name: "Certs", href: siteConfig.links.certs },
                 ].map((link) => (
                   <a
                     key={link.name}
