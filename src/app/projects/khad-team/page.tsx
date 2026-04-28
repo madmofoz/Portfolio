@@ -96,11 +96,8 @@ function TechnicalEntryScroll() {
             <img
               src="/khad-all-team-2024.webp"
               alt="KHAD TEAM"
-              priority
               width={1620}
               height={3240}
-              placeholder="blur"
-              quality={90}
               className="w-full h-auto transition-all duration-1000 
                          grayscale-0 brightness-100 
                          [@media(any-hover:hover)]:grayscale [@media(any-hover:hover)]:brightness-75 
