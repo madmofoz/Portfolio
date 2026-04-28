@@ -1,21 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import ReservoirPart from "@/assets/certs/reservoir-oil-gas-workshop-participant.png";
-import ReservoirCompletion from "@/assets/certs/reservoir-oil-gas-workshop.png";
-import ksk from "@/assets/certs/ksk-mataf-2024.png";
-import perkap from "@/assets/certs/perkap-makrab-2025.png";
-import lsp from "@/assets/certs/LSP-P1-tino.jpeg";
-import efset from "@/assets/certs/EF SET Certificate_ZHIFRANTINO.jpg";
 
 // Data
 const certificates = [
-    { id: 1, title: "KKNI 2 Certificate Competency of Maintenance Vehicle Injection System and Chassis System", issuer: "LSP SMK DP1 Jakarta", category: "Skill", desc: "KKNI 2 Certificate", image: lsp },
-    { id: 2, title: "Completion Final Project at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Skill", desc: "Completion Certificate", image: ReservoirCompletion },
-    { id: 3, title: "Participant at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Achievement", desc: "Participant Certificate", image: ReservoirPart },
-    { id: 4, title: "Secretarial Staff at 'MATAF PRODI UMY 2024'", issuer: "HMM UMY 2023/ 2024", category: "Organization", desc: "Secretarial Certificate", image: ksk },
-    { id: 5, title: "Equipment Division Staff at 'Refreshing & Spritual Building 2025'", issuer: "HMM UMY 2024/ 2025", category: "Organization", desc: "Equipment Division Certificate", image: perkap },
-    { id: 6, title: "EF SET English Certificate", issuer: "EF SET", category: "Skill", desc: "English Proficiency Certificate", image: efset },
+    { id: 1, title: "KKNI 2 Certificate Competency of Maintenance Vehicle Injection System and Chassis System", issuer: "LSP SMK DP1 Jakarta", category: "Skill", desc: "KKNI 2 Certificate", image: "/certs/LSP-P1-tino.jpeg" },
+    { id: 2, title: "Completion Final Project at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Skill", desc: "Completion Certificate", image: "/certs/reservoir-oil-gas-workshop.png" },
+    { id: 3, title: "Participant at Workshop 'Fundamental Reservoir in Oil & Gas Field'", issuer: "For Engineer ID", category: "Achievement", desc: "Participant Certificate", image: "/certs/reservoir-oil-gas-workshop-participant.png" },
+    { id: 4, title: "Secretarial Staff at 'MATAF PRODI UMY 2024'", issuer: "HMM UMY 2023/ 2024", category: "Organization", desc: "Secretarial Certificate", image: "/certs/ksk-mataf-2024.png" },
+    { id: 5, title: "Equipment Division Staff at 'Refreshing & Spritual Building 2025'", issuer: "HMM UMY 2024/ 2025", category: "Organization", desc: "Equipment Division Certificate", image: "/certs/perkap-makrab-2025.png" },
+    { id: 6, title: "EF SET English Certificate", issuer: "EF SET", category: "Skill", desc: "English Proficiency Certificate", image: "/certs/EF SET Certificate_ZHIFRANTINO.jpg" },
 ];
 
 const categories = ["All", "Skill", "Organization", "Achievement"];

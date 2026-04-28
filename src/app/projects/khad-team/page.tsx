@@ -1,26 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { siteConfig } from '@/constants/metadata';
-import EntryPhoto from "@/assets/khad-all-team-2024.webp";
-import Image from 'next/image';
-import day1_1 from "@/assets/khad-day-1/slide 2.webp";
-import day1_2 from "@/assets/khad-day-1/slide 3.webp";
-import day1_3 from "@/assets/khad-day-1/slide 4.webp";
-import day1_4 from "@/assets/khad-day-1/slide 5.webp";
-import day1_5 from "@/assets/khad-day-1/slide 6.webp";
-import day1_6 from "@/assets/khad-day-1/slide 7.webp";
-import day2_1 from "@/assets/khad-day-2/slide 9.webp";
-import day2_2 from "@/assets/khad-day-2/slide 3.webp";
-import day2_3 from "@/assets/khad-day-2/slide 4.webp";
-import day2_4 from "@/assets/khad-day-2/slide 5.webp";
-import day2_5 from "@/assets/khad-day-2/slide 6.webp";
-import day2_6 from "@/assets/khad-day-2/slide 7.webp";
-import day3_1 from "@/assets/khad-day-3/slide 2.webp";
-import day3_2 from "@/assets/khad-day-3/slide 3.webp";
-import day3_3 from "@/assets/khad-day-3/slide 4.webp";
-import day3_4 from "@/assets/khad-day-3/slide 5.webp";
-import day3_5 from "@/assets/khad-day-3/slide 6.webp";
-import day3_6 from "@/assets/khad-day-3/slide 8.webp";
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
@@ -113,10 +93,12 @@ function TechnicalEntryScroll() {
               transform: `translateY(-${scrollProgress * 30}%)`,
             }}
           >
-            <Image
-              src={EntryPhoto}
+            <img
+              src="/khad-all-team-2024.webp"
               alt="KHAD TEAM"
               priority
+              width={1620}
+              height={3240}
               placeholder="blur"
               quality={90}
               className="w-full h-auto transition-all duration-1000 
@@ -185,30 +167,30 @@ function LapOne() {
         {/* 2 pic */}
         <div className="lg:col-span-3 grid grid-cols-2 gap-6">
           <div className="aspect-square overflow-hidden border border-white/5">
-            <Image src={day1_1} alt="" className="w-full h-full object-cover md:-translate-y-8 transition-transform duration-500 hover:scale-110" />
+            <img src="/khad-day-1/slide 1.webp" alt="" className="w-full h-full object-cover md:-translate-y-8 transition-transform duration-500 hover:scale-110" />
           </div>
           <div className="aspect-square overflow-hidden border border-white/5">
-            <Image src={day1_2} alt="" className="w-full h-full object-cover md:translate-y-8 transition-transform duration-500 hover:scale-110" />
+            <img src="/khad-day-1/slide 2.webp" alt="" className="w-full h-full object-cover md:translate-y-8 transition-transform duration-500 hover:scale-110" />
           </div>
         </div>
 
         {/* Highlight */}
         <div className="lg:col-span-3">
           <div className="aspect-square lg:aspect-video overflow-hidden border border-white/5">
-            <Image src={day1_3} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+            <img src="/khad-day-1/slide 3.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
           </div>
         </div>
 
         {/* 3 pic */}
         <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="aspect-square overflow-hidden border border-white/5">
-            <Image src={day1_4} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <img src="/khad-day-1/slide 4.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
           </div>
           <div className="aspect-square overflow-hidden border border-white/5">
-            <Image src={day1_5} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <img src="/khad-day-1/slide 5.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
           </div>
           <div className="aspect-square overflow-hidden border border-white/5">
-            <Image src={day1_6} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <img src="/khad-day-1/slide 6.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
           </div>
         </div>
       </div>
@@ -232,21 +214,21 @@ function LapTwo() {
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <Image src={day2_4} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 4.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
         <div className="flex items-center justify-center border border-zinc-800 p-4">
           <span className="text-[12px] font-mono tracking-[0.8em] uppercase text-zinc-600 rotate-90 lg:rotate-0">Teamwork</span>
         </div>
-        <Image src={day2_1} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-        <Image src={day2_2} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-        <Image src={day2_3} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 1.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 2.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 3.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
         <div className="flex items-center justify-center bg-red-600/10 border border-red-600/20 p-4">
-          <span className="text-[16px] font-mono tracking-[0.8em] uppercase text-red-500">Precision</span>
+          <span className="text-[16px] font-mono tracking-[0.8em] uppercase text-red-500">Accuracy</span>
         </div>
         <div className="hidden lg:flex items-center justify-center border border-zinc-800 p-4">
           <span className="text-[14px] font-mono tracking-[0.8em] uppercase text-zinc-600">Focus</span>
         </div>
-        <Image src={day2_5} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-        <Image src={day2_6} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 5.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-2/slide 6.webp" alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
       </div>
     </div>
   );
@@ -264,13 +246,13 @@ function LapThree() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <Image src={day3_2} alt="" className="md:translate-x-4 transition-transform duration-500 hover:scale-110" />
-        <Image src={day3_3} alt="" className="md:-translate-x-4 transition-transform duration-500 hover:scale-110" />
-        <Image src={day3_4} alt="" className="md:translate-x-4 transition-transform duration-500 hover:scale-110" />
-        <Image src={day3_5} alt="" className="md:-translate-x-4 transition-transform duration-500 hover:scale-110" />
-        <Image src={day3_1} alt="" className="md:col-span-2 transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-3/slide 2.webp" alt="" className="md:translate-x-4 transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-3/slide 3.webp" alt="" className="md:-translate-x-4 transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-3/slide 4.webp" alt="" className="md:translate-x-4 transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-3/slide 5.webp" alt="" className="md:-translate-x-4 transition-transform duration-500 hover:scale-110" />
+        <img src="/khad-day-3/slide 9.webp" alt="" className="md:col-span-2 transition-transform duration-500 hover:scale-110" />
         <div className="md:col-span-2 aspect-video overflow-hidden border border-white/5 relative">
-          <Image src={day3_6} alt="" className="w-full h-full object-top object-cover transition-transform duration-500 hover:scale-105" />
+          <img src="/khad-day-3/slide 8.webp" alt="" className="w-full h-full object-top object-cover transition-transform duration-500 hover:scale-105" />
         </div>
       </div>
     </div>

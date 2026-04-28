@@ -25,10 +25,15 @@ export const rootMetadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Zhifrantino",
+    "tino",
+    "madz",
+    "madmofoz",
+    "pran",
     "Muhammad Zhifrantino", 
     "Mechanical Engineering", 
     "Web Developer", 
-    "SiliminPro", 
+    "SiliminPro",
+    "silimin",
     "Automotive Tuning Tools"
   ],
   authors: [{ name: "Muhammad Zhifrantino" }],
@@ -99,10 +104,10 @@ export const jsonLd = {
   ],
 
   "image": [
-    "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.webp",
-    "https://siliminpro.fly.dev/static/img/Muhammad_Zhifrantino.png",
     `${siteConfig.url}/muhammad_zhifrantino.webp`,
-    `${siteConfig.url}/zhifrantino.webp`
+    `${siteConfig.url}/zhifrantino.webp`,
+    "https://siliminpro.fly.dev/static/img/Muhammad-Zhifrantino.webp",
+    "https://siliminpro.fly.dev/static/img/Muhammad_Zhifrantino.png"
   ],
 
   "sameAs": [

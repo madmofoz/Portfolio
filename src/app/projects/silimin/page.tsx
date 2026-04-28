@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Settings, Zap, Thermometer, ShieldAlert, ChevronRight, Activity, Cpu } from 'lucide-react';
-import Image from 'next/image';
+import Viewer from '@/components/viewer';
 
 // --- CUSTOM CURSOR (CROSSHAIR) ---
 const CustomCursor = ({ isSpecArea }: { isSpecArea: boolean }) => {
@@ -16,7 +16,7 @@ const CustomCursor = ({ isSpecArea }: { isSpecArea: boolean }) => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:flex items-center justify-center"
+            className="fixed top-0 left-0 pointer-events-none z-9999 hidden lg:flex items-center justify-center"
             animate={{
                 x: mousePos.x - 20,
                 y: mousePos.y - 20,
@@ -27,8 +27,8 @@ const CustomCursor = ({ isSpecArea }: { isSpecArea: boolean }) => {
             <div className={`w-10 h-10 border ${isSpecArea ? 'border-red-600 ring-2 ring-red-600/40' : 'border-red-500/30'} rounded-full flex items-center justify-center transition-colors duration-300`}>
                 <div className={`w-1 h-1 ${isSpecArea ? 'bg-red-600' : 'bg-red-500'} rounded-full`}></div>
                 {/* Crosshair Lines */}
-                <div className={`absolute w-full h-[1px] ${isSpecArea ? 'bg-red-600' : 'bg-red-500/30'}`}></div>
-                <div className={`absolute h-full w-[1px] ${isSpecArea ? 'bg-red-600' : 'bg-red-500/30'}`}></div>
+                <div className={`absolute w-full h-px ${isSpecArea ? 'bg-red-600' : 'bg-red-500/30'}`}></div>
+                <div className={`absolute h-full w-px ${isSpecArea ? 'bg-red-600' : 'bg-red-500/30'}`}></div>
             </div>
         </motion.div>
     );
@@ -239,9 +239,14 @@ export default function SiliminProject() {
                             </div>
 
                             <div className="relative group aspect-video bg-zinc-900 border border-zinc-800 overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center opacity-40 text-xs font-mono uppercase tracking-widest">
-                                    [ Engine Mount Schematics ]
-                                </div>
+                                <div className="absolute inset-0">
+        <Viewer modelPath="/mounting.glb" />
+    </div>
+
+    {/* UI Overlays (Tetap dipertahankan di atas Canvas) */}
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20 text-[10px] font-mono uppercase tracking-[0.3em]">
+        Interactive 3D Preview
+    </div>
                                 <div className="absolute top-10 left-10 p-2 border-l border-t border-red-500">
                                     <span className="text-[8px] font-mono text-red-500">REF: REINFORCED SUBFRAME A1</span>
                                 </div>
@@ -308,12 +313,12 @@ export default function SiliminProject() {
                         <div className="relative group w-full md:w-[400px] aspect-[4/5] bg-zinc-900 border border-zinc-800 hover:grayscale-0 transition-all duration-700">
                             <div className="absolute inset-0 flex items-center justify-center text-xs font-mono uppercase tracking-widest text-zinc-700">
                                 <img src="/muhammad_zhifrantino.webp" alt="Silimin The Engineer" 
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 [@media(any-hover:hover)]:grayscale group-hover:grayscale-0" 
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 [@media(any-hover:hover)]:grayscale group-hover:grayscale-0" fetchPriority='high'
                                 />
                             </div>
                             <div className="absolute bottom-6 left-6 right-6 p-6 bg-red-600 text-white shadow-[0_10px_30px_rgba(220,38,38,0.4)]">
                                 <span className="text-[10px] font-mono uppercase tracking-widest block mb-2">Subject 01</span>
-                                <span className="text-2xl font-black uppercase italic">The Engineer</span>
+                                <span className="text-2xl font-black uppercase italic">The Builder</span>
                             </div>
                         </div>
                     </div> 
