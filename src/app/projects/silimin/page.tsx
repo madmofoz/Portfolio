@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Settings, Zap, Thermometer, ShieldAlert, ChevronRight, Activity, Cpu } from 'lucide-react';
+import { Settings, Zap, Thermometer, ShieldAlert, Activity, Cpu, Settings2, StepForward } from 'lucide-react';
 import Viewer from '@/components/viewer';
 
 // --- CUSTOM CURSOR (CROSSHAIR) ---
@@ -44,10 +44,10 @@ export default function SiliminProject() {
 
     const specs = [
         { label: "Engine Type", stock: "SOHC, 2-Valve, Air Cooled", silimin: "SOHC, 4-Valve, VVA, Liquid Cooled", delta: "MASSIVE UPGRADE" },
-        { label: "Displacement", stock: "124.8 cc", silimin: "155.1 cc", delta: "+24.3%" },
-        { label: "Power Output", stock: "~9.9 HP @ 7500 RPM", silimin: "~19.0 HP @ 10000 RPM", delta: "+91.9%" },
+        { label: "Displacement", stock: "124.8 cc", silimin: "177.22 cc", delta: "+29.58%" },
+        { label: "Power Output", stock: "~9.9 HP @ 7500 RPM", silimin: "~19.0 HP @ 10000 RPM", delta: "+102.02%" },
         { label: "Transmission", stock: "4-Speed Rotary", silimin: "6-Speed w/ Assist & Slipper", delta: "TRACK READY" },
-        { label: "Cooling System", stock: "Natural Air", silimin: "Radiator Liquid Cooled", delta: "PRECISION THERMAL" },
+        { label: "Cooling System", stock: "Natural Air", silimin: "Radiator Liquid Cooled", delta: "THERMAL EFFICIENCY" },
     ];
 
     return (
@@ -202,7 +202,7 @@ export default function SiliminProject() {
                         <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
                             <Cpu className="w-12 h-12 text-red-600" />
                         </div>
-                        <h5 className="font-mono text-red-500 text-[10px] uppercase tracking-widest mb-6">// Engineer Note</h5>
+                        <h5 className="font-mono text-red-500 text-[10px] uppercase tracking-widest mb-6">// Note</h5>
                         <p className="text-2xl md:text-3xl font-black italic text-white tracking-tight leading-tight uppercase">
                             "In this project, I am the god of small things. Every bolt torque, every wiring solder, and every weld bead determines whether this machine becomes a masterpiece or a disaster. I chose the former."
                         </p>
@@ -263,7 +263,7 @@ export default function SiliminProject() {
                                     "Power-to-weight ratio surpassing stock 150cc motorcycles."
                                 ].map((log, i) => (
                                     <li key={i} className="flex items-start gap-4 p-4 bg-zinc-900/30 border border-zinc-800 hover:border-red-600/50 transition-all">
-                                        <ChevronRight className="w-4 h-4 text-red-600 mt-1" />
+                                        <StepForward className="w-4 h-4 text-red-600 mt-1" />
                                         <span className="text-sm font-medium">{log}</span>
                                     </li>
                                 ))}

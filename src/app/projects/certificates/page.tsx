@@ -45,7 +45,7 @@ export default function GalleryPage() {
             {/* --- HEADER SECTION --- */}
             <header className="mb-12 border-l-4 border-emerald-600 dark:border-emerald-400 pl-6">
                 <h1 className="text-4xl md:text-6xl font-black text-black dark:text-white uppercase tracking-tighter italic">
-                    CERTIFIED <span className="text-zinc-400 dark:text-zinc-700 transition-colors">RECORDS.</span>
+                    RECORDS<span className="text-zinc-400 dark:text-zinc-700 transition-colors">RECORDS.</span>
                 </h1>
                 <p className="text-[17px] font-sans opacity-60 mt-5 max-w-xl tracking-wide leading-relaxed">
                     A curated collection of professional certifications and organizational milestones across engineering and digital disciplines.
