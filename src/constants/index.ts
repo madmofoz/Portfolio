@@ -18,6 +18,12 @@ export const PROJECTS = [
     link: "/projects/silimin"
   },
   {
+    title: "R&D Air Purification",
+    description: "An iterative 4-stage engineering study on sustainable outdoor air purification, utilizing banana pseudo-stem biopolymer filtration and centrifugal fluid dynamics.",
+    tech: ["Mechanical Design", "Sustainable Engineering", "CFD Simulation"],
+    link: "/projects/green-energy"
+  },
+  {
     title: "KHAD Team",
     description: "Managing Complexity through Dynamic Visual Storytelling at KMHE 2024 events; Layouting and Designing Structures of Organization",
     tech: ["Graphic Design", "Layouting", "Photoshop"],
