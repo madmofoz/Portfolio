@@ -13,13 +13,6 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
   return (
     <div className="scan-line group relative w-full p-8 md:p-12 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-zinc-400 dark:hover:border-zinc-500 flex flex-col justify-between">
       
-      {/* Background Index Decor */}
-      <div className="absolute top-8 right-8 opacity-[0.03] dark:opacity-[0.07] select-none pointer-events-none">
-        <span className="text-[10vw] font-black leading-none uppercase tracking-tighter italic">
-            - Project
-        </span>
-      </div>
-
       <div className="relative z-10 space-y-8">
         {/* Info Section */}
         <div className="space-y-6">
@@ -65,9 +58,6 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
             </span>
           </a>
           
-          <div className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest animate-blink-cursor">
-           <ChevronRight className="inline w-3 h-3 text-white mb-.5" /> --Deployment: Ready--
-          </div>
         </div>
       </div>
 

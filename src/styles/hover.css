@@ -40,6 +40,16 @@ header:hover {
 
 }
 
+.dark .wiggle-text:hover {
+  animation: wiggle 0.25s infinite;
+  color: rgba(255, 255, 255, 0.95);
+  transition:all ease-out 0.1s;
+  text-shadow:30px 13px rgba(246, 0, 153,0.8),
+             -38px -4px rgba(15, 210, 255,0.8),
+             -2px -4px rgba(255, 210, 0, 1);
+
+}
+
 .wiggle-text:hover:after {
   content:':̪̺̠̺͗ͨ̋ͩ͗:̛͇̱̥̥̙̎͆̑ͮ̐͢:̷̲ͮ̃́̅ͦ̔͐̆:̴͈͖̮̪̗̈́̆̀:̨̙̗̺̞̥͗̐ͫ:̗̰̜̟̮̦̉̂';
   z-index:1000;
@@ -48,4 +58,22 @@ header:hover {
   left: 0.5em;  
   top: -0.5em;
   transform:rotate(36deg);
+}
+
+.outline-text {
+  color: #ffffff;
+  text-shadow: 
+    -1px -1px 0 #27272a,  
+     1px -1px 0 #27272a,
+    -1px  1px 0 #27272a,
+     1px  1px 0 #27272a;
+}
+
+.dark .outline-text {
+  color: #27272a;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
 }

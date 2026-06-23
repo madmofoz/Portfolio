@@ -43,7 +43,7 @@ export default function Hero() {
             {/* PRIMARY HEADLINE */}
             <h1 className="text-[clamp(3rem,10vw,12rem)] font-black leading-[0.8] tracking-tighter uppercase mb-16">CRAFTING
               <br />
-            <span className="wiggle-text italic text-zinc-800" data-text="DIGITAL">DIGITAL</span>
+            <span className="outline-text wiggle-text italic" data-text="DIGITAL">DIGITAL</span>
               <br />
               <span className="group relative inline-block">ENGINES</span>
               <span className="inline-block w-[0.3em] h-[0.1em] bg-black dark:bg-white ml-2 mb-[0.15em] animate-blink-cursor"></span>

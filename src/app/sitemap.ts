@@ -43,7 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/projects/certificates`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/projects/green-energy`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 1,
     },
   ]

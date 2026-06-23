@@ -71,7 +71,7 @@ const Neon = ({ mousePos, active }: BugProps) => {
 
     // Fungsi buat pindah ke posisi acak
     const moveRandomly = () => {
-      const randomX = Math.random() * (window.innerWidth - 100); // -100 biar gak off-screen
+      const randomX = Math.random() * (window.innerWidth - 100);
       const randomY = Math.random() * (window.innerHeight - 100);
       setPosition({ x: randomX, y: randomY });
     };
@@ -254,7 +254,7 @@ export default function SystemAnomalies({ isBugActive }: { isBugActive: boolean 
             <div className="bg-red-600/10 backdrop-blur-sm border border-red-600 p-4 font-mono text-red-600 text-md uppercase tracking-widest flex items-center gap-4">
               <HazardIcon />
               <span className="animate-pulse">
-                BUG_WARN: Web-Infected-by-Unkown_Bug-21-12/xx_04
+                WARN: Web-Infectxd-22-05/xx_26;1201MMV/XXI,XII,2XX4;
               </span>
               <HazardIcon />
             </div>
