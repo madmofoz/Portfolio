@@ -19,31 +19,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/projects/khad-team`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projects/silimin`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/projects/ponces-1`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/projects/kawa-kawa`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projects/sample`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
