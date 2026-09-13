@@ -28,9 +28,9 @@ export default function ProjectCard({ title, description, tech, link, index = 1 
         <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800/80 pb-3 font-mono text-[10px] tracking-widest text-zinc-500 dark:text-zinc-400">
           <div className="flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 bg-[#ff2400]" />
-            <span className="uppercase">SPEC // MOD_{serialId}</span>
+            <span className="uppercase">PROJ.NUM_{serialId}</span>
           </div>
-          <span className="text-zinc-400 dark:text-zinc-600 uppercase">SYS_LOG</span>
+          <span className="text-zinc-400 dark:text-zinc-600 uppercase">LOG</span>
         </div>
 
         {/* Title & Description */}
@@ -64,13 +64,9 @@ export default function ProjectCard({ title, description, tech, link, index = 1 
           rel="noopener noreferrer"
           className="group/link inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-[#ff2400] dark:hover:text-[#ff2400] transition-colors"
         >
-          <span>EXECUTE // RUN</span>
+          <span>SEE MORE</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
         </a>
-
-        <span className="font-mono text-[9px] tracking-widest text-zinc-400 dark:text-zinc-600">
-          INDEX: 0x{serialId}
-        </span>
       </div>
 
       {/* Industrial Accent Strip */}
