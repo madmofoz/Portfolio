@@ -57,30 +57,28 @@ function HeroSection() {
   const pointerRef = useRef(null); // Ref untuk mengontrol jarum langsung ke DOM
 
   // Revving Simulation
-  useEffect(() => {
-    let timeoutId;
-
+useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    
     const revEngine = () => {
       if (!pointerRef.current) return;
-
-      const isRevving = Math.random() > 0.4; // 60% peluang naik
-
+      
+      const isRevving = Math.random() > 0.4;
+      
       let randomAngle;
       if (isRevving) {
-        randomAngle = -45 + (Math.random() * 180);
+        randomAngle = -45 + (Math.random() * 180); 
       } else {
-        // Lepas gas: rotasi acak antara -135deg sampai -45deg (kiri/turun)
         randomAngle = -135 + (Math.random() * 90);
       }
 
       pointerRef.current.style.transform = `rotate(${randomAngle}deg)`;
-
+      
       const randomDelay = 150 + Math.random() * 450;
       timeoutId = setTimeout(revEngine, randomDelay);
     };
 
-    timeoutId = setTimeout(revEngine, 2000);
-
+    timeoutId = setTimeout(revEngine, 1000); 
     return () => clearTimeout(timeoutId);
   }, []);
 
