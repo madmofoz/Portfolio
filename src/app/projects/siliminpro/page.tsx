@@ -54,7 +54,7 @@ function HeroSection() {
   const totalTicks = 27;
   const startAngle = 135;
 
-  const pointerRef = useRef(null); // Ref untuk mengontrol jarum langsung ke DOM
+  const pointerRef = useRef<SVGLineElement>(null); // Ref untuk mengontrol jarum langsung ke DOM
 
   // Revving Simulation
 useEffect(() => {
