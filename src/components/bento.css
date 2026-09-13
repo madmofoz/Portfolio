@@ -1,0 +1,38 @@
+/* Base Canvas */
+.industrial-bg-canvas {
+  background-color: #0a0a0c;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* CAD Technical Grid Pattern */
+.cad-grid-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 120%;
+  background-image: 
+    linear-gradient(to right, #27272a 1px, transparent 1px),
+    linear-gradient(to bottom, #27272a 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.25;
+}
+
+/* Radial Vignette (Bikin fokus di tengah & tepi layar agak gelap) */
+.industrial-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, transparent 20%, #0a0a0c 90%);
+}
+
+/* Film Grain Texture */
+.industrial-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}

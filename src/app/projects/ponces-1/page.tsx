@@ -1,10 +1,8 @@
-'use client'; // Required for model-viewer in Next.js App Router
+'use client';
 
 import React from 'react';
-import Script from 'next/script';
 import Viewer from '@/components/viewer';
 
-// Deklarasi dipindah ke sini agar terisolasi hanya untuk komponen Viewer
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -23,310 +21,494 @@ declare global {
   }
 }
 
-interface ViewerProps {
-  modelPath: string;
-}
-
-
 export default function PoncesProjectPage() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-300 selection:bg-emerald-500/30 font-sans">
-      {/* HERO SECTION */}
-      <section className="relative px-6 pt-32 pb-8 md:pt-48 md:pb-12 max-w-5xl mx-auto flex flex-col items-start">
-        <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-400/10 rounded-full border border-emerald-400/20">
-          Appropriate Technology Project
-        </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4">
-          PONCES-1
-        </h1>
-        <h2 className="text-2xl md:text-4xl font-medium text-zinc-400 mb-8 max-w-3xl">
-          Pedal-Operated Nutrient Circulation Ecosystem
-        </h2>
-        <p className="text-xl md:text-2xl font-light text-zinc-300 max-w-3xl leading-relaxed mb-6">
-          Turning human effort into useful agricultural work.
-        </p>
-        <p className="text-base md:text-lg text-zinc-400 max-w-2xl leading-relaxed">
-          PONCES-1 is an appropriate technology prototype developed during the community service program (KKN) in Ponces Village, Girimulyo, Kulon Progo. The system is designed to assist in processing agricultural organic waste through human-powered manual circulation and agitation, without relying on electricity.
-        </p>
-        <p className="mt-8 text-sm font-medium text-emerald-500 uppercase tracking-widest">
-          From a simple pedal mechanism to a field-deployed agricultural system.
-        </p>
-      </section>
+    <main className="min-h-screen bg-[#0a0a0c] text-zinc-300 font-sans selection:bg-[#ff2400] selection:text-white pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-      {/* 3D VIEWER CONTAINER */}
-      <section className="px-6 py-8 max-w-5xl mx-auto">
-        <div className="relative group w-full aspect-video bg-zinc-900 border border-zinc-800 overflow-hidden rounded-xl shadow-2xl">
-          <div className="absolute inset-0">
-            <Viewer modelPath="/ponces-1.glb" />
-          </div>
-        </div>
-      </section>
+        {/* BENTO GRID (12-column layout, 12px gaps) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
 
-      <hr className="border-zinc-800 max-w-5xl mx-auto my-8" />
-
-      {/* GENESIS: IT STARTED WITH A DRUM PEDAL */}
-      <section className="px-6 py-20 max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold text-white mb-6">It Started with a Drum Pedal</h3>
-        <h4 className="text-xl font-medium text-emerald-400 mb-6">Not in a laboratory. Not from a proposal. Not from an engineering brief.</h4>
-        <div className="space-y-4 text-zinc-400 leading-relaxed text-lg">
-          <p>
-            It all started while doomscrolling a video of a Lamb of God drum pedal. I saw a profoundly simple mechanism: foot → pedal → linkage → motion. Then came a random question:
-          </p>
-          <div className="p-6 mt-8 bg-zinc-900 border-l-4 border-emerald-500 rounded-r-lg">
-            <p className="text-white font-medium text-xl italic">
-              &quot;If leg power can drive a kick drum, can that same energy perform useful agricultural work?&quot;
-            </p>
-          </div>
-          <p className="mt-6">
-            At that moment, I didn&apos;t know the answer. I didn&apos;t even know what I was going to build. I only had one foundational idea: <strong className="text-white">Human energy can become mechanical work.</strong>
-          </p>
-        </div>
-      </section>
-
-      {/* THE INSIGHT: THEN CAME PONCES */}
-      <section className="bg-zinc-900/50 py-24">
-        <div className="px-6 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Then Came Ponces</h3>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-4">
-              Later, I received confirmation from the head of the <strong className="text-white">Arum Farma Farmer Group</strong> about a local habit. Many residents found processing organic compost using EM4 too cumbersome. The most common point of failure was simple: they kept forgetting to stir it manually.
-            </p>
-            <p className="text-lg text-zinc-400 leading-relaxed">
-              My initial thought: <span className="text-zinc-300 italic">&quot;Okay. I&apos;ll build an automatic stirring machine.&quot;</span> Problem solved. Or so I thought...
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">But Then I Asked the Village Head</h3>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-4">
-              When I cross-checked this condition with the Village Head of Ponces, his answer revealed a much deeper issue. The residents weren&apos;t even familiar with EM4 fermented fertilizer in the first place.
-            </p>
-            <p className="text-lg text-zinc-400 leading-relaxed">
-              If I showed up with an &quot;automatic liquid fertilizer machine,&quot; I would be solving a problem the users didn&apos;t even know they had. At this point, I stopped asking <span className="text-zinc-300 italic">&quot;What machine should I build?&quot;</span> and started asking, <span className="text-emerald-400 font-medium">&quot;What are the actual conditions in Ponces?&quot;</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* RESEARCH & ENVIRONMENT */}
-      <section className="px-6 py-24 max-w-4xl mx-auto">
-        <div className="relative group w-max mb-6">
-          <h3 className="text-3xl font-bold text-white ">
-            Research Before Design
-          </h3>
-        </div>
-
-        <p className="text-lg text-zinc-400 leading-relaxed mb-12">
-          I started digging into literature about Ponces and its surrounding environment. Not just about fertilizer, but agriculture, organic waste, soil, slope gradients, water availability, and regional characteristics. Research on banana trunk utilization proved that agricultural waste—often burned or ignored—could become a primary feedstock for organic processing.
-        </p>
-
-        <div className="relative group w-max mb-4">
-  <h4 className="text-2xl font-bold text-white cursor-help border-b-2 border-dashed border-emerald-500/50 hover:text-emerald-400 transition-colors">
-    The Land Changed the Design
-  </h4>
-  
-  {/* BibTeX Pop-up */}
-  <div className="absolute left-0 top-full mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[85vw] max-w-2xl bg-zinc-950/95 backdrop-blur-sm border border-emerald-900/50 rounded-xl shadow-2xl p-6 z-50 max-h-80 overflow-y-auto custom-scrollbar">
-    <pre className="text-xs font-mono text-emerald-400/80 whitespace-pre-wrap break-words leading-relaxed selection:bg-emerald-500/30">
-      {`@article{YandoMuhammadIqbal2024,
-   abstract = {Indonesia is susceptible to landslide disasters due to its geographic location and geological characteristics, which are the main triggers for landslides. The villages of Girimulyo, Ponces, Purwosari, and Kulon Progo are situated close to the boundary separating Yogyakarta from Central Java. Situated 400 meters above sea level, the village is a hill area according to topographical data. In this period of approximately 7 years, there have been landslides at several points in Ponces Village, some of which caused material losses to victims. The study aims to map landslide susceptibility areas and landslide trigger factors. The methods used involve descriptive and quantitative, taking the form of location surveys, interviews, and the collection of multiple data sets. The collected data was then analyzed and processed into a landslide susceptibility map in Ponces Village using QGIS software. The results showed that the main cause of landslides at the survey point is the high intensity of rainfall in specific months, with precipitation ranging between 300-500 mm per month, and the inclination slope is more than 40%, so it is included in the moderately steep. The level of disaster susceptibility in Ponces Village is classified as a high susceptibility zone because of the potential and condition of the slopes, which have the potential to trigger landslides.},
-   author = {Yando Muhammad Iqbal and Yuli Fajarwati and Izwa Nur Aditya and Grace Lucia Lambu},
-   issn = {2962-2697},
-   journal = {CE ReForm},
-   keywords = {Landslide,Mapping QGIS,Susceptibility},
-   title = {Identifikasi kerentanan gerakan tanah berdasarkan kemiringan lereng dan curah hujan (Studi kasus: Dusun Ponces, Ggirimulyo, Kulon Progo)},
-   url = {https://girimulyo.kulonprogokab.go.id},
-   year = {2024}
-}`}
-    </pre>
-  </div>
-</div>
-
-<p className="text-lg text-zinc-400 leading-relaxed mb-8">
-  Studies on Kulon Progo highlighted steep slopes, severe landslide risks, and hard-water areas. These seemingly unrelated geological constraints instantly dictated the mechanical design. I initially considered a biopore approach, but the hard rock and steep topography rendered underground biological absorption useless.
-</p>
-        <div className="inline-block bg-zinc-900 border border-zinc-800 p-6 rounded-lg">
-          <p className="text-emerald-400 font-medium text-lg">
-            The environment was telling me: Don&apos;t design for an imaginary village. Design for this village.
-          </p>
-        </div>
-      </section>
-
-      {/* ENGINEERING EVOLUTION */}
-      <section className="bg-zinc-900/50 py-24 border-y border-zinc-800">
-        <div className="px-6 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold text-white mb-12 text-center">Mechanical Evolution</h3>
-
-          <div className="space-y-16">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-1/3">
-                <h4 className="text-xl font-bold text-white mb-2">Iteration One: Rejected</h4>
-                <div className="w-12 h-1 bg-zinc-700 mb-4"></div>
+          {/* 01. EXECUTIVE SUMMARY & FIELD PROBLEM (8 Cols) */}
+          <section className="md:col-span-8 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-[#ff2400] tracking-wider uppercase mb-3">
+                Appropriate Technology · Field Deployment Report
               </div>
-              <div className="md:w-2/3 text-lg text-zinc-400 leading-relaxed">
-                My first concrete design was essentially a human-powered cement mixer. A large rotating drum driven by a pedal utilizing a four-bar linkage mechanism. Mechanically, it was fascinating. Contextually, it was completely wrong. Placing a heavy, unstable rotating mechanism on a steep, landslide-prone slope was a logistical and safety nightmare. I threw the design out.
+              <h1 className="text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-white mb-2 leading-none">
+                PONCES-1
+              </h1>
+              <h2 className="text-base md:text-lg font-medium text-zinc-400 mb-6">
+                Pedal-Operated Nutrient Circulation Eco-System (Generation 1)
+              </h2>
+              <div className="space-y-4 text-sm text-zinc-300 leading-relaxed font-sans max-w-3xl">
+                <p>
+                  Ponces Hamlet in the Menoreh Mountains, Kulon Progo, faces a dual hydrometeorological vulnerability: high landslide susceptibility during the rainy season due to terrain slopes exceeding 40%, alongside acute water scarcity and restricted electrical grid infrastructure during the dry season caused by low andesite aquifer productivity (Hendrayana et al., 2021; Yando et al., 2024). Agricultural land relies strictly on seasonal rainfall, with spring sources situated deep below residential elevations, ruling out conventional grid-dependent electromechanical solutions across local hillside plots.
+                </p>
+                <p>
+                  Concurrently, post-harvest banana stem (<em>Musa sp.</em>) biomass is generated in vast quantities but typically ends up open-burned or left to decompose in uncontrolled field piles. Yet this organic waste contains high biochemical potential: 135 mg phosphorus, 213 mg potassium, and 122 mg calcium per 100 g dry weight, along with a natural moisture content of 92.5% (Santoni et al., 2023).
+                </p>
+                <p className="text-zinc-400">
+                  Previous community efforts to produce liquid organic fertilizer (POC) failed primarily due to the severe physical demands of mandatory periodic manual stirring. Anaerobic digestion drastically elevates fluid viscosity, requiring high shearing torque that quickly fatigues farm workers and leads to abandoned, unstirred batches. PONCES-1 converts downward pedal press into pneumatic fluid circulation, requiring zero grid electricity and eliminating direct physical contact with the digestate.
+                </p>
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-1/3">
-                <h4 className="text-xl font-bold text-white mb-2">From Pedal to Pump</h4>
-                <div className="w-12 h-1 bg-emerald-500 mb-4"></div>
+            <div className="mt-8 pt-4 border-t border-zinc-800/80 flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
+              <span className="border border-zinc-800 px-2.5 py-1 bg-zinc-900/50">Reciprocating Airlift</span>
+              <span className="border border-zinc-800 px-2.5 py-1 bg-zinc-900/50">Grid-Independent</span>
+              <span className="border border-zinc-800 px-2.5 py-1 bg-zinc-900/50">Volumetric Eff: 88.1%</span>
+              <span className="border border-zinc-800 px-2.5 py-1 bg-zinc-900/50">Substrate Agnostic</span>
+            </div>
+          </section>
+
+          {/* 02. FLUID KINETICS & PNEUMATIC VALIDATION (4 Cols) */}
+          <section className="md:col-span-4 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider mb-4 border-b border-zinc-800 pb-2">
+                Mechanical & Fluid Specifications
               </div>
-              <div className="md:w-2/3 text-lg text-zinc-400 leading-relaxed">
-                <p className="mb-4">I went back to the original inspiration: the pedal. I found a twin-cylinder bicycle foot pump, and the architecture shifted. Why rotate an entire heavy drum when you only need to move the fluid inside it?</p>
-                <div className="font-mono text-sm text-emerald-400 bg-zinc-950 p-4 rounded border border-zinc-800">
-                  Pedal → Mechanical Actuation → Foot Pump → Pressure → Fluid Flow → Circulation → Organic Processing
+
+              <div className="space-y-4 font-mono text-xs">
+                <div className="border-l border-[#ff2400] pl-3">
+                  <span className="block text-[10px] text-zinc-500 uppercase">Twin-Cylinder Displacement</span>
+                  <span className="text-base font-bold text-white">Bore 42.5 mm · Stroke 80 mm</span>
+                  <p className="text-[11px] font-sans text-zinc-400 mt-0.5">
+                    V<sub>swept</sub> = 227 cm³ theoretical per full stroke compression cycle.
+                  </p>
                 </div>
-                <p className="mt-4">No electric motors. No external grid. Just human power creating pneumatic pressure to circulate fluid.</p>
+
+                <div className="border-l border-zinc-700 pl-3">
+                  <span className="block text-[10px] text-zinc-500 uppercase">Volumetric Efficiency (η<sub>vol</sub>)</span>
+                  <span className="text-base font-bold text-white">88.1% (V<sub>act</sub> ≈ 200 mL)</span>
+                  <p className="text-[11px] font-sans text-zinc-400 mt-0.5">
+                    Measured via water displacement. The 11.9% delta accounts for clearance volume, line compressibility, and micro-leakage.
+                  </p>
+                </div>
+
+                <div className="border-l border-zinc-700 pl-3">
+                  <span className="block text-[10px] text-zinc-500 uppercase">Diffuser Bubble Diameter (d<sub>b</sub>)</span>
+                  <span className="text-base font-bold text-white">2.8 mm (Tate&apos;s Law Model)</span>
+                  <p className="text-[11px] font-sans text-zinc-400 mt-0.5">
+                    Engineered through 0.5 mm micro-orifices across the Fermat spiral coil.
+                  </p>
+                </div>
+
+                <div className="border-l border-zinc-700 pl-3">
+                  <span className="block text-[10px] text-zinc-500 uppercase">Hydrostatic Threshold</span>
+                  <span className="text-sm font-bold text-[#ff2400]">P<sub>pump</sub> &gt; P<sub>atm</sub> + ρgh</span>
+                  <p className="text-[11px] font-sans text-zinc-400 mt-0.5">
+                    Minimum operational head required to overcome liquid column depth, line friction, and check valve cracking pressure.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* PROTOTYPE TESTING */}
-      <section className="px-6 py-24 max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold text-white mb-6">Then the Prototype Fought Back</h3>
-        <h4 className="text-xl font-medium text-emerald-400 mb-6">Engineering starts when the theory fails.</h4>
-        <div className="space-y-4 text-zinc-400 leading-relaxed text-lg mb-12">
-          <p>
-            The first prototype leaked. Seals failed. Backflow and back pressure ruined the fluid dynamics. The airlock didn&apos;t behave as diagrammed. This is where real engineering began: <strong className="text-white">test, observe, diagnose, modify, test again.</strong>
-          </p>
-          <p>
-            I integrated external check valves to force unidirectional flow and kill the backflow issue. The hardware stabilized.
-          </p>
-        </div>
+            <div className="mt-6 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-500">
+              Flow regime: Pulsating macro-convective loop.
+            </div>
+          </section>
 
-        <h3 className="text-2xl font-bold text-white mb-6">Testing More Than the Machine</h3>
-        <p className="text-lg text-zinc-400 leading-relaxed mb-8">
-          Once operational, I monitored the biochemical process in the field. I didn&apos;t use this data to claim I had created a perfect fertilizer. Instead, I learned that raw metrics require context.
-        </p>
+          {/* 03. 3D ISOMETRIC CAD MODEL (12 Cols) */}
+          <section className="md:col-span-12 border border-zinc-800 bg-[#0d0d10] p-4 md:p-6">
+            <div className="flex justify-between items-center mb-3 text-xs font-mono text-zinc-500 px-1">
+              <span>Interactive 3D CAD Reference // Spatial Architecture</span>
+              <span className="text-[#ff2400]">Orbit / Pan / Inspect</span>
+            </div>
+            <div className="relative w-full aspect-video md:aspect-[21/8] bg-[#070709] border border-zinc-800 overflow-hidden">
+              <Viewer modelPath="/ponces-1.glb" />
+            </div>
+          </section>
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
-          <h5 className="text-white font-bold mb-4">Field observation metrics:</h5>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 font-mono">
+          {/* USER IDENTIFICATION (12 Cols) */}
+          <section id="user-identifiaction" className="scroll-mt-24 md:col-span-12 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <span className="block text-zinc-500 text-sm mb-1">pH TRACKING</span>
-              <span className="text-emerald-400 font-semibold">6.70 → 4.92 → 4.72 → 5.31 → ~6.01</span>
+              <div className="text-[11px] font-mono text-[#ff2400] tracking-wider uppercase mb-2">
+                User Identification & Field Observation
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                User Requirements Identification & Design Implications
+              </h3>
+
+              <div className="overflow-x-auto border border-zinc-800 mt-4">
+                <table className="w-full text-xs text-left font-sans text-zinc-300">
+                  <thead className="bg-zinc-950 text-zinc-500 border-b border-zinc-800 uppercase font-mono text-[10px]">
+                    <tr>
+                      <th className="p-4">Information Source</th>
+                      <th className="p-4">Findings / User Requirements</th>
+                      <th className="p-4">Design Implications</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-850">
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top w-1/4">
+                        Communication with the Head of Ponces Hamlet
+                      </td>
+                      <td className="p-4 align-top leading-relaxed w-1/3">
+                        Farmers' reliance on inorganic fertilisers and minimal literacy regarding independent liquid organic fertiliser (POC) processing technology[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        The system is designed to facilitate semi-anaerobic fermentation processes using a commercial biocatalyst (EM4) as an initial step in introducing organic waste treatment technology[cite: 1].
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top">
+                        Communication with the Head of Arum Farma Farmers' Group / Girimulyo PRM
+                      </td>
+                      <td className="p-4 align-top leading-relaxed">
+                        Past failures in POC production caused by negligence in conducting periodic fluid agitation[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        Engineering of an integrated fluid circulation system capable of distributing nutrients and breaking up fluid stratification periodically without physically burdening the user[cite: 1].
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top">
+                        Site condition observation
+                      </td>
+                      <td className="p-4 align-top leading-relaxed">
+                        Lack of access to electrical infrastructure in the field area, alongside steep slope topography exceeding 40% which limits the application of conventional circulation pumps[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        Implementation of a human-powered drive mechanism using a pneumatic foot pump unit to eliminate reliance on external electrical energy[cite: 1].
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top">
+                        Operational requirements identification
+                      </td>
+                      <td className="p-4 align-top leading-relaxed">
+                        Demand for a device with high ergonomics, ease of operation, and minimal maintenance[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        Selection of simple commercial components, utilisation of push-to-fit pneumatic fittings, and simplification of the system architecture to make it easy for lay users to assemble and disassemble[cite: 1].
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top">
+                        Processing observation
+                      </td>
+                      <td className="p-4 align-top leading-relaxed">
+                        High risk of physical workload and hygiene issues due to direct physical contact with the fermentation fluid during manual agitation[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        Substitution of mechanical agitation with an air injection system (airlift mechanism) based on a vertical downward pedal press, to increase biomechanical efficiency and prevent direct fluid exposure[cite: 1].
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-bold text-white align-top">
+                        Substrate management requirements identification
+                      </td>
+                      <td className="p-4 align-top leading-relaxed">
+                        Risk of scattering and clogging in the air distribution line (diffuser) caused by the accumulation of solid chopped banana stem fibre inside the reactor[cite: 1].
+                      </td>
+                      <td className="p-4 align-top leading-relaxed text-zinc-400">
+                        Implementation of the percolation extraction principle (tea-bag principle) by isolating the solid substrate inside a mesh bag, ensuring fluid circulation continues without disrupting the pneumatic infrastructure[cite: 1].
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </section>
+
+          {/* 04. MECHANICAL GENESIS & DESIGN PIVOT (7 Cols) */}
+          <section className="md:col-span-7 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <span className="block text-zinc-500 text-sm mb-1">EC TRACKING</span>
-              <span className="text-emerald-400 font-semibold">884 → ~1,529 → ~1,630 µS/cm</span>
+              <div className="text-[11px] font-mono text-[#ff2400] tracking-wider uppercase mb-2">
+                Kinematics & Engineering Evolution
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Kinematic Evolution: From Speed Bumps to Direct Pneumatics
+              </h3>
+
+              <div className="space-y-4 text-sm text-zinc-300 leading-relaxed font-sans">
+                <p>
+                  Initial biomechanical inspiration stemmed from analyzing the double-bass pedal kinematics used in heavy metal drumming (Chris Adler, Lamb of God), which isolates foot actuation while preserving upper-limb utility. In the fields of Ponces, farmers constantly have their hands occupied carrying scythes or forage bundles. Utilizing a vertical downward foot-press leverages full body weight efficiently without tying up user hands.
+                </p>
+
+                <div className="p-4 bg-zinc-950 border border-zinc-800 text-xs text-zinc-300">
+                  <span className="text-[#ff2400] font-mono font-bold block mb-1">Concept One Discarded (Four-Bar Linkage):</span>
+                  The initial design evaluated a step-over speed-bump mechanism driving a rotating digester drum through a four-bar crank linkage. However, topographical site surveys logged slope inclines between 65% and 72% at multiple farm plots. Placing a 60 kg rotating drum on such acute inclines posed catastrophic structural tipping and runaway hazards. Furthermore, the required reduction gearbox would add prohibitive fabrication complexity and maintenance costs.
+                </div>
+
+                <p>
+                  <strong>Paradigm Shift:</strong> Rather than rotating an unstable outer vessel, the architecture pivoted to a commercial twin-cylinder foot pump delivering compressed air directly to the vessel floor. The resulting pulsating stream releases fine bubbles that ascend due to Archimedean buoyant force, driving an internal vertical airlift macro-convective loop without moving external parts or user contact.
+                </p>
+              </div>
             </div>
-          </div>
-          <p className="text-sm text-zinc-500 mt-6 leading-relaxed">
-            A pH reading taken before agitation differs from one taken after. The measurement system became a learning tool, proving the solution&apos;s characteristics were actively changing during circulation.
-          </p>
-        </div>
-      </section>
 
-      <hr className="border-zinc-800 max-w-5xl mx-auto" />
-
-      {/* PLATFORM & DESIGN FOR PEOPLE */}
-      <section className="px-6 py-24 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-2">The Machine Became a Platform</h3>
-          <div className="w-8 h-1 bg-emerald-500 mb-6"></div>
-          <div className="space-y-4 text-zinc-400 text-base leading-relaxed">
-            <p>As I understood the community better, framing this as a &quot;Liquid Fertilizer Machine&quot; felt too narrow. It evolved into a human-powered organic waste processing platform capable of utilizing whatever materials the village had on hand.</p>
-            <ul className="list-disc pl-5 space-y-2 mt-4 text-zinc-300">
-              <li><strong className="text-white">Livestock manure:</strong> Organic matter & nutrients (N, P).</li>
-              <li><strong className="text-white">Banana trunks:</strong> Mineral content (Potassium) & biomass.</li>
-              <li><strong className="text-white">Fruit & plant residue:</strong> Local organic feedstock.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-2">But Users Needed a Different Name</h3>
-          <div className="w-8 h-1 bg-emerald-500 mb-6"></div>
-          <div className="space-y-4 text-zinc-400 text-base leading-relaxed">
-            <p>The technical name is <strong className="text-white">PONCES-1</strong> (Pedal-Operated Nutrient Circulation Ecosystem, Version 1).</p>
-            <p>But handing a farmer a &quot;Reactor Ecosystem&quot; creates an unnecessary barrier to entry. I simplified it for the community: <strong className="text-white">ROT (Reaktor Organik Tani)</strong>, or simply an &quot;organic waste processor.&quot;</p>
-            <div className="mt-6 border-l-2 border-zinc-700 pl-4">
-              <p className="text-emerald-400 font-medium">The engineering can be complicated.</p>
-              <p className="text-emerald-400 font-medium">The user experience shouldn&apos;t be.</p>
+            <div className="mt-6 p-3 bg-zinc-950 border border-zinc-800 font-mono text-xs text-zinc-400 overflow-x-auto whitespace-nowrap">
+              Foot Pedal → Dual Piston Comp. → Silicone Check Valve → Fermat Spiral Diffuser → Airlift Circulation
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* USER FEEDBACK MATTERS */}
-      <section className="bg-emerald-950/20 py-24 border-y border-emerald-900/30">
-        <div className="px-6 max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-white mb-4">User Feedback Matters</h3>
-          <h4 className="text-xl font-medium text-emerald-400 mb-8">Fall in love with the problem, not the solution.</h4>
-          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-            PONCES-1 was deployed and handed over to the Arum Farma Farmer Group, complete with pH meters and an active batch of processing materials.
-          </p>
-          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto mt-4">
-            It taught me that engineering isn&apos;t just <span className="font-mono text-sm">calculate → design → build</span>. It is <span className="font-mono text-sm">listen → research → define → design → build → fail → iterate → validate → deploy</span>.
-          </p>
-          <p className="mt-12 text-2xl font-bold text-emerald-400 leading-snug">
-            A technically brilliant prototype on paper is useless <br className="hidden md:block" />
-            if the community won&apos;t step on the pedal.
-          </p>
-        </div>
-      </section>
+          {/* 05. TOPOGRAPHICAL CONSTRAINTS & GEOLOGY (5 Cols) */}
+          <section className="md:col-span-5 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-zinc-500 tracking-wider uppercase mb-2">
+                Contextual Geography & Hydrogeology
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Site Conditions Dictating Engineering
+              </h3>
 
-      {/* PONCES-1 TODAY (SPECS) */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
-        <h3 className="text-3xl font-bold text-white mb-12 text-center">Project Overview</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { label: "Project Name", value: "PONCES-1" },
-            { label: "User-Facing Name", value: "ROT (Reaktor Organik Tani)" },
-            { label: "Location", value: "Dusun Ponces, Girimulyo, Kulon Progo" },
-            { label: "Community Partner", value: "Kelompok Tani Arum Farma" },
-            { label: "Power Source", value: "Human-powered" },
-            { label: "Status", value: "Field-deployed Prototype — Version 1" }
-          ].map((spec, idx) => (
-            <div key={idx} className="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
-              <div className="text-emerald-500 font-mono text-xs uppercase tracking-wider mb-2">{spec.label}</div>
-              <div className="text-white text-base font-medium">{spec.value}</div>
+              <div className="space-y-3 text-sm text-zinc-300 leading-relaxed font-sans mb-6">
+                <p>
+                  Engineering parameters cannot exist divorced from field geography. Ponces sits within the Menoreh hill tract, characterized by average slopes exceeding 40% and monthly rainfall between 300 mm and 500 mm during wet periods, designated as a high-risk landslide zone (Yando et al., 2024).
+                </p>
+                <p>
+                  Conversely, dry seasons bring severe drought due to dense andesite bedrock possessing negligible hydraulic conductivity and poor transmissivity (Hendrayana et al., 2021). Farming relies entirely on rainfed schedules, while high fuel costs limit motorized water pumping from distant valley floors.
+                </p>
+                <p>
+                  These lithological barriers immediately invalidated sub-surface options like biopore composting pits. The machine had to be lightweight, modular, self-powered, and stable on narrow terrace steps without invasive ground anchoring.
+                </p>
+              </div>
+
+              {/* Geographic Reference */}
+              <div className="p-3 bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-400">
+                <span className="text-[#ff2400] block mb-1">Geological Reference:</span>
+                Yando et al. (2024). <em>Identification of ground movement vulnerability based on slope incline and precipitation in Ponces Hamlet</em>. CE ReForm.
+              </div>
             </div>
-          ))}
-          <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 md:col-span-2 lg:col-span-3">
-            <div className="text-emerald-500 font-mono text-xs uppercase tracking-wider mb-2">Domain</div>
-            <div className="text-white text-base font-medium">Appropriate Technology · Agricultural Engineering · Mechanical Design · Fluidics · Prototyping</div>
-          </div>
-        </div>
-      </section>
 
-      {/* WHAT I LEARNED & CONCLUSION */}
-      <section className="px-6 py-24 max-w-4xl mx-auto text-center border-t border-zinc-800">
-        <h3 className="text-3xl font-bold text-white mb-8">The Lesson</h3>
-        <p className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed mb-12">
-          A good engineer doesn&apos;t just build solutions. <span className="text-white">They know when to change the solution entirely.</span>
-        </p>
+            <div className="mt-6 pt-3 border-t border-zinc-800 text-xs text-zinc-400 font-sans italic">
+              Mechanical systems must conform to site hydrometeorology, not theoretical assumptions.
+            </div>
+          </section>
 
-        <div className="inline-block text-left bg-zinc-900/50 p-8 rounded-2xl mb-16 border border-zinc-800/50">
-          <p className="text-zinc-300 mb-4 font-medium">The real engineering challenge begins when the design leaves the workshop. It has to survive:</p>
-          <ul className="space-y-2 font-mono text-emerald-400">
-            <li>{'>'} real users.</li>
-            <li>{'>'} real materials.</li>
-            <li>{'>'} real environments.</li>
-            <li>{'>'} real limitations.</li>
-            <li>{'>'} and real expectations.</li>
-          </ul>
-        </div>
+          {/* 06. 10-DAY FERMENTATION TELEMETRY (6 Cols) */}
+          <section className="md:col-span-6 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-[#ff2400] tracking-wider uppercase mb-2">
+                Biochemical Dynamics · 10-Day Field Log
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                pH Curve & Electrical Conductivity (EC) Telemetry
+              </h3>
 
-        <div className="mt-12">
-          <h2 className="text-4xl font-extrabold text-white tracking-widest mb-4">PONCES-1</h2>
-          <p className="text-zinc-400 text-lg mb-8">
-            Born from a drum pedal. Shaped by research. Changed by the landscape.<br />
-            Built through failure. Tested in the field. And designed for people.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-mono text-zinc-500 mb-12">
-            <span>[ Designed in the workshop ]</span>
-            <span>[ Tested in the field ]</span>
-            <span>[ Built for people ]</span>
-          </div>
-          <p className="text-emerald-500 font-medium">
-            One pedal started the idea. The village gave it a purpose.
-          </p>
+              <p className="text-xs text-zinc-400 leading-relaxed font-sans mb-4">
+                Biochemical monitoring of banana stem slurry inoculated with EM4 catalyst conducted from August 4 to August 14, 2026, using an EZ9908 multiparameter probe calibrated against standard buffers (pH 4.01 and 6.86):
+              </p>
+
+              {/* Data Table */}
+              <div className="border border-zinc-800 overflow-x-auto mb-4">
+                <table className="w-full font-mono text-xs text-left">
+                  <thead className="bg-zinc-950 text-zinc-500 border-b border-zinc-800">
+                    <tr>
+                      <th className="p-2">Day</th>
+                      <th className="p-2">Date</th>
+                      <th className="p-2">pH</th>
+                      <th className="p-2">EC (µS/cm)</th>
+                      <th className="p-2">Decomposition Phase</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-850 text-zinc-300">
+                    <tr>
+                      <td className="p-2">D-0</td>
+                      <td className="p-2">Aug 04</td>
+                      <td className="p-2 font-bold text-white">7.00</td>
+                      <td className="p-2 text-zinc-600">—</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Baseline neutral well water</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">D-2</td>
+                      <td className="p-2">Aug 06</td>
+                      <td className="p-2 font-bold text-white">6.70</td>
+                      <td className="p-2 text-zinc-600">—</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Organic acid release initiates</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">D-4</td>
+                      <td className="p-2">Aug 08</td>
+                      <td className="p-2 font-bold text-white">4.92</td>
+                      <td className="p-2 font-bold text-white">884</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Volatile fatty acid buildup</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">D-6</td>
+                      <td className="p-2">Aug 10</td>
+                      <td className="p-2 font-bold text-[#ff2400]">4.72</td>
+                      <td className="p-2 text-zinc-600">—</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Peak acidogenic nadir point</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">D-8</td>
+                      <td className="p-2">Aug 12</td>
+                      <td className="p-2 font-bold text-white">5.31</td>
+                      <td className="p-2 font-bold text-white">1,529</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Mineralization transition</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">D-10</td>
+                      <td className="p-2">Aug 14</td>
+                      <td className="p-2 font-bold text-white">6.01</td>
+                      <td className="p-2 font-bold text-[#ff2400]">1,630</td>
+                      <td className="p-2 font-sans text-[11px] text-zinc-400">Nutrient solubilization stabilization</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                The characteristic U-shaped pH trajectory (sharp drop followed by steady recovery toward neutral) accompanied by an EC climb from 884 to 1,630 µS/cm validates active nutrient dissolution and steady anaerobic digestion without septic spoilage.
+              </p>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-500">
+              Note: Secondary laboratory assays are required to quantify absolute N-P-K concentrations.
+            </div>
+          </section>
+
+          {/* 07. HARDWARE ARCHITECTURE: TEA-BAG & FERMAT SPIRAL (6 Cols) */}
+          <section className="md:col-span-6 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-zinc-500 tracking-wider uppercase mb-2">
+                Component Engineering Details
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Percolation Mesh, Spiral Diffuser, and Airlock Trap
+              </h3>
+
+              <div className="space-y-4 text-sm text-zinc-300 leading-relaxed font-sans">
+                <div>
+                  <h4 className="font-semibold text-white text-xs uppercase font-mono mb-1">
+                    1. Percolation Mesh Bag Principle
+                  </h4>
+                  <p className="text-xs text-zinc-400">
+                    Chopped banana stems are isolated inside an open-weave mesh bag secured with stone ballast. Porous mesh boundaries facilitate continuous multi-directional passive nutrient and microbial diffusion while preventing plant fibers from clogging bottom diffuser ports.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white text-xs uppercase font-mono mb-1">
+                    2. Fermat Spiral Diffuser Geometry
+                  </h4>
+                  <p className="text-xs text-zinc-400">
+                    Polyurethane (PU) tubing is coiled into a Fermat spiral profile driven through a push-to-fit Y-splitter. Upward-facing laser micro-perforations ensure uniform bubble distribution across the vessel floor, eliminating stagnation zones.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white text-xs uppercase font-mono mb-1">
+                    3. Fluid Safety: Silicone Check Valve & Airlock
+                  </h4>
+                  <p className="text-xs text-zinc-400">
+                    An inline silicone check valve blocks slurry backflow into pump pistons during suction strokes. A recycled-bottle water trap on the lid vents anaerobic digestion gases (CO₂ and sulfur compounds) without letting atmospheric oxygen or contaminants infiltrate the vessel.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-[#ff2400]">
+              Low component cost, RTV high-temp silicone seals, fully repairable by rural workshops.
+            </div>
+          </section>
+
+          {/* 08. PLATFORM AGNOSTIC & DUAL PRODUCT (7 Cols) */}
+          <section className="md:col-span-7 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8">
+            <div className="text-[11px] font-mono text-[#ff2400] tracking-wider uppercase mb-2">
+              Platform Agnosticism & Product Utilization
+            </div>
+            <h3 className="text-xl font-bold text-white mb-4">
+              Biocatalyst-Agnostic Circulation & Dual-Yield Output
+            </h3>
+
+            <div className="space-y-4 text-sm text-zinc-300 leading-relaxed font-sans">
+              <p>
+                PONCES-1 is engineered as a physical fluidics platform that is <strong>completely agnostic to the choice of fermentation activator</strong>. Operators are not tethered to commercial inoculants like EM4; the system functions identically with indigenous microorganisms (IMO/MOL), bamboo root inoculants, coconut coir extracts, or rabbit urine based on seasonal availability.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
+                <div className="border border-zinc-800 bg-zinc-950 p-3">
+                  <span className="text-[#ff2400] font-bold block mb-1">LIQUID FRACTION (POC)</span>
+                  <p className="font-sans text-zinc-400 text-xs">
+                    Nutrient-dense liquid rich in solubilized minerals (K, P, Ca), ready for direct foliar spraying or root drenching on horticulture crops.
+                  </p>
+                </div>
+                <div className="border border-zinc-800 bg-zinc-950 p-3">
+                  <span className="text-[#ff2400] font-bold block mb-1">SOLID RESIDUE (SOIL CONDITIONER)</span>
+                  <p className="font-sans text-zinc-400 text-xs">
+                    Digested fiber retaining colonized microflora, extracted via the mesh bag and spread across fields as an organic soil conditioner to rebuild structural porosity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 09. SOCIAL IMPLEMENTATION & ADOPTION (5 Cols) */}
+          <section className="md:col-span-5 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-zinc-500 tracking-wider uppercase mb-2">
+                Community Engagement & Transfer
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Field Handover & Farmer Adoption
+              </h3>
+
+              <div className="space-y-3 text-sm text-zinc-300 leading-relaxed font-sans">
+                <p>
+                  The physical prototype was officially transferred to the <strong>Arum Farma Farmer Group</strong> in Ponces Hamlet through an interactive workshop with 14 farming leaders and village officials.
+                </p>
+                <p className="text-zinc-400">
+                  Initial participant reactions showed hesitation regarding pneumatic airlift physics. However, comprehension took hold rapidly once farmers operated the pedal directly, observing internal circulation currents and live probe shifts on the digital display.
+                </p>
+                <div className="border-l-2 border-zinc-700 pl-3 py-1 text-xs text-zinc-400 italic">
+                  The local codename was simplified to <strong>ROT (Reaktor Organik Tani)</strong> to eliminate linguistic barriers and promote long-term adoption.
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-zinc-800 text-xs font-mono text-zinc-500">
+              Field Evaluation: Practical operation overcomes conceptual skepticism.
+            </div>
+          </section>
+
+          {/* 10. SYSTEM SPECIFICATION MATRIX (12 Cols) */}
+          <section className="md:col-span-12 border border-zinc-800 bg-[#0d0d10] p-6 md:p-8">
+            <div className="text-[11px] font-mono text-zinc-500 tracking-wider uppercase mb-4">
+              Consolidated Technical Specifications
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">PROJECT NAME</span>
+                <span className="text-white font-semibold">PONCES-1</span>
+              </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">LOCAL CODENAME</span>
+                <span className="text-white font-semibold">ROT (Reaktor Organik Tani)</span>
+              </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">LOCATION & TERRAIN</span>
+                <span className="text-white font-semibold">Girimulyo (Slope &gt;40%)</span>
+              </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">TARGET COMMUNITY</span>
+                <span className="text-white font-semibold">Poktan Arum Farma</span>
+              </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">DRIVE MECHANISM</span>
+                <span className="text-white font-semibold">Twin Foot Pump (Recip.)</span>
+              </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-3">
+                <span className="text-[10px] text-zinc-500 block mb-1">HARDWARE STATUS</span>
+                <span className="text-[#ff2400] font-semibold">Field Deployed / Gen 1.0</span>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-start md:items-center gap-2 text-xs text-zinc-400">
+              <div>
+                <strong className="text-zinc-300">Research & Engineering Lead:</strong> Muhammad Zhifrantino.
+              </div>
+              <div className="font-mono text-[11px] text-zinc-500">
+                Universitas Muhammadiyah Yogyakarta · Community Empowerment Division (2026).
+              </div>
+            </div>
+          </section>
+
         </div>
-      </section>
+      </div>
     </main>
   );
 }

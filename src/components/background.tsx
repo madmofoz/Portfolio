@@ -1,52 +1,49 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import DotGrid from './DotGrid';
-import Particles from './Particles';
+import React, { useEffect, useState } from "react";
+import DotGrid from "./DotGrid";
+import Bento from "./bento";
 
 export default function Background() {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Memantau perubahan class 'dark' di documentElement
+    // 1. Initial check setelah komponen mount di client
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+    setMounted(true);
+
+    // 2. Pantau perubahan class 'dark' di root HTML
     const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? 'dark' : 'light');
+      const currentDark = document.documentElement.classList.contains("dark");
+      setTheme(currentDark ? "dark" : "light");
     });
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"]
+      attributeFilter: ["class"],
     });
-
-    // Initial check
-    setTheme(document.documentElement.classList.contains("dark") ? 'dark' : 'light');
 
     return () => observer.disconnect();
   }, []);
 
+  // Mencegah mismatch render sebelum client mounted
+  if (!mounted) return null;
+
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-white dark:bg-black transition-colors duration-700">
-      {theme === 'dark' ? (
-        <Particles
-          particleCount={150}
-          speed={0.15}
-          particleBaseSize={80}
-          className="w-full h-full"
-          moveParticlesOnHover={true}
-          disableRotation={false}
-          pixelRatio={1}
-          particleColors={['#2E1A78', '#e8c040 ', '#FFFFFF', '#FF0000']}
-        />
+    <div className="fixed inset-0 -z-10 overflow-hidden transition-colors duration-500">
+      {/* Vignette Overlay untuk memberi depth/kedalaman mekanikal */}
+      <div className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.4)_100%)] dark:block hidden" />
+
+      {theme === "dark" ? (
+        <div className="w-full h-full pointer-events-auto">
+          <Bento/>
+        </div>
       ) : (
-        <DotGrid
-          dotSize={5}
-          gap={35}
-          baseColor="#d4d4d8"
-          activeColor="#000000"
-          proximity={100}
-          speedTrigger={10}
-          returnDuration={1} style={undefined} />
+        <div className="w-full h-full pointer-events-auto">
+          <DotGrid/>
+        </div>
       )}
     </div>
   );
